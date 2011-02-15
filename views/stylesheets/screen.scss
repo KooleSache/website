@@ -19,6 +19,8 @@
 // when stylesheets are concatenated together.
 @include blueprint-scaffolding("body");
 
+@include reset-html5;
+
 body {
   @include blueprint-typography(true);
   @include blueprint-utilities;
