@@ -32,13 +32,11 @@ body {
 
 
 .b-header,
-.b-features,
-.b-footer {
+.b-features {
   @include container;
 }
 .b-header-wrap,
-.b-features-wrap,
-.b-footer-wrap {
+.b-features-wrap {
   @include prepend(2);
 }
 
@@ -131,5 +129,18 @@ body {
       margin-top: 2em;
       @include append(1);
     }
+  }
+}
+
+.b-footer {
+  margin-top: 3em;
+  
+  .b-footer-wrap {
+    @include container;
+    background: url('/i/bg.jpg') 50% -220px no-repeat;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    text-align: center;
+    color: #999ca4;
   }
 }
