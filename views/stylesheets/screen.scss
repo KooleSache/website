@@ -35,7 +35,6 @@ body {
 .b-features,
 .b-footer {
   @include container;
-  @include showgrid;
 }
 .b-header-wrap,
 .b-features-wrap,
@@ -94,12 +93,12 @@ body {
 }
 
 .b-usage {
+  margin-bottom: 24px;
   background: #f4f5f9 url('/i/b-usage_bg.png') 0 0 repeat;
   
   .b-usage-wrap {
     @include container;
     background: url('/i/b-usage-w_bg.png') 20px 130px no-repeat;
-    //@include showgrid;
     
     ol {
       padding: 2em 0 3em;
@@ -123,5 +122,14 @@ body {
 .b-features {
   .b-features__item {
     @include column(7);
+    
+    h2 {
+      color: #E83771;
+      font-size: 1.5em;
+    }
+    p {
+      margin-top: 2em;
+      @include append(1);
+    }
   }
 }
