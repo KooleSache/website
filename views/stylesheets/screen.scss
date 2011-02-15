@@ -139,41 +139,34 @@ body {
   
   .b-slide__item {
     position: absolute;
+    margin-top: -92px;
+    margin-left: -20px;
+    text-align: center;
+    vertical-align: center;
+    width: 291px;
     height: 190px;
-    border: 1px solid #000;
   }
   
-  .b-slide__item_2 {
-    border-color: #f00;
-  }
-  .b-slide__item_3 {
-    border-color: #0f0;
-  }
-  .b-slide__item_4 {
-    border-color: #00f;
-  }
-  .b-slide__item_5 {
-    border-color: #ff0;
-  }
-  .b-slide__item_6 {
-    border-color: #0ff;
-  }
-  .b-slide__item_7 {
-    border-color: #f0f;
-  }
-  .b-slide__item_8 {
-    border-color: #efefef;
-  }
-  .b-slide__item_9 {
-    border-color: #000;
-  }
+  .b-slide__item_2 img { margin-top: 72px; }
+  .b-slide__item_3 img { margin-top: 62px; }
+  .b-slide__item_4 img { margin-top: 51px; }
+  .b-slide__item_5 img { margin-top: 41px; }
+  .b-slide__item_6 img { margin-top: 30px; }
+  .b-slide__item_7 img { margin-top: 21px; }
+  .b-slide__item_8 img { margin-top: 10px; }
+  .b-slide__item_9 img { margin-top: 0; }
   
   .b-slide__slider {
-    padding: 15px 10px 20px;
-    margin-top: 160px;
+    position: relative;
+    padding: 15px 20px 20px;
+    margin-top: 150px;
+    margin-left: -20px;
     background-color: #e2e2e2;
+    background-color: rgba(200,200,210,0.35);
     width: 230px;
     @include border-radius(6px);
+    @include box-shadow(0, 4px, 16px, #fff, inset);
+    z-index: 1;
     
     .ui-slider {
       position: relative;
