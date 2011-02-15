@@ -29,15 +29,18 @@
       <div class="b-usage-wrap">
         <ol>
           <li class="b-usage__item">
-            <h2>Point &amp; Shoot</h2>
-            <img src="/i/b-usage-1.png" width="189" height="189" alt="Point &amp; Shoot">
+            <h2>Point &amp; Pick</h2>
+            <p>⌘ + ⌥ + &hellip; or Space</p>
+            <img src="/i/b-usage-1.png" width="189" height="189" alt="Point &amp; Pick">
           </li>
           <li class="b-usage__item">
             <h2>Paste &amp; Use</h2>
+            <p>⌘ + ⇧ + V in your text editor</p>
             <img src="/i/b-usage-2.png" width="237" height="189" alt="Paste &amp; Use">
           </li>
           <li class="b-usage__item">
             <h2>Select &amp; Reuse</h2>
+            <p> ⌥ + Click for alternative format</p>
             <img src="/i/b-usage-3.png" width="224" height="256" alt="Select &amp; Reuse">
           </li>
         </ol>
@@ -60,7 +63,41 @@
       
         <div class="b-features__item">
           <h2>Pixel perfect</h2>
-          <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          <div class="b-slide__item b-slide__item_2" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_3" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_4" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_5" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_6" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_7" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_8" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__item b-slide__item_9" style="display: none">
+            <img src="/i/b-features-3.png" width="248" height="112" alt="Pixel perfect">
+          </div>
+          
+          <div class="b-slide__slider">
+            <div id="slider"></div>
+          </div>
           <p>With ColorSnapper you have can pick any color off your screen. With magnification from 2x till 10x you can see every aspect of your design.</p>
         </div>
       </div>
@@ -72,7 +109,27 @@
       </div>
     </footer>
     
-    <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
-    <script type="text/javascript" charset="utf-8" src="/js/jquery.jloupe.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="/js/jquery.jloupe.js"></script>
+    
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("#slider").slider({
+        min: 2,
+        max: 9,
+        step: 1,
+        value: 7,
+        slide: function(event, ui){
+          $('.b-slide__item').hide();
+          $('.b-slide__item_' + ui.value).show();
+        },
+        create: function(event, ui){
+          $('.b-slide__item_7').show();
+        }
+      });
+    });
+    </script>
+    
   </body>
 </html>
