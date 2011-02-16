@@ -7,8 +7,8 @@
 	$.fn.loupe = function (arg) {
 		var options = $.extend({
 			loupe: 'loupe',
-			width: 200,
-			height: 200
+			width: 120,
+			height: 120
 		}, arg || {});
 
 		return this.length ? this.each(function () {
