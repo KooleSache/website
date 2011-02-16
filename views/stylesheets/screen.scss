@@ -30,8 +30,11 @@ body {
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
   
   -webkit-font-smoothing: antialiased;
+  
+  h1, h2 {
+    font-weight: 200;
+  }
 }
-
 
 .b-header,
 .b-features {
@@ -189,9 +192,8 @@ body {
         background: url('/i/b-slider__knob.png') no-repeat top left;
         height:19px;
         width:17px;
-        outline: none!important;     
+        outline: none!important;
       }
-
     }
   }
 }
