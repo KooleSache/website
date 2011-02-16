@@ -54,8 +54,9 @@ body {
 
     a {
       display: block;
+      float: left;
       padding-top: 20px;
-      @include prepend(2);
+      margin-left: $blueprint_grid_width * 2;
     }
   }
   .b-logo-text {
@@ -83,7 +84,7 @@ body {
 
   .b-appstore {
     padding-top: 20px;
-    @include prepend(2.5);
+    margin-left: 20px;
 
     a {
       display: block;
@@ -206,4 +207,13 @@ body {
     text-align: center;
     color: #999ca4;
   }
+}
+
+.loupe {
+  border: 5px solid rgba(0,0,0,0.5);
+  background-color: #fff;
+  background-repeat: no-repeat;
+  @include border-radius(100px);
+  @include box-shadow(rgba(0,0,0,0.5),0,4px,16px);
+  cursor: url(/i/blank.png), url(/i/blank.cur), none;
 }
