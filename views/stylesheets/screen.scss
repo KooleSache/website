@@ -210,10 +210,10 @@ body {
 }
 
 .loupe {
-  border: 5px solid rgba(0,0,0,0.5);
+  border: 5px solid rgba(0,0,0,0.65);
   background-color: #fff;
   background-repeat: no-repeat;
   @include border-radius(100px);
-  @include box-shadow(rgba(0,0,0,0.5),0,4px,16px);
+  @include box-shadow(#fff, 0, 4px, 8px,inset);
   cursor: url(/i/blank.png), url(/i/blank.cur), none;
 }
