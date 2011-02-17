@@ -128,6 +128,10 @@ body {
         font-size: .85em;
       }
     }
+    
+    .b-usage_paste img {
+      margin-left: -17px;
+    }
   }
 }
 
@@ -149,10 +153,16 @@ body {
     margin-left: -7px;
   }
   
+  .b-features_format img {
+    margin-top: -8px;
+    margin-left: -8px;
+    margin-bottom: -30px;
+  }
+  
   .b-slide__item {
     position: absolute;
-    margin-top: -92px;
-    margin-left: -20px;
+    margin-top: -164px;
+    margin-left: -30px;
     text-align: center;
     vertical-align: center;
     width: 291px;
@@ -170,8 +180,8 @@ body {
   
   .b-slide__slider {
     position: relative;
-    padding: 15px 20px 20px;
-    margin-top: 150px;
+    padding: 15px 20px 32px;
+    margin-top: 100px;
     margin-left: -20px;
     background-color: #e2e2e2;
     background-color: rgba(200,200,210,0.35);
