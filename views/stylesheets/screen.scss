@@ -97,9 +97,9 @@ body {
   padding-top: 20px;
   margin-left: 20px;
 
-  a {
+  .b-appstore__btn {
     display: block;
-    @include replace-text-with-dimensions('b-appstore.png', 198, 60);
+    @include replace-text-with-dimensions('b-appstore_soon.png', 272, 102);
   }
 }
 
