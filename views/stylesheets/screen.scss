@@ -45,6 +45,8 @@ body {
   @include prepend(2);
 }
 
+/* Header section
+---------------------------------------- */
 .b-header {
   padding-bottom: 24px;
   background: url('/i/bg.jpg') 50% 40px no-repeat;
@@ -86,18 +88,23 @@ body {
       }
     }
   }
+}
 
-  .b-appstore {
-    padding-top: 20px;
-    margin-left: 20px;
+/* Available in Mac App Store Badge
+---------------------------------------- */
+.b-appstore {
+  display: inline-block;
+  padding-top: 20px;
+  margin-left: 20px;
 
-    a {
-      display: block;
-      @include replace-text-with-dimensions('b-appstore.png', 198, 60);
-    }
+  a {
+    display: block;
+    @include replace-text-with-dimensions('b-appstore.png', 198, 60);
   }
 }
 
+/* 1-2-3 Process with images
+---------------------------------------- */
 .b-usage {
   margin-bottom: 24px;
   background: #f4f5f9 url('/i/b-usage_bg.png') 0 0 repeat;
@@ -135,6 +142,8 @@ body {
   }
 }
 
+/* 3 cols with features highlight
+---------------------------------------- */
 .b-features {
   .b-features__item {
     @include column(7);
@@ -214,6 +223,22 @@ body {
   }
 }
 
+/* Pre-footer section with store link
+---------------------------------------- */
+.b-store {
+  @include container;
+  margin-top: 2em;
+  text-align: center;
+  
+  h2 {
+    margin-bottom: 0;
+    color: #E83771;
+    font-size: 2em;
+  }
+}
+
+/* Footer
+---------------------------------------- */
 .b-footer {
   margin-top: 3em;
   
