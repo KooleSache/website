@@ -99,7 +99,7 @@ body {
 
   .b-appstore__btn {
     display: block;
-    @include replace-text-with-dimensions('b-appstore_soon.png', 272, 102);
+    @include replace-text-with-dimensions('b-appstore.png', 198, 60);
   }
 }
 
