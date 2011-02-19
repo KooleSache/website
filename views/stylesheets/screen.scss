@@ -190,10 +190,9 @@ body {
   .b-slide__slider {
     position: relative;
     padding: 15px 20px 32px;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-left: -20px;
-    background-color: #e2e2e2;
-    background-color: rgba(200,200,210,0.35);
+    background-color: #EDEDED;
     width: 230px;
     @include border-radius(6px);
     @include box-shadow(0, 4px, 16px, #fff, inset);
