@@ -29,7 +29,7 @@ body {
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
   
-  -webkit-font-smoothing: antialiased;
+/*  -webkit-font-smoothing: antialiased;*/
   
   h1, h2 {
     font-weight: 200;
@@ -74,11 +74,14 @@ body {
       @include replace-text-with-dimensions('logo-text.png', 462, 67);
     }
     .b-tagline {
-      font-size: 1.5em;
+      font-size: 2.1em;
       font-weight: bold;
+      color: #000;
+      @include text-shadow(rgba(255,255,255,0.75),0,1px,0);
     }
     p {
       font-size: 1.35em;
+      font-weight: 200;
       @include append(1);
       
       em {
