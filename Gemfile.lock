@@ -5,9 +5,13 @@ GEM
       haml (>= 3.0.4)
     haml (3.0.24)
     rack (1.2.1)
+    sequel (3.20.0)
     sinatra (1.1.0)
       rack (~> 1.1)
       tilt (~> 1.1)
+    sinatra-sequel (0.9.0)
+      sequel (>= 3.2.0)
+      sinatra (>= 0.9.4)
     tilt (1.1)
 
 PLATFORMS
@@ -16,3 +20,4 @@ PLATFORMS
 DEPENDENCIES
   compass (>= 0.10.6)
   sinatra (>= 1.1.0)
+  sinatra-sequel (>= 0.9.0)
