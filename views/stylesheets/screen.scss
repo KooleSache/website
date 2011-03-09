@@ -98,14 +98,22 @@ body {
 ---------------------------------------- */
 .b-appstore {
   display: inline-block;
-  padding-top: 20px;
-  margin-left: 20px;
-
+  
   .b-appstore__btn {
     display: block;
     @include replace-text-with-dimensions('b-appstore.png', 198, 60);
   }
 }
+
+.b-appstore_header {
+  padding-top: 20px;
+  margin-left: 20px;
+}
+
+.b-appstore_footer {
+  margin-bottom: 20px;
+}
+
 
 /* 1-2-3 Process with images
 ---------------------------------------- */
