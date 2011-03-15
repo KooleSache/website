@@ -118,6 +118,7 @@ body {
 /* 1-2-3 Process with images
 ---------------------------------------- */
 .b-usage {
+  margin-top: 24px;
   margin-bottom: 24px;
   background: #f4f5f9 url('/i/b-usage_bg.png') 0 0 repeat;
   
@@ -306,4 +307,17 @@ body {
   @include border-radius(120px);
   @include box-shadow(#fff, 0, 4px, 8px,inset);
   cursor: url(/i/blank.png), url(/i/blank.cur), none;
+}
+
+/* Warning message
+---------------------------------------- */
+.b-warn {
+  padding: 1em 2em;
+  margin: 2em 0;
+  border: 2px solid #C90;
+  background-color: #FFFFEF;
+
+  @include pie-clearfix;
+  @include container;
+  @include border-radius(12px);
 }
