@@ -305,7 +305,7 @@ body {
   background-color: #fff;
   background-repeat: no-repeat;
   @include border-radius(120px);
-  @include box-shadow(#fff, 0, 4px, 8px,inset);
+  //@include box-shadow(#fff, 0, 4px, 8px,inset);
   cursor: url(/i/blank.png), url(/i/blank.cur), none;
 }
 
