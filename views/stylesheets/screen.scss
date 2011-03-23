@@ -328,11 +328,69 @@ body {
 
 /* Donation message
 ---------------------------------------- */
+$b-donate_bgc: #FFEFEF;
 .b-donate {
-  .b-warn_wrap {
-    border: 2px solid #CCC;
-    background-color: #EFEFEF;
-    @include border-radius(12px);
-    @include column(21);
+  padding: 1em 0 0;
+  @include container;
+  @include prepend(10);
+  @include pie-clearfix;
+  background-color: $b-donate_bgc;
+  border: 1px solid #EDD;
+  
+  .b-donate-wrap {
+    @include column(16);
+  }
+  
+  $height: ($blueprint_grid_width + $blueprint_grid_margin) * 2 - $blueprint_grid_margin;
+  
+  .b-donate__ill {
+    position: relative;
+    top: 7px;
+    line-height: 1;
+    background-color: $b-donate_bgc;
+    border: 6px solid $b-donate_bgc;
+    @include border-radius($height);
+    @include column(2);
+    height: $height;
+    
+    @include transition("background-color, border-color, transform", 0.5s, ease-in-out);
+    
+    .b-donate__ill__plus {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -72px;
+      margin-left: -35px;
+      font-size: 87pt;
+      font-weight: bold;
+      text-align: center;
+      color: #C00;
+      @include transition("color, transform", 0.5s, ease-in-out);
+    }
+  }
+  
+  .b-donate__text {
+    @include prepend(4);
+    
+    h2 {
+      font-size: 1.35em;
+      font-weight: bold;
+    }
+    p {
+      font-size: 1.25em;
+      text-shadow: 0 0 1px #FFF;
+    }
+  }
+}
+.b-donate:hover {
+  .b-donate__ill {
+    @include translate(-50px, 0);
+    border-color: #C00;
+    background-color: #C00;
+    
+    .b-donate__ill__plus {
+      @include translate(100px, 0);
+      color: #C00;
+    }
   }
 }
