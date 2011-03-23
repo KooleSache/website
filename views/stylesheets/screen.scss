@@ -118,7 +118,7 @@ body {
 /* 1-2-3 Process with images
 ---------------------------------------- */
 .b-usage {
-  margin-top: 24px;
+  //margin-top: 24px;
   margin-bottom: 24px;
   background: #f4f5f9 url('/i/b-usage_bg.png') 0 0 repeat;
   
@@ -335,7 +335,8 @@ $b-donate_bgc: #FFEFEF;
   @include prepend(10);
   @include pie-clearfix;
   background-color: $b-donate_bgc;
-  border: 1px solid #EDD;
+  @include linear-gradient(color-stops($b-donate_bgc, #FFF));
+  border-top: 1px solid #EDD;
   
   .b-donate-wrap {
     @include column(16);
@@ -347,8 +348,7 @@ $b-donate_bgc: #FFEFEF;
     position: relative;
     top: 7px;
     line-height: 1;
-    background-color: $b-donate_bgc;
-    border: 6px solid $b-donate_bgc;
+    background-color: transparent;
     @include border-radius($height);
     @include column(2);
     height: $height;
@@ -385,7 +385,6 @@ $b-donate_bgc: #FFEFEF;
 .b-donate:hover {
   .b-donate__ill {
     @include translate(-50px, 0);
-    border-color: #C00;
     background-color: #C00;
     
     .b-donate__ill__plus {
