@@ -13,6 +13,7 @@ set :public, 'static'
 
 set :product_name, 'ColorSnapper'
 set :product_keywords, 'mac apple application color snapper pick HEX RGB CSS CSS3 NSColor developer designer'
+set :product_mas_url, 'http://itunes.apple.com/app/colorsnapper/id418176775'
 set :company, 'Koole Sache'
 set :copyright, '&copy; 2011 Koole Sache'
 set :database, ENV['DATABASE_URL'] || 'sqlite://colorsnapper.db'

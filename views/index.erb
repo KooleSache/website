@@ -4,7 +4,7 @@
       <a href="/i/logo-full.png" class="js-loupe"><img src="/i/logo-sm.png" width="256" height="256" alt="ColorSnapper Icon"></a>
       
       <div class="b-appstore b-appstore_header">
-        <%= erb :_app_store_link %>
+        <a href="<%= settings.product_mas_url %>" title="Get ColorSnapper from Mac App Store" class="b-appstore__btn">Available in the Mac App Store</a>
       </div>      
     </div>
     
@@ -12,6 +12,9 @@
       <h1 class="b-logo">ColorSnapper</h1>
       <h2 class="b-tagline">The missing color picker for Mac OS X</h2>
       <p>ColorSnapper is an easy-to-use tool for quickly finding out the color of any pixel on the screen. It is activated via a system-wide hotkey, giving you a magnifying loupe to easily pick the pixel you need. The resulting color is copied to clipboard in a format of your preference.</p>
+      <p class="b-buynow">
+        <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button">Buy from Mac App Store</a>
+      </p>
     </div>
   </div>
 </header>
@@ -93,20 +96,11 @@
 </section>
 
 <section class="b-store">
-  <h2>Okay, sounds excellent. Where do I buy?</h2>
-  <h3>ColorSnapper is available on the Mac App Store.</h3>
+  <h2>ColorSnapper is available on the Mac App Store.</h2>
   
-  <div class="b-appstore b-appstore_footer">
-    <%= erb :_app_store_link %>
-  </div>
-  
-  <!-- <form action="/subscribe" method="post" class="b-subscribe">
-    <fieldset>
-      <label for="email">Email</label>
-      <input type="text" name="email" placeholder="yourname@domain.com">
-      <button value="submit">Notify Me!</button>
-    </fieldset>
-  </form> -->
+  <p class="b-buynow b-buynow_footer">
+    <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button">Buy from Mac App Store</a>
+  </p>
   
   <p>Follow <a href="http://www.twitter.com/colorsnapper" title="ColorSnapper on Twitter" class="b-twitter-btn_sml">@colorsnapper</a> on twitter to get latest updates.</p>
 </section>
