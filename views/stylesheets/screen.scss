@@ -127,26 +127,36 @@ body {
     text-decoration: none;
     color: #173080;
     @include text-shadow(#addffa,0,1px,0);
-    border: 1px solid #58bbed;
+    border: 1px solid #2a67af;
     //@include linear-gradient(color-stops(#f4f5f9, #addffa 50%, #58bbed 51%, #3a77bf));
     @include linear-gradient(color-stops(#addffa, #3a77bf));
     @include border-radius(.5em);
-    @include box-shadow(#1a579f,0,3px,0);
+    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
+    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
+    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
+    box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
   }
   .b-buynow__button:hover {
     color: #072070;
     @include text-shadow(#cdffff,0,1px,0);
-    border-color: #78cbfd;
+    border-color: #1a579f;
     @include linear-gradient(color-stops(#bdefff, #3a77bf));
+    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
+    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
+    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
+    box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
   }
   .b-buynow__button:active {
     padding-top: 13px;
     padding-bottom: 11px;
     color: #072070;
-    @include text-shadow(#cdffff,0,1px,0);
-    border-color: #3a77bf;
+    @include text-shadow(#addffa,0,1px,0);
+    border-color: #072070;
     @include linear-gradient(color-stops(#3a77bf, #58bbed));
-    @include box-shadow(#1a579f,0,-2px,0);
+    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
+    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
+    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
+    box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
   }
 }
 .b-buynow_footer {
