@@ -98,10 +98,15 @@ body {
 ---------------------------------------- */
 .b-appstore {
   display: inline-block;
+  text-align: center;
   
   .b-appstore__btn {
     display: block;
     @include replace-text-with-dimensions('b-appstore.png', 198, 60);
+  }
+  
+  .twitter-share-button {
+    margin-left: 6em;
   }
 }
 
