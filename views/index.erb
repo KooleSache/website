@@ -4,7 +4,7 @@
       <a href="/i/logo-full.png" class="js-loupe"><img src="/i/logo-sm.png" width="256" height="256" alt="ColorSnapper Icon"></a>
       
       <div class="b-appstore b-appstore_header">
-        <a href="<%= settings.product_mas_url %>" title="Get ColorSnapper from Mac App Store" class="b-appstore__btn">Available in the Mac App Store</a>
+        <a href="<%= settings.product_mas_url %>" title="Get ColorSnapper from Mac App Store" class="b-appstore__btn" onclick="recordOutboundLink(this, 'Buy link', 'Available in the Mac App Store'); return false;">Available in the Mac App Store</a>
       </div>      
     </div>
     
@@ -13,7 +13,7 @@
       <h2 class="b-tagline">The missing color picker for Mac OS X</h2>
       <p>ColorSnapper is an easy-to-use tool for quickly finding out the color of any pixel on the screen. It is activated via a system-wide hotkey, giving you a magnifying loupe to easily pick the pixel you need. The resulting color is copied to clipboard in a format of your preference.</p>
       <p class="b-buynow">
-        <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button">Buy from Mac App Store</a>
+        <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button" onclick="recordOutboundLink(this, 'Buy link', 'Top buy link'); return false;">Buy from Mac App Store</a>
       </p>
     </div>
   </div>
@@ -99,7 +99,7 @@
   <h2>ColorSnapper is available on the Mac App Store.</h2>
   
   <p class="b-buynow b-buynow_footer">
-    <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button">Buy from Mac App Store</a>
+    <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button" onclick="recordOutboundLink(this, 'Buy link', 'Bottom buy link'); return false;">Buy from Mac App Store</a>
   </p>
   
   <p>Follow <a href="http://www.twitter.com/colorsnapper" title="ColorSnapper on Twitter" class="b-twitter-btn_sml">@colorsnapper</a> on twitter to get latest updates.</p>
