@@ -151,7 +151,8 @@ $(document).ready(function() {
   });
   
   $('video').simpleVideo({
-    onPlay: function(){
+    onPlay: function(elements){
+      elements.overlay.fadeOut();
       _gaq.push(['_trackPageview', '/video'])
     }
   });
