@@ -150,7 +150,11 @@ $(document).ready(function() {
     }
   });
   
-  $('video').simpleVideo();
+  $('video').simpleVideo({
+    onPlay: function(){
+      _gaq.push(['_trackPageview', '/video'])
+    }
+  });
 });
 </script>
 
