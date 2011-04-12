@@ -177,7 +177,8 @@ body {
   .b-video_wrap {
     display: inline-block;
     margin: 20px 20px 40px;
-    height: 360px;
+    height: 496px;
+    overflow: hidden;
     @include box-shadow(#666,0,4px,16px);
   }
   
