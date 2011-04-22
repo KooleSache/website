@@ -123,15 +123,16 @@ body {
 ---------------------------------------- */
 .b-buynow {
   text-align: center;
-  font-size: 2em;
+  font-size: 1.35em;
   
   .b-buynow__button {
+    position: relative;
     display: inline-block;
-    padding: 12px 20px;
+    padding: 16px 20px 16px 60px;
     font-weight: bold;
     text-decoration: none;
-    color: #173080;
-    @include text-shadow(#addffa,0,1px,0);
+    color: #FFF;
+    @include text-shadow(#2a67af,0,-1px,0);
     border: 1px solid #2a67af;
     //@include linear-gradient(color-stops(#f4f5f9, #addffa 50%, #58bbed 51%, #3a77bf));
     @include linear-gradient(color-stops(#addffa, #3a77bf));
@@ -140,10 +141,22 @@ body {
     -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
     -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
     box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
+    
+    i {
+      position: absolute;
+      left: 10px;
+      top: 7px;
+      display: block;
+      width: 41px;
+      height: 42px;
+      background-image: url('/i/b-buynow__logo.png');
+      background-position: 0 0;
+      background-repeat: no-repeat;
+    }
   }
   .b-buynow__button:hover {
-    color: #072070;
-    @include text-shadow(#cdffff,0,1px,0);
+/*    color: #072070;*/
+/*    @include text-shadow(#cdffff,0,1px,0);*/
     border-color: #1a579f;
     @include linear-gradient(color-stops(#bdefff, #3a77bf));
     -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
@@ -154,8 +167,8 @@ body {
   .b-buynow__button:active {
     padding-top: 13px;
     padding-bottom: 11px;
-    color: #072070;
-    @include text-shadow(#addffa,0,1px,0);
+/*    color: #072070;*/
+/*    @include text-shadow(#addffa,0,1px,0);*/
     border-color: #072070;
     @include linear-gradient(color-stops(#3a77bf, #58bbed));
     -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
