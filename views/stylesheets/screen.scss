@@ -75,7 +75,8 @@ body {
       @include replace-text-with-dimensions('logo-text.png', 462, 67);
     }
     .b-tagline {
-      font-size: 2.1em;
+      font-size: 2.25em;
+      letter-spacing: 1px;
       font-weight: bold;
       color: #000;
       @include text-shadow(rgba(255,255,255,0.75),0,1px,0);
