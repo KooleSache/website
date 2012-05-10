@@ -28,9 +28,9 @@ body {
   @include blueprint-interaction;
   // Remove the scaffolding when you're ready to start doing visual design.
   // Or leave it in if you're happy with how blueprint looks out-of-the-box
-  
+
 /*  -webkit-font-smoothing: antialiased;*/
-  
+
   h1, h2 {
     font-weight: 200;
   }
@@ -51,12 +51,12 @@ body {
 .b-header {
   padding-bottom: 24px;
   background: url('/i/bg.jpg') 50% 40px no-repeat;
-  
+
   .b-header-wrap {
     //background: url('/i/logo-hint.png') 400px 0px no-repeat;
     @include clearfix;
   }
-  
+
   .b-logo-container {
     @include column(9);
 
@@ -85,7 +85,7 @@ body {
       font-size: 1.35em;
       font-weight: 200;
       @include append(1);
-      
+
       em {
         font-style: normal;
         white-space: nowrap;
@@ -100,12 +100,12 @@ body {
 .b-appstore {
   display: inline-block;
   text-align: center;
-  
+
   .b-appstore__btn {
     display: block;
     @include replace-text-with-dimensions('b-appstore.png', 198, 60);
   }
-  
+
   .twitter-share-button {
     margin-left: 6em;
   }
@@ -125,7 +125,7 @@ body {
 .b-buynow {
   text-align: center;
   font-size: 1.35em;
-  
+
   .b-buynow__button {
     position: relative;
     display: inline-block;
@@ -133,16 +133,12 @@ body {
     font-weight: bold;
     text-decoration: none;
     color: #FFF;
-    @include text-shadow(#2a67af,0,-1px,0);
     border: 1px solid #2a67af;
-    //@include linear-gradient(color-stops(#f4f5f9, #addffa 50%, #58bbed 51%, #3a77bf));
-    @include linear-gradient(color-stops(#addffa, #3a77bf));
+    @include text-shadow(#2a67af,0,-1px,0);
+    @include background-image(linear-gradient(color-stops(#addffa, #3a77bf)));
     @include border-radius(.5em);
-    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
-    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
-    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
-    box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 8px #6ba4d7;
-    
+    @include box-shadow(#f4f5f9 0 1px 0, #f4f5f9 0 1px 0 inset, #6ba4d7 0 0 8px);
+
     i {
       position: absolute;
       left: 10px;
@@ -156,26 +152,14 @@ body {
     }
   }
   .b-buynow__button:hover {
-/*    color: #072070;*/
-/*    @include text-shadow(#cdffff,0,1px,0);*/
     border-color: #1a579f;
-    @include linear-gradient(color-stops(#bdefff, #3a77bf));
-    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
-    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
-    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
-    box-shadow: 0 1px 0 #f4f5f9, 0 1px 0 #f4f5f9 inset, 0 0 16px #6ba4d7;
+    @include background-image(linear-gradient(color-stops(#bdefff, #3a77bf)));
+    @include box-shadow(#f4f5f9 0 1px 0, #f4f5f9 0 1px 0 inset, #6ba4d7 0 0 8px);
   }
   .b-buynow__button:active {
-    padding-top: 13px;
-    padding-bottom: 11px;
-/*    color: #072070;*/
-/*    @include text-shadow(#addffa,0,1px,0);*/
     border-color: #072070;
-    @include linear-gradient(color-stops(#3a77bf, #58bbed));
-    -webkit-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
-    -moz-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
-    -o-box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
-    box-shadow: 0 1px 0 #f4f5f9, 0 1px 8px #072070 inset, 0 0 16px #6ba4d7;
+    @include background-image(linear-gradient(color-stops(#3a77bf, #58bbed)));
+    @include box-shadow(#f4f5f9 0 1px 0, #072070 0 1px 8px inset, #6ba4d7 0 0 16px);
   }
 }
 .b-buynow_footer {
@@ -187,21 +171,21 @@ body {
 .b-video {
   @include container();
   text-align: center;
-  
+
   .b-video_wrap {
     display: inline-block;
     margin: 20px 20px 40px;
     height: 496px;
     @include box-shadow(#666,0,4px,16px);
   }
-  
+
   .simple-video-wrapper {
     position: relative;
     margin: 0 auto;
     width: 100%;
   	height: 100%;
   }
-  
+
   .simple-video-overlay {
   	background: rgba(0,0,0,0.65) url(/i/video/button.png) 50% 50% no-repeat;
   	cursor: pointer;
@@ -213,13 +197,13 @@ body {
   	width: 100%;
   	z-index: 2;
   }
-  
+
   .b-video_link {
     margin: 1em 0;
     color: #999;
     font-style: italic;
   }
-  
+
 }
 
 /* 1-2-3 Process with images
@@ -228,28 +212,28 @@ body {
   //margin-top: 24px;
   margin-bottom: 24px;
   background: #f4f5f9 url('/i/b-usage_bg.png') 0 0 repeat;
-  
+
   .b-usage-wrap {
     @include container;
     background: url('/i/b-usage-w_bg.png') 240px 80px no-repeat;
-    
+
     ol {
       padding: 2em 0 3em;
       @include prepend(2);
     }
-    
+
     .b-usage__item {
       @include column(7);
       display: list-item;
       font-size: 1.5em;
       font-weight: bold;
       color: #66ccff;
-      
+
       h2 {
         font-size: 1em;
       }
     }
-    
+
     .b-usage__item img {
       margin-left: -14px;
     }
@@ -264,7 +248,7 @@ body {
 .b-features {
   .b-features__item {
     @include column(7);
-    
+
     h2 {
       color: #E83771;
       font-size: 1.5em;
@@ -274,17 +258,17 @@ body {
       @include append(1);
     }
   }
-  
+
   .b-features_shortcuts img {
     margin-left: -7px;
   }
-  
+
   .b-features_format img {
     margin-top: -8px;
     margin-left: -8px;
     margin-bottom: -30px;
   }
-  
+
   .b-slide__item {
     position: absolute;
     margin-top: -164px;
@@ -294,7 +278,7 @@ body {
     width: 291px;
     height: 190px;
   }
-  
+
   .b-slide__item_2 img  { margin-top: 73px; }
   .b-slide__item_3 img  { margin-top: 62px; }
   .b-slide__item_4 img  { margin-top: 52px; }
@@ -303,7 +287,7 @@ body {
   .b-slide__item_7 img  { margin-top: 20px; }
   .b-slide__item_8 img  { margin-top: 10px; }
   .b-slide__item_9 img  { margin-top: 0px; }
-  
+
   .b-slide__slider {
     position: relative;
     padding: 15px 20px 32px;
@@ -314,7 +298,7 @@ body {
     @include border-radius(6px);
     @include box-shadow(0, 4px, 16px, #fff, inset);
     z-index: 1;
-    
+
     .ui-slider {
       position: relative;
       text-align: left;
@@ -322,10 +306,10 @@ body {
       height: 4px;
       @include border-radius(4px);
       @include box-shadow(0, 2px, 4px, rgba(0,0,0,0.5), inset);
-      
+
       .ui-slider-handle {
         position: absolute;
-        top: -.3em; 
+        top: -.3em;
         margin-left: -.6em;
         margin-top: -2px;
         z-index: 2;
@@ -345,7 +329,7 @@ body {
   @include container;
   margin-top: 2em;
   text-align: center;
-  
+
   h2 {
     margin-bottom: 0;
     color: #E83771;
@@ -365,14 +349,14 @@ body {
   margin-bottom: 1em;
   @include clearfix;
   @include prepend(6);
-  
+
   fieldset {
     padding: 1em 0 1em 2em;
     @include column(11);
     background: #f4f5f9;
     @include border-radius(12px);
   }
-  
+
   label {
     display: none;
   }
@@ -396,7 +380,7 @@ body {
 ---------------------------------------- */
 .b-footer {
   margin-top: 3em;
-  
+
   .b-footer-wrap {
     @include container;
     background: url('/i/bg.jpg') 50% -220px no-repeat;
