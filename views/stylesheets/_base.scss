@@ -2,6 +2,13 @@ $blueprint_grid_columns: 24;
 $blueprint_grid_width: 30px;
 $blueprint_grid_margin: 10px;
 
+$experimental-support-for-webkit       : true;
+$experimental-support-for-mozilla      : true;
+$experimental-support-for-opera        : false;
+$support-for-original-webkit-gradients : false;
+$experimental-support-for-microsoft    : false;
+$experimental-support-for-khtml        : false;
+
 $font_color: #333;
 
 @import "compass";
