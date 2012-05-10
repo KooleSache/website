@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'rubygems'
 require 'compass' #must be loaded before sinatra
 require 'sinatra'
 require 'sinatra/sequel'
