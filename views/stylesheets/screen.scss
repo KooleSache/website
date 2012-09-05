@@ -33,17 +33,21 @@ body {
   background: url('/i/bg.jpg') 50% 40px no-repeat;
 
   .b-header-wrap {
-    //background: url('/i/logo-hint.png') 400px 0px no-repeat;
+    background: url('/i/logo-hint.png') 400px 0px no-repeat;
     @include clearfix;
   }
 
   .b-logo-container {
     @include column(9);
 
-    a {
+    .logo__link {
       display: block;
       float: left;
       padding-top: 20px;
+      margin-left: $blueprint_grid_width * 2;
+    }
+    .logo__buy-link {
+      margin-top: 1.5em;
       margin-left: $blueprint_grid_width * 2;
     }
   }
@@ -62,8 +66,8 @@ body {
       @include text-shadow(rgba(255,255,255,0.75),0,1px,0);
     }
     p {
-      font-size: 1.35em;
-      font-weight: 200;
+      font-size: 1.25em;
+      font-weight: 400;
       @include append(1);
 
       em {
@@ -103,54 +107,67 @@ body {
 /* Buy button
 ---------------------------------------- */
 .b-buynow {
-  text-align: center;
-  font-size: 1.35em;
+  position: relative;
+  display: inline-block;
+  margin: 8px 0 8px;
+  padding: 12px 12px 12px 52px;
+  color: #FFF;
+  line-height: 1em;
+  font-size: 17px;
+  text-decoration: none;
+  @include text-shadow(rgba(0,50,100, .5) 0 -1px 0);
+  @include border-radius(5px);
+  @include background(linear-gradient(#03ADE7, #1666cc));
+  @include box-shadow(
+    #3555AD 0 -2px 0 inset,
+    #1666Cc 0 -1px 0 1px inset,
+    #1787E2 0 1px 0 inset,
+    #266FC8 0 0 0 1px inset,
+    #52C7EE 0 2px 0 inset
+  );
 
-  .b-buynow__button {
-    position: relative;
-    display: inline-block;
-    padding: 16px 20px 16px 60px;
-    font-weight: bold;
-    text-decoration: none;
+  &:hover {
     color: #FFF;
-    border: 1px solid #2a67af;
-    @include text-shadow(#2a67af,0,-1px,0);
-    @include background-image(linear-gradient(color-stops(#addffa, #3a77bf)));
-    @include border-radius(.5em);
-    @include box-shadow(#f4f5f9 0 1px 0, #f4f5f9 0 1px 0 inset, #6ba4d7 0 0 8px);
+    @include background(linear-gradient(#03ADE7, darken(#2777DD, 10%)));
+  }
 
-    i {
-      position: absolute;
-      left: 10px;
-      top: 7px;
-      display: block;
-      width: 41px;
-      height: 42px;
-      background-image: url('/i/b-buynow__logo.png');
-      background-position: 0 0;
-      background-repeat: no-repeat;
-    }
+  &:visited {
+    color: #FFF;
   }
-  .b-buynow__button:hover {
-    border-color: #1a579f;
-    @include background-image(linear-gradient(color-stops(#bdefff, #3a77bf)));
-    @include box-shadow(#f4f5f9 0 1px 0, #f4f5f9 0 1px 0 inset, #6ba4d7 0 0 8px);
-  }
-  .b-buynow__button:active {
-    border-color: #072070;
-    @include background-image(linear-gradient(color-stops(#3a77bf, #58bbed)));
-    @include box-shadow(#f4f5f9 0 1px 0, #072070 0 1px 8px inset, #6ba4d7 0 0 16px);
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 12px;
+    margin-top: -19px;
+    background: inline-image("b-buynow__logo.svg") 0 0 no-repeat;
+    @include background-size(100%);
+    width: 32px;
+    height: 36px;
+    content: "";
   }
 }
 .b-buynow_footer {
-  margin-top: 1em;
+  margin: .5em;
+  padding: 18px 18px 18px 62px;
+  // font-weight: bold;
+  &:after {
+    left: 18px;
+  }
 }
 
 /* Video block
 ---------------------------------------- */
 .b-video {
   @include container();
+  margin-top: 2em;
   text-align: center;
+
+  h2 {
+    margin: 0;
+    color: #E83771;
+    font-size: 1.5em;
+  }
 
   .b-video_wrap {
     display: inline-block;
@@ -295,8 +312,8 @@ body {
         z-index: 2;
         cursor: default;
         background: url('/i/b-slider__knob.png') no-repeat top left;
-        height:19px;
-        width:17px;
+        height: 19px;
+        width: 17px;
         outline: none!important;
       }
     }

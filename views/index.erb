@@ -1,22 +1,17 @@
 <header class="b-header">
   <div class="b-header-wrap">
     <div class="b-logo-container">
-      <a href="/i/logo-full.png" class="js-loupe"><img src="/i/logo-sm.png" width="256" height="256" alt="ColorSnapper Icon"></a>
-      
-      <div class="b-appstore b-appstore_header">
-        <a href="<%= settings.product_mas_url %>" title="Get ColorSnapper from Mac App Store" class="b-appstore__btn" onclick="recordOutboundLink(this, 'Buy link', 'Available in the Mac App Store'); return false;">Available in the Mac App Store</a><br>
-        
-        <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="colorsnapper">Tweet</a>
-      </div>      
+      <a href="/i/logo-full.png" class="js-loupe logo__link"><img src="/i/logo-sm.png" width="256" height="256" alt="ColorSnapper Icon"></a>
+
+      <p>
+        <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow logo__buy-link" onclick="recordOutboundLink(this, 'Buy link', 'Top buy link'); return false;">Buy from <strong>Mac App Store</strong></a>
+      </p>
     </div>
-    
+
     <div class="b-logo-text">
       <h1 class="b-logo">ColorSnapper</h1>
       <h2 class="b-tagline">The missing color picker for Mac</h2>
       <p>ColorSnapper is an easy-to-use tool for quickly finding out the color of any pixel on the screen. It is activated via a system-wide hotkey, giving you a magnifying loupe to easily pick the pixel you need. The resulting color is copied to clipboard in a format of your preference.</p>
-      <p class="b-buynow">
-        <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button" onclick="recordOutboundLink(this, 'Buy link', 'Top buy link'); return false;"><i></i>Buy from Mac App Store</a>
-      </p>
     </div>
   </div>
 </header>
@@ -46,12 +41,13 @@
       <h2>Under your fingertips</h2>
       <img src="/i/b-features_shortcuts.png" alt="Under your fingertips">
       <p>ColorSnapper is always here when you want it to be. No matter which application you are using, just press the chosen combination of the keys and it’s here!</p>
+      <p>And for the precision sake, use arrows keys to position the cursor. Then use Space or Enter to pick a color.</p>
     </div>
 
     <div class="b-features__item b-features_format">
       <h2>In the format you want</h2>
       <img src="/i/b-features_format.png" alt="In the format you want">
-      <p>ColorSnapper formats the picked color in lots of handy formats no matter what are you working on: web-site, desktop or iOS application. You can do both! Just keep the ⌥ (Alt) key pressed when picking you color to store it in an alternative format.</p>
+      <p>Define up to 2 different formats and keep the ⌥ key pressed to pick a color in an alternative format.</p>
     </div>
 
     <div class="b-features__item">
@@ -92,38 +88,39 @@
       <div class="b-slide__slider">
         <div id="slider"></div>
       </div>
-      <p>With ColorSnapper you can really see what&rsquo;s on your screen. With magnification from 2&times; till 9&times; you will see every aspect of your design. Really, just try it out and drag the slider!</p>
+      <p>With ColorSnapper you can really see what&rsquo;s on your screen. With magnification from 2&times; till 11&times; you will see every aspect of your design.</p>
+      <p>Really, just try it out by dragging the slider!</p>
     </div>
   </div>
 </section>
 
 <section class="b-video">
+  <h2>Watch why ColorSnapper is different.</h2>
   <div class="b-video_wrap">
     <!-- Using the Video for Everybody Embed Code http://camendesign.com/code/video_for_everybody -->
     <video width="793" height="496" poster="/i/video/poster.jpg">
       <source src="/i/video/screencast.m4v" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
       <source src="/i/video/screencast.webm" type='video/webm; codecs="vp8, vorbis"' />
       <source src="/i/video/screencast.ogv" type='video/ogg; codecs="theora, vorbis"' />
-      <p>We’re sorry, but your browser doesn’t seem to support HTML5 video. You can watch this on <a href="http://vimeo.com/22125012">Vimeo</a> if you like.</p> 
+      <p>We’re sorry, but your browser doesn’t seem to support HTML5 video. You can watch this on <a href="http://vimeo.com/22125012">Vimeo</a> if you like.</p>
     </video>
-    
+
     <p class="b-video_link">HD version of this video is available on <a href="http://vimeo.com/22125012">Vimeo</a></p>
   </div>
 </section>
 
 <section class="b-store">
-  <h2>ColorSnapper is available on the Mac App Store.</h2>
-  
-  <p class="b-buynow b-buynow_footer">
-    <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow__button" onclick="recordOutboundLink(this, 'Buy link', 'Bottom buy link'); return false;"><i></i>Buy from Mac App Store</a>
+  <p>
+    ColorSnapper is available on the Mac App Store for just <span class="b-store__price">$4.99</span>.<br>
+    <a href="<%= settings.product_mas_url %>" title="Buy ColorSnapper from Mac App Store" class="b-buynow b-buynow_footer" onclick="recordOutboundLink(this, 'Buy link', 'Bottom buy link'); return false;"><i></i>Buy from <strong>Mac App Store</strong></a>
   </p>
-  
-  <p>Follow <a href="http://www.twitter.com/colorsnapper" title="ColorSnapper on Twitter" class="b-twitter-btn_sml">@colorsnapper</a> on twitter to get latest updates.</p>
+
+  <p>Spread the world! <a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal" data-via="colorsnapper">Tweet</a></p>
 </section>
 
 <footer class="b-footer">
   <div class="b-footer-wrap">
-    <p>&copy; <a href="mailto:support@koolesache.com" title="Write an email">Koole Sache</a>, 2011.</p>
+    <p>&copy; <a href="mailto:support@koolesache.com" title="Write an email">Koole Sache</a>, 2011&mdash;2012.</p>
   </div>
 </footer>
 
@@ -149,7 +146,7 @@ $(document).ready(function() {
       $('.b-slide__item_5').show();
     }
   });
-  
+
   $('video').simpleVideo({
     onPlay: function(elements){
       elements.overlay.fadeOut();
