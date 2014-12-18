@@ -1,0 +1,14 @@
+# Site settings
+title: ColorSnapper2 &mdash; the missing color picker for Mac OS X
+email: support@koolesache.com
+description: > # this means to ignore newlines until "baseurl:"
+  ColorSnapper is an easy-to-use tool for quickly finding out the color
+  of any pixel on the screen. It is activated via a system-wide hotkey,
+  giving you a magnifying loupe to easily pick the pixel you need.
+  The resulting color is copied to clipboard in a format of your preference.
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://colorsnapper.com" # the base hostname & protocol for your site
+twitter_username: colorsnapper
+
+# Build settings
+markdown: kramdown
