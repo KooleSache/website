@@ -2,21 +2,16 @@
  * Site header
  */
 .header {
+  text-align: center;
   color: #AEC2D9;
   background: linear-gradient(#375170, #27344D 70%, #1C2035);
 
   &:after {
+    position: relative;
     display: block;
     background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
     height: 6px;
     content: "";
-  }
-
-  &__wrapper {
-    margin: 0 auto;
-    padding: 10px 0 20px;
-    text-align: center;
-    max-width: 960px;
   }
 }
 
