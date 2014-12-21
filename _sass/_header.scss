@@ -1,0 +1,13 @@
+/**
+ * Site header
+ */
+.header {
+  background: linear-gradient(#375170, #253e59);
+
+  &:after {
+    display: block;
+    background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
+    height: 6px;
+    content: "";
+  }
+}
