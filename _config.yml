@@ -12,3 +12,4 @@ twitter_username: colorsnapper
 
 # Build settings
 markdown: kramdown
+exclude: ["node_modules", "gulpfile.js", "package.json"]
