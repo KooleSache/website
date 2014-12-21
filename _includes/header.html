@@ -1,11 +1,14 @@
 <header class="header">
-  <div class="wrapper">
-    <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
+  <div class="header__wrapper">
+    <a class="site-title" href="{{ site.baseurl }}/"></a>
 
     <nav class="nav nav_top">
       {% include navigation.html %}
 
       {% include app-store-link.html %}
     </nav>
+
+    <h1 class="logo">{{ site.title }}</h1>
+    <p class="tagline">The missing color picker for Mac OS X. <em>Reinvented.</em></p>
   </div>
 </header>
