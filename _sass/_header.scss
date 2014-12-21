@@ -3,8 +3,7 @@
  */
 .header {
   color: #AEC2D9;
-  background: linear-gradient(#375170, #253e59);
-  // height: 400px;
+  background: linear-gradient(#375170, #27344D 70%, #1C2035);
 
   &:after {
     display: block;
@@ -17,7 +16,7 @@
     margin: 0 auto;
     padding: 10px 0 20px;
     text-align: center;
-    width: 960px;
+    max-width: 960px;
   }
 }
 
