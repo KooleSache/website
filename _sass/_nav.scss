@@ -4,6 +4,15 @@
 
 .nav {
 
+  a {
+    display: inline-block;
+    margin-right: 1em;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
   &_top {
     color: #fff;
     text-align: center;
@@ -18,7 +27,7 @@
   &_top .wrapper {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid lighten(#375170, 20%);
+    border-bottom: 1px solid darken($nav-color, 35%);
   }
 
   &__home {

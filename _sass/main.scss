@@ -59,6 +59,6 @@ header {
 .app-store-link {
   margin: 0 .25em;
   padding: .25em .5em;
-  border: 1px solid rgba($nav-color, .45);
+  border: 1px solid darken($nav-color, 35%);
   border-radius: 1em;
 }
