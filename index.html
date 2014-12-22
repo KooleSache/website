@@ -2,22 +2,11 @@
 layout: default
 ---
 
-<div class="home">
+<header class="header">
 
-  <h1 class="page-heading">Posts</h1>
+  <h1 class="logo">{{ site.title }}</h1>
+  <h2 class="tagline">The missing color picker for Mac OS X. <em>Reinvented.</em></h2>
 
-  <ul class="post-list">
-    {% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+  <p class="description">ColorSnapper 2 is an easy-to-use tool for designers &amp; developers for quickly finding out and exporting the color of any pixel on the screen.</p>
 
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
-
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
-</div>
+</header>

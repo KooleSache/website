@@ -1,0 +1,16 @@
+/**
+ * Site header
+ */
+.navigation {
+  text-align: center;
+  color: #AEC2D9;
+  background: linear-gradient(#375170, #375170);
+}
+
+.nav {
+  &_top {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid lighten(#375170, 20%);
+  }
+}
