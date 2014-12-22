@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700,100italic);
+@import url(http://fonts.googleapis.com/css?family=Lato:100,400,700,100italic,400italic);
 
 // Our variables
 $base-font-family: 'Lato', Helvetica, Arial, sans-serif;
@@ -46,6 +46,15 @@ $on-laptop:        800px;
     "home",
     "nav"
 ;
+
+header {
+  padding: $spacing-unit 0;
+  margin-bottom: $spacing-unit;
+  font-weight: 100;
+  color: $nav-color;
+  background: linear-gradient(#375170, #27344D 70%, #1C2035);
+}
+
 
 .app-store-link {
   margin: 0 .25em;

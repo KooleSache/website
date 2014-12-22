@@ -1,15 +1,17 @@
 /**
  * Site header
  */
+
+.description {
+  text-align: center;
+  font-size: 1.3em;
+  font-weight: normal;
+}
+
 .home {
 
   header {
-    padding: $spacing-unit 0;
-    margin-bottom: $spacing-unit;
     text-align: center;
-    font-weight: 100;
-    color: $nav-color;
-    background: linear-gradient(#375170, #27344D 70%, #1C2035);
 
     &:after {
       position: relative;
@@ -20,7 +22,6 @@
       content: "";
     }
   }
-
 
   &__logo {
     color: #fff;
@@ -46,10 +47,6 @@
   &__tagline {
     margin-bottom: 1em;
     font-size: 2em;
-  }
-
-  &__description {
-    font-size: 1.3em;
   }
 }
 
