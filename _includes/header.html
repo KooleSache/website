@@ -1,10 +1,12 @@
-<header class="navigation">
+<nav class="nav nav_top">
   <div class="wrapper">
-    <nav class="nav nav_top">
-      <a href="/" class="nav__logo">ColorSnapper <em>2</em></a>
-      {% include navigation.html %}
+      <div class="nav__home">
+        <a href="/" class="nav__logo">{{ site.title }}</a>
+      </div>
 
-      {% include app-store-link.html %}
-    </nav>
+      <div class="nav__links">
+        {% include navigation.html %}
+        {% include app-store-link.html %}
+      </div>
   </div>
-</header>
+</nav>

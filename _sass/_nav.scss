@@ -1,16 +1,30 @@
 /**
- * Site header
+ * Site navigation
  */
-.navigation {
-  text-align: center;
-  color: #AEC2D9;
-  background: linear-gradient(#375170, #375170);
-}
 
 .nav {
+
   &_top {
+    color: #fff;
+    text-align: center;
+    color: $nav-color;
+    background: linear-gradient(#375170, #375170);
+
+    a {
+      color: $nav-color;
+    }
+  }
+
+  &_top .wrapper {
     padding: 10px;
     text-align: left;
     border-bottom: 1px solid lighten(#375170, 20%);
+  }
+
+  &__home {
+    float: left;
+  }
+  &__links {
+    float: right;
   }
 }

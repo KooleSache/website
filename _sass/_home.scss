@@ -1,0 +1,55 @@
+/**
+ * Site header
+ */
+.home {
+
+  header {
+    padding: $spacing-unit 0;
+    margin-bottom: $spacing-unit;
+    text-align: center;
+    font-weight: 100;
+    color: $nav-color;
+    background: linear-gradient(#375170, #27344D 70%, #1C2035);
+
+    &:after {
+      position: relative;
+      top: $spacing-unit;
+      display: block;
+      background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
+      height: 5px;
+      content: "";
+    }
+  }
+
+
+  &__logo {
+    color: #fff;
+    text-align: center;
+    font-size: 3em;
+    line-height: 0;
+    height: 290px;
+
+    &:before {
+      display: block;
+      position: relative;
+      left: 50%;
+      top: -50px;
+      margin-left: -130px;
+      background: url("/images/logo_home@2x.png") 50% 50% no-repeat;
+      background-size: 261px 261px;
+      width: 261px;
+      height: 261px;
+      content: "";
+    }
+  }
+
+  &__tagline {
+    margin-bottom: 1em;
+    font-size: 2em;
+  }
+
+  &__description {
+    font-size: 1.3em;
+  }
+}
+
