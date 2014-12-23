@@ -44,21 +44,6 @@ $on-laptop:        800px;
     "layout",
     "syntax-highlighting",
     "home",
-    "nav"
+    "nav",
+    "mas"
 ;
-
-header {
-  padding: $spacing-unit 0;
-  margin-bottom: $spacing-unit;
-  font-weight: 100;
-  color: $nav-color;
-  background: linear-gradient(#375170, #27344D 70%, #1C2035);
-}
-
-
-.app-store-link {
-  margin: 0 .25em;
-  padding: .25em .5em;
-  border: 1px solid darken($nav-color, 35%);
-  border-radius: 1em;
-}
