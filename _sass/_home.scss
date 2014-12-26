@@ -2,16 +2,15 @@
  * Site header
  */
 
-.description {
-  text-align: center;
-  font-size: 1.3em;
-  font-weight: normal;
-}
-
 .home {
+
 
   header {
     text-align: center;
+
+    h1, h2 {
+      font-weight: 100;
+    }
 
     &:after {
       position: relative;
@@ -50,3 +49,79 @@
   }
 }
 
+.description {
+  text-align: center;
+  font-family: $second-font-family;
+  font-size: 1.3em;
+}
+
+.tour {
+  margin: $spacing-unit 0;
+  text-align: center;
+
+  .wrapper {
+    position: relative;
+    height: 400px;
+    border-bottom: 1px solid #ccc;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      display: inline-block;
+      margin: 0;
+      padding: 0;
+      margin-right: -4px;
+
+      &:first-child label {
+        border-top-left-radius: $switch-border-radius;
+        border-bottom-left-radius: $switch-border-radius;
+      }
+      &:last-of-type label {
+        margin-right: 0;
+        border-top-right-radius: $switch-border-radius;
+        border-bottom-right-radius: $switch-border-radius;
+      }
+    }
+  }
+
+  &__switch {
+    display: inline-block;
+    margin: .5em 0;
+
+    label {
+      display: inline-block;
+      padding: $switch-border-radius $switch-border-radius*2;
+      color: $brand-color;
+      font-weight: normal;
+      font-size: 13px;
+      border: 1px solid $brand-color;
+    }
+
+    input[type=radio] {
+      position: absolute;
+      visibility: hidden;
+
+      &:checked ~ label {
+        color: #fff;
+        background-color: $brand-color;
+      }
+
+      &:checked ~ .tour__content {
+        display: block;
+      }
+    }
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    top: 5em;
+    display: none;
+    text-align: left;
+    width: 50%;
+  }
+}
