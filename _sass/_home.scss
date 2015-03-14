@@ -4,7 +4,6 @@
 
 .home {
 
-
   header {
     text-align: center;
 
@@ -121,7 +120,25 @@
     left: 0;
     top: 5em;
     display: none;
+    padding-right: $spacing-unit;
+    padding-left: $spacing-unit;
     text-align: left;
     width: 50%;
+    @include media-query($on-laptop) {
+        padding-right: $spacing-unit / 2;
+        padding-left: $spacing-unit / 2;
+    }
+
+    abbr {
+      @extend a;
+      text-decoration: none !important;
+      border-bottom: 1px dashed lighten($brand-color, 30%);
+      cursor: pointer;
+
+      &:hover {
+        color: darken($brand-color, 15%);
+        border-bottom-style: solid;
+      }
+    }
   }
 }
