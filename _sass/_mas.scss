@@ -56,9 +56,6 @@ header .mas__btn {
     color: #fff;
     background-color: transparent;
     border-color: darken($nav-color, 15%);
-    box-shadow: inset 0 0 5px rgba($nav-color, .35),
-                  0 0 5px rgba($nav-color, .35);
-
     svg {
       fill: #fff;
     }
