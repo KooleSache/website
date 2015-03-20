@@ -32,12 +32,11 @@
     border: 1px solid #ccc;
     border-radius: 8px;
     overflow: hidden;
-    width: 500px;
-    height: 400px;
+    width: 960px;
+    height: 540px;
 
     video {
       display: block;
-      width: 100%;
     }
   }
 
@@ -47,6 +46,8 @@
 
   &_overlay &__col_video &__video {
     left: 0;
+    width: 640px;
+    border: none;
   }
 
 
