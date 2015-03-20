@@ -1,0 +1,18 @@
+.features {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: inline-block;
+    margin: 0;
+    margin-bottom: $spacing-unit/2;
+    padding: 0;
+    padding-bottom: $spacing-unit/2;
+    border-bottom: 1px solid #ccc;
+
+    &:last-of-type {
+      border: none;
+    }
+  }
+}
