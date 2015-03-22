@@ -46,8 +46,13 @@
 
   &_overlay &__col_video &__video {
     left: 0;
-    width: 640px;
+    width: 601px;
+    height: 601px;
     border: none;
+
+    video {
+      width: 100%;
+    }
   }
 
 

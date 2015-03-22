@@ -2,6 +2,7 @@ var forEach = Array.prototype.forEach;
 
 var onMouseEnter = function(event, el, videoEl) {
     console.log("Playing...");
+    console.log(videoEl);
     var timeRanges = videoEl.played
     if (timeRanges.length === 1) {
         console.log(timeRanges.start(0));
