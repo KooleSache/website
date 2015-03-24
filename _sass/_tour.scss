@@ -1,4 +1,5 @@
 .tour {
+  position: relative;
   margin: $spacing-unit 0;
 
   .wrapper {
@@ -14,37 +15,76 @@
   }
 
   &__col {
-    flex: 0 0 50%;
-    padding: $spacing-unit / 2;
+    padding: $spacing-unit / 2 0;
     box-sizing: border-box;
+
+    &_features {
+      flex-basis: 36%;
+      font-size: 90%;
+    }
 
     &_video {
       position: relative;
       flex-shrink: 1;
+      flex-grow: 1;
     }
   }
 
   &__video {
     position: absolute;
-    right: 0;
     display: block;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
     overflow: hidden;
-    width: 960px;
-    height: 540px;
 
     video {
       display: block;
     }
   }
 
+  //  Loupe section
+  &_loupe .wrapper {
+    background: url('/images/yosemite-3.jpg') 50% 50% no-repeat;
+    background-size: 1280px;
+
+    &:before {
+      $blur-radius: 64px;
+      position: absolute;
+      top: -$blur-radius;
+      right: -$blur-radius;
+      width: calc(40% + #{$blur-radius * 2});
+      height: calc(100% + #{$blur-radius * 2});
+      background: linear-gradient(rgba(#000, .65), rgba(#000, .65)),
+                    url('/images/yosemite-3.jpg') 50% 50% repeat;
+      background-size: 1280px;
+      clip-path: inset($blur-radius $blur-radius $blur-radius $blur-radius);
+      filter: blur($blur-radius / 2);
+      content: "";
+    }
+
+    .tour__col_features {
+      color: #fff;
+      z-index: 1;
+    }
+
+    .tour__video {
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &_loupe &__col_video &__video {
+    width: 440px;
+    height: 440px;
+  }
+
+
+  //  Overlay section
   &_overlay &__col_video {
     order: 1;
+    min-height: 601px;
   }
 
   &_overlay &__col_video &__video {
+    top: 0;
     left: 0;
     width: 601px;
     height: 601px;
