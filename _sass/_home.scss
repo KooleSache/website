@@ -22,22 +22,24 @@
   }
 
   &__logo {
+    $logo-size: 128px;
     color: #fff;
     text-align: center;
     font-size: 3em;
     line-height: 0;
-    height: 290px;
+    height: $logo-size * 1.25;
+    letter-spacing: -1px;
 
     &:before {
       display: block;
       position: relative;
       left: 50%;
       top: -50px;
-      margin-left: -130px;
+      margin-left: -$logo-size / 1.75;
       background: url("/images/logo_home@2x.png") 50% 50% no-repeat;
-      background-size: 261px 261px;
-      width: 261px;
-      height: 261px;
+      background-size: $logo-size;
+      width: $logo-size;
+      height: $logo-size;
       content: "";
     }
   }
