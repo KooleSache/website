@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: home
 ---
 
 <svg style="display:none">
@@ -12,8 +12,13 @@ layout: default
 
   <header>
     <div class="wrapper">
-      <h1 class="home__logo">{{ site.title }}</h1>
-      <h2 class="home__tagline">The missing color picker for Mac OS X. <em>Reinvented.</em></h2>
+
+      {% include header.html %}
+
+      <div class="home__logo">
+        <h1 class="home__title">{{ site.title }}</h1>
+        <h2 class="home__tagline">The missing color picker for Mac&nbsp;OS&nbsp;X. <em>Reinvented.</em></h2>
+      </div>
       <p class="home__descr">
         ColorSnapper 2 is an easy-to-use tool for <em>designers&nbsp;&amp;&nbsp;developers</em><br>
         for quickly finding out and exporting the color of <em>any pixel</em> on the screen.

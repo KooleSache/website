@@ -3,6 +3,10 @@
  */
 
 .nav {
+  display: flex;
+  align-items: center;
+  font-family: $second-font-family;
+  //border-bottom: 1px solid rgba($nav-color, .25);
 
   a {
     display: inline-block;
@@ -14,26 +18,22 @@
   }
 
   &_top {
-    color: #fff;
-    text-align: center;
     color: $nav-color;
-    background: linear-gradient(#375170, #375170);
 
     a {
       color: $nav-color;
     }
   }
 
-  &_top .wrapper {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid darken($nav-color, 35%);
+  &_top {
+    padding: 7px 0px;
   }
 
   &__home {
-    float: left;
+    flex: 0 0 50%;
   }
   &__links {
-    float: right;
+    flex: 0 0 50%;
+    text-align: right;
   }
 }
