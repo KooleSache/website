@@ -36,43 +36,43 @@
 
     video {
       display: block;
+      width: 100%;
+      height: 100%;
     }
   }
 
   //  Loupe section
   &_loupe .wrapper {
-    background: url('/images/yosemite-3.jpg') 50% 50% no-repeat;
-    background-size: 1280px;
 
-    &:before {
-      $blur-radius: 64px;
-      position: absolute;
-      top: -$blur-radius;
-      right: -$blur-radius;
-      width: calc(40% + #{$blur-radius * 2});
-      height: calc(100% + #{$blur-radius * 2});
-      background: linear-gradient(rgba(#000, .65), rgba(#000, .65)),
-                    url('/images/yosemite-3.jpg') 50% 50% repeat;
-      background-size: 1280px;
-      clip-path: inset($blur-radius $blur-radius $blur-radius $blur-radius);
-      filter: blur($blur-radius / 2);
-      content: "";
-    }
+    //.tour__col_features {
+    //  color: #fff;
+    //  z-index: 1;
+    //}
+    .tour__col_video {
+      position: relative;
 
-    .tour__col_features {
-      color: #fff;
-      z-index: 1;
+      &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background: url('/images/mac.svg') 0 0 no-repeat;
+        width: 839px;
+        height: 482px;
+        opacity: .25;
+        content: '';
+      }
     }
 
     .tour__video {
-      top: 0;
-      left: 0;
+      top: 26px;
+      right: 98px;
+      border: 1px solid #000;
     }
   }
 
   &_loupe &__col_video &__video {
-    width: 440px;
-    height: 440px;
+    width: 640px;
+    height: 400px;
   }
 
 
@@ -88,11 +88,6 @@
     width: 600px;
     height: 600px;
     border: none;
-
-    video {
-      width: 100%;
-      height: 100%;
-    }
   }
 
 

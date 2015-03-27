@@ -59,11 +59,11 @@ header {
       }
 
       &:hover {
-        color: #fff;
-        background-color: transparent;
-        border-color: rgba($nav-color, 1);
+        color: $brand-color;
+        background-color: rgba($nav-color, 1);
+        //border-color: rgba($nav-color, 1);
         svg {
-          fill: #fff;
+          fill: $brand-color;
         }
       }
     }

@@ -9,14 +9,11 @@
     $bg-header: url($bg-path) 50% 10% no-repeat;
 
     position: relative;
-    //height: 400px;
-    //overflow: hidden;
     background: $bg-header;
     background-size: cover;
-    //    z-index: 1;
 
     &:before {
-      $blur-radius: 3px;
+      $blur-radius: 0px;
       position: absolute;
       top: -$blur-radius;
       left: -$blur-radius;
@@ -30,14 +27,14 @@
       content: "";
     }
 
-    &:after {
-      position: relative;
-      //top: $spacing-unit;
-      display: block;
-      background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
-      height: 5px;
-      content: "";
-    }
+    //&:after {
+    //  position: relative;
+    //  top: 5px;
+    //  display: block;
+    //  background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
+    //  height: 5px;
+    //  content: "";
+    //}
 
   }
 
@@ -77,23 +74,24 @@
     font-size: 4em;
     line-height: 1.2;
     letter-spacing: -.04em;
-    font-weight: 100;
+    font-weight: 300;
     white-space: nowrap;
   }
 
   &__tagline {
-    //margin-left: 160px;
     margin-bottom: 1em;
-    font-size: 2em;
-    font-weight: 100;
-    letter-spacing: -.03em;
+    font-size: 1.2em;
+    font-weight: 300;
+    letter-spacing: .03em;
   }
 
   &__descr {
     //text-align: center;
     margin-left: 160px;
     font-family: $second-font-family;
-    font-size: 1.3em;
+    font-weight: 300;
+    font-size: 1.2em;
+    width: 40%;
   }
 }
 
