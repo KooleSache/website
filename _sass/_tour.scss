@@ -8,7 +8,7 @@
   }
 
   &__heading {
-    font-size: 200%;
+    font-size: 250%;
     font-weight: lighter;
     line-height: 1.3;
     margin-bottom: .5em;
@@ -20,7 +20,6 @@
 
     &_features {
       flex-basis: 36%;
-      font-size: 90%;
     }
 
     &_video {
@@ -86,12 +85,13 @@
   &_overlay &__col_video &__video {
     top: 0;
     left: 0;
-    width: 601px;
-    height: 601px;
+    width: 600px;
+    height: 600px;
     border: none;
 
     video {
       width: 100%;
+      height: 100%;
     }
   }
 
