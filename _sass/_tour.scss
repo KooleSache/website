@@ -54,7 +54,7 @@
       &:before {
         position: absolute;
         top: 0;
-        right: 0;
+        right: -58px;
         background: url('/images/mac.svg') 0 0 no-repeat;
         width: 839px;
         height: 482px;
@@ -65,7 +65,7 @@
 
     .tour__video {
       top: 26px;
-      right: 98px;
+      right: 40px;
       border: 1px solid #000;
     }
   }
