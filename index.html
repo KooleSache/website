@@ -113,33 +113,49 @@ layout: home
 
       <div class="tour__col tour__col_video">
         <section class="tour__video">
-          <video src="images/CS2-overlay@2x.mp4"></video>
+          <video width="600" height="600" id="video-favorites" loop>
+            <source src="images/CS2-overlay-favorites@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
+
+          <video width="600" height="600" id="video-colorPanel" loop>
+            <source src="images/CS2-overlay-colorPanel@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
+
+          <video width="600" height="600" id="video-filter" loop>
+            <source src="images/CS2-overlay-filter@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
         </section>
       </div>
 
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">Organize, adjust &amp; export colors&hellip;</h2>
         <ul class="features">
-          <li class="features__item">
+          <li class="features__item" id="feature-favorites">
             <h3>History &amp; Favorites</h3>
             <p>Go back in time and see hundreds of colors you’ve already picked
               from screen or choose some you use often and add them to favorites
               to get a quick access.
             </p>
+            <div class="features__progress"></div>
           </li>
 
-          <li class="features__item">
+          <li class="features__item" id="feature-filter">
             <h3>Quick formats filter</h3>
             <p>
               ColorSnapper 2 includes more than 30 clipboard formats including CSS, ObjC, Swift and also exports colors to Adobe Photoshop and Illustrator. To quickly find a right one just start typing a name and we’ll display a shorter list for you.
             </p>
+            <div class="features__progress"></div>
           </li>
 
-          <li class="features__item">
+          <li class="features__item" id="feature-colorPanel">
             <h3>Modify  selected color</h3>
             <p>
               Do you ever wanted to pick a color from screen and make it a bit transparent? Or probably a bit darker? ColorSnapper2 integrates the Apple’s own ColorPanel. This means you can even use installed extension like Skala Color or Hues there.
             </p>
+            <div class="features__progress"></div>
           </li>
         </ul>
 

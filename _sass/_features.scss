@@ -8,13 +8,21 @@
   &__item {
     display: inline-block;
     margin: 0;
-    margin-bottom: $spacing-unit/2;
+    margin-bottom: $spacing-unit;
     padding: 0;
-    padding-bottom: $spacing-unit/2;
+    //padding-bottom: $spacing-unit/2;
     border-bottom: 1px solid #ccc;
 
     &:last-of-type {
       border: none;
     }
+  }
+
+  &__progress {
+    margin-top: $spacing-unit / 2;
+    background-color: #ccc;
+    height: 3px;
+    width: 0;
+    transition: width .15s;
   }
 }
