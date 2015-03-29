@@ -3,13 +3,14 @@ var forEach = Array.prototype.forEach;
 var onMouseEnter = function(event, el, videoEl) {
     console.log("Playing...");
     videoEl.classList.add("active");
-    videoEl.play()
+    videoEl.play();
 };
 
 var onMouseLeave = function(event, el, videoEl) {
     console.log("Pausing...");
     videoEl.classList.remove("active");
-    videoEl.pause()
+    videoEl.pause();
+    videoEl.currentTime = 0; // Always go to the beginning
 };
 
 var onTimeUpdate = function(event, el, videoEl) {
