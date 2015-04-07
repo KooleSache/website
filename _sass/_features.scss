@@ -1,3 +1,4 @@
+$features-separator-color: #ccc;
 .features {
   margin: 0;
   padding: 0;
@@ -11,16 +12,28 @@
     margin-bottom: $spacing-unit;
     padding: 0;
     //padding-bottom: $spacing-unit/2;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid $features-separator-color;
 
     &:last-of-type {
       border: none;
     }
   }
 
+  &_row {
+    display: flex;
+    padding-top: 1em;
+  }
+
+  &_row &__item {
+    padding: 10px ;
+    width: 25%;
+    box-sizing: border-box;
+    border-bottom: none;
+  }
+
   &__progress {
     margin-top: $spacing-unit / 2;
-    background-color: #ccc;
+    background-color: $features-separator-color;
     height: 3px;
     width: 0;
     transition: width .15s;

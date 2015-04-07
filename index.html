@@ -17,11 +17,8 @@ layout: home
 
       <div class="home__logo">
         <h1 class="home__title">{{ site.title }}</h1>
-        <h2 class="home__tagline">The missing color picker for Mac&nbsp;OS&nbsp;X. <em>Reinvented.</em></h2>
+        <h2 class="home__tagline">The easiest way for designers <span class="amp">&amp;</span> developers to collect, adjust, organize and export colors from the screen.</h2>
       </div>
-      <p class="home__descr">
-        ColorSnapper 2 is an easy-to-use tool for <em>designers &amp; developers</em> for quickly finding out and exporting the color of <em>any pixel</em> on the screen.
-      </p>
 
       <section class="mas">
         {% include app-store-btn.html %}
@@ -29,6 +26,17 @@ layout: home
 
     </div>
   </header>
+
+  <section class="intro">
+    <div class="wrapper">
+      <p class="intro__text">
+        ColorSnapper 2 features a better magnifiing glass with a brand-new Hi-Precision Mode and a completey new user interface to adjust, organize and export colors in different coding formats as well as Adobe Photoshop &amp; Illustrator  integration.
+      </p>
+
+      <!--<p>We’ve designed and built ColorSnapper2 from the ground up with the simplicity of prior version in mind. Every aspect of the new user interface is streamlined to speed up your workflow.</p>-->
+
+    </div>
+  </section>
 
   <section class="tour tour_loupe" id="loupeTour">
     <div class="wrapper">
@@ -40,16 +48,52 @@ layout: home
       </div>
 
       <div class="tour__col tour__col_features">
-        <h2 class="tour__heading">Finding out colors with magnifing glass</h2>
-        <!--<p>-->
-          <!--The original ColorSnapper magnifiying glass design, introduced in 2010 and adopted by every modern-->
-          <!--color picker app since then, just got even better. Not only it is blazingly fast and-->
-          <!--<abbr title="Change the visible area and zoom level without opening Preferences using-->
-          <!--gestures and mousewheel">adjustable</abbr> it introduces the High Precision Mode&trade;.-->
-          <!--This allows to aim and pick the color of literally every physical ("retina") pixel on the screen.-->
-        <!--</p>-->
+        <h2 class="tour__heading">The Magnifing Glass</h2>
+        <p class="tour__description">
+          The original ColorSnapper magnifiying glass design, introduced in 2010 and adopted by every modern
+          color picker app since then, just got even better.
+        </p>
+        <p class="tour__description">
+          Not only it is blazingly fast and
+          <abbr title="Change the visible area and zoom level without opening Preferences using
+          gestures and mousewheel">adjustable</abbr> it introduces the Precision Mode.
+        </p>
+        <p class="tour__description">
+          This allows to aim and pick the color of every physical pixel even on the HiDPI screen.
+        </p>
 
-        <ul class="features">
+        <!--<nav class="tour__switch">-->
+
+          <!--<ul>-->
+            <!--<li>-->
+              <!--<input type="radio" name="tour" id="ui" checked="checked">-->
+              <!--<label for="ui">User Interface</label>-->
+              <!--<section class="tour__content">-->
+                <!--<h2>User Interface</h2>-->
+
+              <!--</section>-->
+            <!--</li>-->
+
+            <!--<li>-->
+              <!--<input type="radio" name="tour" id="loupe">-->
+              <!--<label for="loupe">Maginifying Glass</label>-->
+              <!--<section class="tour__content">-->
+                <!--<h2>Maginifying Glass</h2>-->
+
+              <!--</section>-->
+            <!--</li>-->
+          <!--</ul>-->
+
+        <!--</nav>-->
+
+      </div>
+
+    </div>
+  </section>
+
+  <section class="features-row">
+    <div class="wrapper">
+      <ul class="features features_row">
           <li class="features__item">
             <h3>High Precision</h3>
             <p>The new magnifier glass allows you to pick every retina pixel on HiDPI screens, working astnishing good also on non-retina displays by slowing down the movement of the mouse and increasing magnification to a maximum.
@@ -73,38 +117,10 @@ layout: home
           <li class="features__item">
             <h3>Multi-monitor and Spaces support</h3>
             <p>
-              Seamously use multiple displays or switch between spaces or apps when looking for the color.
+              Use multiple displays or switch between spaces or open applications when looking for the color.
             </p>
           </li>
         </ul>
-
-        <!--<nav class="tour__switch">-->
-
-          <!--<ul>-->
-            <!--<li>-->
-              <!--<input type="radio" name="tour" id="ui" checked="checked">-->
-              <!--<label for="ui">User Interface</label>-->
-              <!--<section class="tour__content">-->
-                <!--<h2>User Interface</h2>-->
-                <p>We’ve redesigned and re-built ColorSnapper2 from the ground up.
-  Every aspect of the new user interface is streamlined to speed up your design &amp; development process. Here are just some highlights: <abbr>Unlimited Hitory</abbr>, <abbr>favorite colors</abbr>, <abbr>quick filter-as-you-type</abbr>, <abbr>adjust selected color</abbr>, <abbr>formats live preview</abbr> and many more.</p>
-              <!--</section>-->
-            <!--</li>-->
-
-            <!--<li>-->
-              <!--<input type="radio" name="tour" id="loupe">-->
-              <!--<label for="loupe">Maginifying Glass</label>-->
-              <!--<section class="tour__content">-->
-                <!--<h2>Maginifying Glass</h2>-->
-
-              <!--</section>-->
-            <!--</li>-->
-          <!--</ul>-->
-
-        <!--</nav>-->
-
-      </div>
-
     </div>
   </section>
 
