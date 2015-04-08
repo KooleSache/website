@@ -1,5 +1,5 @@
-$timelineColor: #b5b5b5;
-$timelineEventBorderRadius: 22px;
+$timelineColor: #2f7ddf;
+$timelineEventBorderRadius: 23px;
 
 .timeline {
   position: relative;
@@ -9,7 +9,7 @@ $timelineEventBorderRadius: 22px;
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid $timelineColor;
+    border: 1px solid rgba($timelineColor, .25);
     border-radius: 3px;
     width: 100%;
     height: 3px;
@@ -46,15 +46,16 @@ $timelineEventBorderRadius: 22px;
       position: absolute;
       top: -24px;
       left: 45px;
-      color: #fff;
+      padding: 2px;
+      color: $timelineColor;
       text-align: center;
-      font-weight: bold;
+      //font-weight: 700;
       font-size: 95%;
       width: $timelineEventBorderRadius;
       height: $timelineEventBorderRadius;
       border-radius: 50%;
-      border: 2px solid $timelineColor;
-      background-color: $timelineColor;
+      border: 1px solid rgba($timelineColor, .5);
+      background-color: #fff;
       box-sizing: border-box;
     }
 
