@@ -1,0 +1,29 @@
+.howto {
+
+  &__video {
+    position: relative;
+    height: 480px;
+
+    &:before {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      margin-left: -420px;
+      background: url('/images/mac.svg') 0 0 no-repeat;
+      width: 839px;
+      height: 482px;
+      opacity: .25;
+      content: '';
+    }
+  }
+
+  video {
+    position: relative;
+    top: 26px;
+    left: 50%;
+    margin-left: -320px;
+    width: 640px;
+    height: 400px;
+    border: 1px solid #000;
+  }
+}

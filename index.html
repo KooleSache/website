@@ -38,25 +38,21 @@ layout: home
     </div>
   </section>
 
-  <section class="tour tour_loupe" id="loupeTour">
+  <section class="howto" id="howto">
     <div class="wrapper">
 
-      <div class="tour__col tour__col_video">
-        <section class="tour__video">
-          <video src="images/CS2-loupe@2x.mp4"></video>
-        </section>
-      </div>
+      <section class="howto__video">
+        <video src="images/how-it-works.mp4" autoplay loop></video>
+      </section>
 
-      <div class="tour__col tour__col_features">
-        <h2 class="tour__heading">New Magnifing Glass</h2>
-        <p class="tour__description">
-          The original ColorSnapper magnifiying glass design, introduced in 2010 and adopted by every modern
-          color picker app since then, just got even better!
-        </p>
-        <p class="tour__description">
-          It introduces the <em>&ldquo;Hi-Precision Mode&rdquo;</em> allowing access to every physical pixel on <abbr title="i.e. Retina">HiDPI</abbr> screens, <em>delivers accurate colors</em>, works with <em>multiple displays</em> and can be <em>controlled using gestures</em>.
-        </p>
-
+      <div class="howto__timeline timeline">
+        <div class="timeline__progress js-progress" style="width: 40%"></div>
+        <ol class="timeline__events">
+          <li class="timeline__event timeline__event_0">Invoke the magnifing glass using menu item</li>
+          <li class="timeline__event timeline__event_1">Choose a pixel on the screen. Activate Hi-Precision mode for more accurate movement.</li>
+          <li class="timeline__event timeline__event_2">Choose a format of your choice using quick filter</li>
+          <li class="timeline__event timeline__event_3">Press Cmd+V to paste the format into your editor</li>
+        </ol>
 
         <!--<nav class="tour__switch">-->
 
@@ -89,6 +85,11 @@ layout: home
 
   <section class="features-row">
     <div class="wrapper">
+      <h2 class="tour__heading">New Magnifing Glass</h2>
+      <p class="tour__description">
+        The original ColorSnapper magnifiying glass design, introduced in 2010 and adopted by every modern
+        color picker app since then, just got even better!
+      </p>
       <ul class="features features_row">
           <li class="features__item">
             <h3>High Precision</h3>
@@ -151,7 +152,7 @@ layout: home
               from screen or choose some you use often and add them to favorites
               to get a quick access.
             </p>
-            <div class="features__progress"></div>
+            <div class="features__progress js-progress"></div>
           </li>
 
           <li class="features__item" id="feature-filter">
@@ -159,7 +160,7 @@ layout: home
             <p>
               Simple start typing first letters to quickly search through the more than 30 clipboard formats including CSS, ObjC, Swift and also exports colors to Adobe Photoshop and Illustrator.
             </p>
-            <div class="features__progress"></div>
+            <div class="features__progress js-progress"></div>
           </li>
 
           <li class="features__item" id="feature-colorPanel">
@@ -167,7 +168,7 @@ layout: home
             <p>
               Do you ever wanted to make a color you’ve just picked a bit transparent? Or probably a bit darker? ColorSnapper2 seamlessly integrates the Apple’s ColorPanel to make it easy. This also means you still can use installed extensions like Skala Color or Hues.
             </p>
-            <div class="features__progress"></div>
+            <div class="features__progress js-progress"></div>
           </li>
         </ul>
 

@@ -15,7 +15,7 @@ var onMouseLeave = function(event, el, videoEl) {
 
 var onTimeUpdate = function(event, el, videoEl) {
     var playedPercent = (videoEl.currentTime / videoEl.duration) * 100 ;
-    var progressEl = el.querySelector('.features__progress')
+    var progressEl = el.querySelector('.js-progress')
     if (progressEl != null) {
         progressEl.style.width = playedPercent + "%";
     }
@@ -23,8 +23,10 @@ var onTimeUpdate = function(event, el, videoEl) {
 
 var initTourForContainer = function(id) {
     var container = document.getElementById(id);
-    var items = container.querySelectorAll('.features__item');
 
+    if (!container) return;
+
+    var items = container.querySelectorAll('.features__item');
 
     forEach.call(items, function(item){
         if (!item.id) {
@@ -47,7 +49,24 @@ var initTourForContainer = function(id) {
     });
 };
 
+var initVideoProgressInContainer = function(id) {
+    var container = document.getElementById(id);
+
+    if (!container) return;
+
+    var video = container.querySelector('video');
+
+    video.addEventListener('progress',function() {
+        if (this.buffered.length) {
+            console.log("Loading...", this.buffered.end(0) / this.duration);
+        }
+    });
+
+    video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, container, video));
+};
+
 document.addEventListener("DOMContentLoaded", function () {
+    initVideoProgressInContainer('howto');
     initTourForContainer('loupeTour');
     initTourForContainer('overlayTour');
 });
