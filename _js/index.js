@@ -1,3 +1,5 @@
+require('../_sass/main.scss');
+
 var forEach = Array.prototype.forEach;
 
 var onMouseEnter = function(event, el, videoEl) {

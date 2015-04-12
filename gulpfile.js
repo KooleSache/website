@@ -1,8 +1,10 @@
-var gulp        = require('gulp');
+var gulp = require('gulp');
 var browserSync = require('browser-sync');
-var sass        = require('gulp-sass');
-var prefix      = require('gulp-autoprefixer');
-var cp          = require('child_process');
+var cp = require('child_process');
+var gutil = require("gulp-util");
+var webpack = require("webpack");
+var WebpackDevServer = require("webpack-dev-server");
+var webpackConfig = require("./webpack.config.js");
 
 var messages = {
     jekyllBuild: '<span style="color: grey">Running:</span> $ jekyll build'
@@ -13,6 +15,33 @@ function errorHandler (error) {
   console.log(error.toString());
   this.emit('end');
 }
+
+gulp.task("webpack-dev-server", function(callback) {
+    // modify some webpack config options
+    var myConfig = Object.create(webpackConfig);
+    myConfig.devtool = "source-maps";
+    myConfig.debug = true;
+    myConfig.entry = myConfig.entry.concat([
+        "webpack-dev-server/client?http://localhost:8080",
+        "webpack/hot/dev-server"
+    ]);
+    myConfig.output.publicPath = "http://localhost:8080/assets/"
+    myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+
+    // Start a webpack-dev-server
+    new WebpackDevServer(webpack(myConfig), {
+        //contentBase: "http://localhost:8080/assets/",
+        publicPath: myConfig.output.publicPath,
+        //port: 8081,
+        hot: true,
+        stats: {
+            colors: true
+        }
+    }).listen(8080, "localhost", function(err) {
+            if(err) throw new gutil.PluginError("webpack-dev-server", err);
+            gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+        });
+});
 
 /**
  * Build the Jekyll Site
@@ -34,7 +63,7 @@ gulp.task('jekyll-rebuild', ['jekyll-build'], function () {
 /**
  * Wait for jekyll-build, then launch the Server
  */
-gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
+gulp.task('browser-sync', ['jekyll-build'], function() {
     browserSync({
         server: {
             baseDir: '_site'
@@ -43,31 +72,16 @@ gulp.task('browser-sync', ['sass', 'jekyll-build'], function() {
 });
 
 /**
- * Compile files from _scss into both _site/css (for live injecting) and site (for future jekyll builds)
- */
-gulp.task('sass', function () {
-    return gulp.src('_sass/main.scss')
-        .pipe(sass({
-            includePaths: ['_sass'],
-            onError: browserSync.notify
-        }))
-        .pipe(prefix(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true }))
-        .pipe(gulp.dest('_site/css'))
-        .pipe(browserSync.reload({stream:true}));
-        // .pipe(gulp.dest('css'));
-});
-
-/**
  * Watch scss files for changes & recompile
  * Watch html/md files, run jekyll & reload BrowserSync
  */
 gulp.task('watch', function () {
-    gulp.watch('_sass/*.scss', ['sass']);
-    gulp.watch(['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*', '**/index.html', 'js/*.js'], ['jekyll-rebuild']);
+    gulp.watch(['index.html', '*.md', '_includes/*.html', '_layouts/*.html', '_posts/*', '**/index.html'], ['jekyll-rebuild']);
 });
 
 /**
  * Default task, running just `gulp` will compile the sass,
  * compile the jekyll site, launch BrowserSync & watch files.
  */
-gulp.task('default', ['browser-sync', 'watch']);
+gulp.task('default', ['browser-sync', 'watch', 'webpack-dev-server']);
+//gulp.task('default', ['webpack-dev-server']);
