@@ -44,30 +44,35 @@ a.mas__btn {
   }
 }
 
-header {
-  .mas {
-    margin-left: 150px;
-    text-align: left;
-
-    &__btn {
-      color: $nav-color;
-      background-color: transparent;
-      border: 1px solid rgba($nav-color, .35);
-
-      svg {
-        fill: $nav-color;
-      }
-
-      &:hover {
-        color: $brand-color;
-        background-color: rgba($nav-color, 1);
-        //border-color: rgba($nav-color, 1);
-        svg {
-          fill: $brand-color;
-        }
-      }
-    }
-  }
+.mas__req {
+  color: lighten($text-color, 50%);
+  font-size: 85%;
 }
+
+//header {
+//  .mas {
+//    margin-left: 150px;
+//    text-align: left;
+//
+//    &__btn {
+//      color: $nav-color;
+//      background-color: transparent;
+//      border: 1px solid rgba($nav-color, .35);
+//
+//      svg {
+//        fill: $nav-color;
+//      }
+//
+//      &:hover {
+//        color: $brand-color;
+//        background-color: rgba($nav-color, 1);
+//        //border-color: rgba($nav-color, 1);
+//        svg {
+//          fill: $brand-color;
+//        }
+//      }
+//    }
+//  }
+//}
 
 

@@ -18,22 +18,3 @@
   }
 }
 
-// .home {
-  .logo {
-    text-align: center;
-
-    &:before {
-      display: block;
-      position: relative;
-      left: 50%;
-      top: -50px;
-      margin-left: -130px;
-      background: url("/images/logo_home@2x.png") 50% 50% no-repeat;
-      background-size: 261px 261px;
-      width: 261px;
-      height: 261px;
-      content: "";
-    }
-  }
-// }
-//

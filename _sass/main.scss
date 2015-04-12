@@ -13,7 +13,7 @@ $switch-border-radius: 5px;
 $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
-$nav-color: rgba(#fff, .85);
+$nav-color: rgba($text-color, .85);
 
 $grey-color:       #828282;
 $grey-color-light: lighten($grey-color, 40%);
@@ -48,7 +48,7 @@ $on-laptop:        800px;
     "home",
     "tour",
     "howto",
-"timeline",
+    "timeline",
     "nav",
     "mas",
     "features"

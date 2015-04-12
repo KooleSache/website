@@ -5,27 +5,27 @@
 .home {
 
   header {
-    $bg-path: '/images/CS-top.jpg';
-    $bg-header: url($bg-path) 50% 10% no-repeat;
-
-    position: relative;
-    background: $bg-header;
-    background-size: cover;
-
-    &:before {
-      $blur-radius: 10px;
-      position: absolute;
-      top: -$blur-radius;
-      left: -$blur-radius;
-      width: calc(100% + #{$blur-radius * 2});
-      height: calc(100% + #{$blur-radius * 2});
-      background: linear-gradient(rgba(#000, .5), rgba(#000, .5)),
-                   $bg-header;
-      background-size: cover;
-      clip-path: inset($blur-radius $blur-radius $blur-radius $blur-radius);
-      filter: blur($blur-radius / 2);
-      content: "";
-    }
+    //$bg-path: '/images/CS-top.jpg';
+    //$bg-header: url($bg-path) 50% 10% no-repeat;
+    //
+    //position: relative;
+    //background: $bg-header;
+    //background-size: cover;
+    //
+    //&:before {
+    //  $blur-radius: 10px;
+    //  position: absolute;
+    //  top: -$blur-radius;
+    //  left: -$blur-radius;
+    //  width: calc(100% + #{$blur-radius * 2});
+    //  height: calc(100% + #{$blur-radius * 2});
+    //  background: linear-gradient(rgba(#000, .5), rgba(#000, .5)),
+    //               $bg-header;
+    //  background-size: cover;
+    //  clip-path: inset($blur-radius $blur-radius $blur-radius $blur-radius);
+    //  filter: blur($blur-radius / 2);
+    //  content: "";
+    //}
 
     //&:after {
     //  position: relative;
@@ -54,12 +54,15 @@
     $logo-size: 128px;
 
     position: relative;
-    padding-left: 160px;
+    margin-top: -1.5em;
+    //padding-left: 160px;
+    text-align: center;
 
     &:before {
       position: absolute;
       top: 0;
-      left: 0;
+      left: 50%;
+      margin-left: -$logo-size/2;
       background: url("/images/logo_home@2x.png") 50% 50% no-repeat;
       background-size: $logo-size;
       width: $logo-size;
@@ -69,12 +72,12 @@
   }
 
   &__title {
-    color: #fff;
-    padding-top: .5em;
-    font-size: 4em;
+    //color: #fff;
+    padding-top: 3.5em;
+    font-size: 3em;
     line-height: 1.2;
-    letter-spacing: -.04em;
-    font-weight: 300;
+    letter-spacing: -.02em;
+    font-weight: 700;
     white-space: nowrap;
   }
 
@@ -83,7 +86,7 @@
     font-size: 1.7em;
     font-weight: 300;
     //letter-spacing: .03em;
-    width: 380px;
+    //width: 380px;
   }
 
   &__descr {
