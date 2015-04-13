@@ -22,24 +22,24 @@ gulp.task("webpack-dev-server", function(callback) {
     myConfig.devtool = "source-maps";
     myConfig.debug = true;
     myConfig.entry = myConfig.entry.concat([
-        "webpack-dev-server/client?http://localhost:8080",
+        "webpack-dev-server/client?http://localhost:8081",
         "webpack/hot/dev-server"
     ]);
-    myConfig.output.publicPath = "http://localhost:8080/assets/"
+    myConfig.output.publicPath = "http://localhost:8081/assets/"
     myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
 
     // Start a webpack-dev-server
     new WebpackDevServer(webpack(myConfig), {
-        //contentBase: "http://localhost:8080/assets/",
+        //contentBase: "http://localhost:8081/assets/",
         publicPath: myConfig.output.publicPath,
         //port: 8081,
         hot: true,
         stats: {
             colors: true
         }
-    }).listen(8080, "localhost", function(err) {
+    }).listen(8081, "localhost", function(err) {
             if(err) throw new gutil.PluginError("webpack-dev-server", err);
-            gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/index.html");
+            gutil.log("[webpack-dev-server]", "http://localhost:8081/webpack-dev-server/index.html");
         });
 });
 
