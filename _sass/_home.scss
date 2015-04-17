@@ -4,53 +4,11 @@
 
 .home {
 
-  header {
-    //$bg-path: '/images/CS-top.jpg';
-    //$bg-header: url($bg-path) 50% 10% no-repeat;
-    //
-    //position: relative;
-    //background: $bg-header;
-    //background-size: cover;
-    //
-    //&:before {
-    //  $blur-radius: 10px;
-    //  position: absolute;
-    //  top: -$blur-radius;
-    //  left: -$blur-radius;
-    //  width: calc(100% + #{$blur-radius * 2});
-    //  height: calc(100% + #{$blur-radius * 2});
-    //  background: linear-gradient(rgba(#000, .5), rgba(#000, .5)),
-    //               $bg-header;
-    //  background-size: cover;
-    //  clip-path: inset($blur-radius $blur-radius $blur-radius $blur-radius);
-    //  filter: blur($blur-radius / 2);
-    //  content: "";
-    //}
-    //
-    //&:after {
-    //  position: relative;
-    //  top: 5px;
-    //  display: block;
-    //  background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
-    //  height: 5px;
-    //  content: "";
-    //}
-
-  }
-
-  .wrapper {
+  &__intro {
     position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
-
-  &__video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 0;
   }
 
   &__logo {
@@ -94,21 +52,13 @@
     font-size: 2em;
     font-weight: 300;
     text-align: center;
+    font-style: italic;
     letter-spacing: -.03em;
     max-width: 640px;
 
     @include media-query($on-palm) {
       font-size: 1.6em;
     }
-  }
-
-  &__descr {
-    display: none;
-    margin-left: 160px;
-    font-family: $second-font-family;
-    font-weight: 300;
-    font-size: 1.2em;
-    width: 40%;
   }
 }
 
