@@ -26,7 +26,7 @@
     //  filter: blur($blur-radius / 2);
     //  content: "";
     //}
-
+    //
     //&:after {
     //  position: relative;
     //  top: 5px;
@@ -40,6 +40,9 @@
 
   .wrapper {
     position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
   }
 
   &__video {
@@ -51,42 +54,52 @@
   }
 
   &__logo {
-    $logo-size: 128px;
+    $logo-size: 100px;
 
     position: relative;
-    margin-top: -1.5em;
-    //padding-left: 160px;
+    margin-top: .5em;
     text-align: center;
+    font-size: 3.5em;
+    line-height: 1.2;
+    letter-spacing: -.02em;
+    font-weight: 700;
+    white-space: nowrap;
+
+    @include media-query($on-palm) {
+      font-size: 2.5em;
+    }
 
     &:before {
-      position: absolute;
-      top: 0;
-      left: 50%;
-      margin-left: -$logo-size/2;
+      display: inline-block;
+      position: relative;
+      top: 15px;
+      margin-right: 20px;
       background: url("../_images/logo_home@2x.png") 50% 50% no-repeat;
       background-size: $logo-size;
       width: $logo-size;
       height: $logo-size;
       content: "";
+
+      @include media-query($on-palm) {
+        display: block;
+        left: 50%;
+        margin-left: -$logo-size / 2 - 10px;
+        margin-bottom: .75em;
+      }
     }
   }
 
-  &__title {
-    //color: #fff;
-    padding-top: 3.5em;
-    font-size: 3em;
-    line-height: 1.2;
-    letter-spacing: -.02em;
-    font-weight: 700;
-    white-space: nowrap;
-  }
-
   &__tagline {
-    margin: .5em 0;
-    font-size: 1.7em;
+    margin: .5em 0 0;
+    font-size: 2em;
     font-weight: 300;
-    //letter-spacing: .03em;
-    //width: 380px;
+    text-align: center;
+    letter-spacing: -.03em;
+    max-width: 640px;
+
+    @include media-query($on-palm) {
+      font-size: 1.6em;
+    }
   }
 
   &__descr {
