@@ -29,7 +29,6 @@
     em {
       font-style: normal;
       font-weight: 400;
-      //background-color: #f0e5c0;
     }
 
     li {
@@ -92,25 +91,25 @@
   //  Loupe section
   &_loupe .wrapper {
 
-    //.tour__col_features {
-    //  color: #fff;
-    //  z-index: 1;
-    //}
     .tour__col_video {
       position: relative;
-      height: 480px;
+      min-height: 500px;
     }
 
     .tour__video {
-      top: 26px;
-      right: 40px;
-      border: 1px solid #000;
+      right: 20px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(#000, .125);
+
+      video {
+        mask-image: url("../_images/clip.svg");
+      }
     }
   }
 
   &_loupe &__col_video &__video {
-    width: 640px;
-    height: 400px;
+    width: 500px;
+    height: 500px;
   }
 
 
