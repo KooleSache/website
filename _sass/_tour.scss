@@ -52,6 +52,15 @@
       flex-shrink: 1;
       flex-grow: 1;
     }
+
+    &_image {
+      position: relative;
+      left: -40px;
+    }
+  }
+
+  &__image {
+    //border: 1px solid #000;
   }
 
   &__video {
