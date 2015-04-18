@@ -31,7 +31,7 @@
       display: inline-block;
       position: relative;
       top: 15px;
-      margin-right: 20px;
+      margin-right: 10px;
       background: url("../_images/logo_home@2x.png") 50% 50% no-repeat;
       background-size: $logo-size;
       width: $logo-size;
@@ -50,11 +50,9 @@
   &__tagline {
     margin: .5em 0 0;
     font-size: 2em;
-    font-weight: 300;
     text-align: center;
-    font-style: italic;
     letter-spacing: -.03em;
-    max-width: 640px;
+    max-width: 680px;
 
     @include media-query($on-palm) {
       font-size: 1.6em;
