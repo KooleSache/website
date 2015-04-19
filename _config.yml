@@ -6,6 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
   of any pixel on the screen. It is activated via a system-wide hotkey,
   giving you a magnifying loupe to easily pick the pixel you need.
   The resulting color is copied to clipboard in a format of your preference.
+#baseurl: "//localhost:8081" # the subpath of your site, e.g. /blog/
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://colorsnapper.com" # the base hostname & protocol for your site
 twitter_username: colorsnapper
