@@ -1,6 +1,7 @@
 $switch-border-radius: 5px;
 .switch {
   display: flex;
+  user-select: none;
 
   &__item {
     display: inline-block;
@@ -29,6 +30,7 @@ $switch-border-radius: 5px;
     font-weight: normal;
     font-size: 13px;
     border: 1px solid $brand-color;
+    cursor: pointer;
   }
 
   input[type=radio] {
