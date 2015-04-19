@@ -28,7 +28,7 @@ layout: home
   <section class="howto" id="howto">
     <div class="wrapper">
 
-      <section class="howto__video">
+      <section class="howto__slide">
         <video src="videos/how-it-works.mp4" autoplay></video>
       </section>
 
@@ -40,31 +40,6 @@ layout: home
           <li class="timeline__event timeline__event_2">Choose a format of your choice using quick filter</li>
           <li class="timeline__event timeline__event_3">Press Cmd+V to paste the format into your editor</li>
         </ol>
-
-        <!--<nav class="tour__switch">-->
-
-          <!--<ul>-->
-            <!--<li>-->
-              <!--<input type="radio" name="tour" id="ui" checked="checked">-->
-              <!--<label for="ui">User Interface</label>-->
-              <!--<section class="tour__content">-->
-                <!--<h2>User Interface</h2>-->
-
-              <!--</section>-->
-            <!--</li>-->
-
-            <!--<li>-->
-              <!--<input type="radio" name="tour" id="loupe">-->
-              <!--<label for="loupe">Maginifying Glass</label>-->
-              <!--<section class="tour__content">-->
-                <!--<h2>Maginifying Glass</h2>-->
-
-              <!--</section>-->
-            <!--</li>-->
-          <!--</ul>-->
-
-        <!--</nav>-->
-
       </div>
 
     </div>
@@ -74,17 +49,17 @@ layout: home
     <div class="wrapper">
 
       <div class="tour__col tour__col_video">
-        <section class="tour__video">
-          <video width="500" height="500" id="video-gestures" loop>
+        <section class="tour__slide">
+          <video width="500" height="500" id="video-gestures" class="tour__video" loop>
             <source src="videos/loupe-getures.mp4" type="video/mp4" />
             <!--<source src="video.webm" type="video/webm" />-->
           </video>
 
-          <video width="500" height="500" id="video-precision" loop>
+          <video width="500" height="500" id="video-precision" class="tour__video" loop>
             <source src="videos/loupe-precision.mp4" type="video/mp4" />
             <!--<source src="video.webm" type="video/webm" />-->
           </video>
-          <img src="videos/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500"/>
+          <img src="videos/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img"/>
         </section>
       </div>
 
@@ -149,26 +124,43 @@ layout: home
     <div class="wrapper">
 
       <div class="tour__col tour__col_video">
-        <section class="tour__video">
-          <video width="600" height="600" id="video-favorites" loop>
-            <source src="videos/CS2-overlay-favorites@2x.mp4" type="video/mp4" />
-            <!--<source src="video.webm" type="video/webm" />-->
-          </video>
+        <section class="tour__slide">
+          <img src="videos/overlay-default_light.png" alt=""  width="600" height="600" class="tour__img active"/>
+          <img src="videos/overlay-favorites_light.png" alt=""  width="600" height="600" id="video-favorites"  class="tour__img"/>
+          <img src="videos/overlay-filter_light.png" alt=""  width="600" height="600" id="video-filter"  class="tour__img"/>
+          <img src="videos/overlay-colorPanel_light.png" alt=""  width="600" height="600" id="video-colorPanel"  class="tour__img"/>
+          <!--<video width="600" height="600" id="video-favorites" loop>-->
+            <!--<source src="videos/CS2-overlay-favorites@2x.mp4" type="video/mp4" />-->
+            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
+          <!--</video>-->
 
-          <video width="600" height="600" id="video-colorPanel" loop>
-            <source src="videos/CS2-overlay-colorPanel@2x.mp4" type="video/mp4" />
-            <!--<source src="video.webm" type="video/webm" />-->
-          </video>
+          <!--<video width="600" height="600" id="video-colorPanel" loop>-->
+            <!--<source src="videos/CS2-overlay-colorPanel@2x.mp4" type="video/mp4" />-->
+            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
+          <!--</video>-->
 
-          <video width="600" height="600" id="video-filter" loop>
-            <source src="videos/CS2-overlay-filter@2x.mp4" type="video/mp4" />
-            <!--<source src="video.webm" type="video/webm" />-->
-          </video>
+          <!--<video width="600" height="600" id="video-filter" loop>-->
+            <!--<source src="videos/CS2-overlay-filter@2x.mp4" type="video/mp4" />-->
+            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
+          <!--</video>-->
         </section>
       </div>
 
       <div class="tour__col tour__col_features">
-        <h2 class="tour__heading">Organize, adjust &amp; export colors&hellip;</h2>
+        <h2 class="tour__heading">Organize, adjust &amp; export colors with style</h2>
+        <p class="tour__description">
+          ColorSnapper 2 build for OS X Yosemite.
+          <div class="switch" id="switch-theme">
+            <span class="switch__item">
+              <input type="radio" name="theme" id="light" checked="checked" value="light">
+              <label for="light">Light theme</label>
+            </span>
+            <span class="switch__item">
+              <input type="radio" name="theme" id="dark" value="dark">
+              <label for="dark">Dark theme</label>
+            </span>
+          </div>
+        </p>
         <ul class="features">
           <li class="features__item" id="feature-favorites">
             <h3>Favorites &amp; History</h3>
