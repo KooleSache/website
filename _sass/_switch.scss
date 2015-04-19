@@ -1,0 +1,43 @@
+$switch-border-radius: 5px;
+.switch {
+  display: flex;
+
+  &__item {
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+
+    &:first-child {
+      label {
+        border-top-left-radius: $switch-border-radius ;
+        border-bottom-left-radius: $switch-border-radius ;
+      }
+    }
+    &:last-child {
+      label {
+        border-top-right-radius: $switch-border-radius ;
+        border-bottom-right-radius: $switch-border-radius ;
+      }
+    }
+  }
+
+  label {
+    display: inline-block;
+    padding: $switch-border-radius $switch-border-radius*2;
+    margin: 0;
+    color: $brand-color;
+    font-weight: normal;
+    font-size: 13px;
+    border: 1px solid $brand-color;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked ~ label {
+      color: #fff;
+      background-color: $brand-color;
+    }
+  }
+}
