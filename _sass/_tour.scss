@@ -15,11 +15,14 @@
   }
 
   &__heading {
-    margin-top: 1.5em;
+    margin-top: .5em;
     margin-bottom: .5em;
     font-size: 220%;
     font-weight: 300;
     line-height: 1.3;
+    @include media-query($on-palm) {
+      font-size: 180%;
+    }
   }
 
   &__description {
@@ -108,9 +111,10 @@
       border-radius: 10px;
       box-shadow: 0 3px 8px rgba(#000, .125);
 
-      video {
-        mask-image: url("../_images/clip.svg");
-      }
+    }
+    .tour__video,
+    .tour__img {
+      mask-image: url("../_images/clip.svg");
     }
   }
 

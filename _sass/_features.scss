@@ -1,4 +1,4 @@
-$features-separator-color: #ccc;
+$features-separator-color: #e3e3e4;
 .features {
   margin: 0;
   padding: 0;
@@ -6,15 +6,22 @@ $features-separator-color: #ccc;
   list-style: none;
 
   &__item {
+    position: relative;
     display: inline-block;
-    margin: 0;
-    margin-bottom: $spacing-unit;
-    padding: 0;
+    margin: 0 -10px;
+    padding: 10px;
+    border-radius: 4px;
     //padding-bottom: $spacing-unit/2;
-    border-bottom: 1px solid $features-separator-color;
+
+    &:hover {
+      background: linear-gradient(90deg, #edeff2, rgba(#fff,0));
+    }
 
     &:last-of-type {
       border: none;
+    }
+
+    &_video {
     }
 
     h3 {
@@ -24,32 +31,18 @@ $features-separator-color: #ccc;
       font-size: 115%;
 
     }
-  }
 
-  &_row {
-    display: flex;
-    padding-top: 1em;
-  }
-
-  &_row &__item {
-    padding: 0 10px;
-    width: 25%;
-    box-sizing: border-box;
-    border-bottom: none;
-
-    &:first-of-type {
-      padding-left: 0;
-    }
-
-    &:last-of-type {
-      padding-right: 0;
+    p:last-of-type {
+      margin-bottom: 0;
     }
   }
 
   &__progress {
-    margin-top: $spacing-unit / 2;
+    position: absolute;
+    top: 0;
+    left: 0;
     background-color: $features-separator-color;
-    height: 3px;
+    height: 1px;
     width: 0;
     transition: width .15s;
   }

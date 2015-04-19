@@ -50,6 +50,8 @@ layout: home
 
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
+          <img src="videos/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img active"/>
+
           <video width="500" height="500" id="video-gestures" class="tour__video" loop>
             <source src="videos/loupe-getures.mp4" type="video/mp4" />
             <!--<source src="video.webm" type="video/webm" />-->
@@ -59,64 +61,34 @@ layout: home
             <source src="videos/loupe-precision.mp4" type="video/mp4" />
             <!--<source src="video.webm" type="video/webm" />-->
           </video>
-          <img src="videos/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img"/>
         </section>
       </div>
 
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">New Magnifing Glass</h2>
         <p class="tour__description">
-          The original ColorSnapper magnifiying glass design, introduced in 2010 and adopted by every modern color picker app since then, just got even better!
+          The original ColorSnapper magnifiying glass, introduced in 2010 and adopted by every modern color picker app since then, just got reinvented!
         </p>
         <ul class="features">
-          <li class="features__item" id="feature-precision">
+          <li class="features__item features__item_video" id="feature-precision">
             <h3>Hi-Precision Mode</h3>
-            <p>The new magnifier glass allows you to pick every retina pixel on HiDPI screens, working astnishing good also on non-retina displays by slowing down the movement of the mouse and increasing magnification to a maximum.</p>
+            <p>Allows choosing every retina pixel on HiDPI screens, but also works great on non-retina displays by slowing down the movement of the mouse and increasing a magnification level.</p>
             <div class="features__progress js-progress"></div>
           </li>
 
-          <li class="features__item" id="feature-gestures">
-            <h3>Control with gestures</h3>
-            <p>Zoom, change capture diameter, switch between formats or move to the next pixel. You have total and granular control. And you always can see the chosen clipboard format and its values in the overlay.</p>
+          <li class="features__item features__item_video" id="feature-gestures">
+            <h3>Control using gestures &amp; keyboard</h3>
+            <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
             <div class="features__progress js-progress"></div>
+          </li>
+
+          <li class="features__item">
+            <h3>Accurate color values</h3>
+            <p>New ColorSnapper automatically converts colors from the monitor color profile to sRGB for selected apps like Safari. This allows getting the same color value as you authored, no matter what Color Management setting you’re using.</p>
           </li>
         </ul>
 
       </div>
-    </div>
-  </section>
-
-  <section class="features-row">
-    <div class="wrapper">
-      <h2 class="tour__heading">New Magnifing Glass</h2>
-      <ul class="features features_row">
-        <li class="features__item">
-          <h3>High Precision</h3>
-          <p>The new magnifier glass allows you to pick every retina pixel on HiDPI screens, working astnishing good also on non-retina displays by slowing down the movement of the mouse and increasing magnification to a maximum.
-          </p>
-        </li>
-
-        <li class="features__item">
-          <h3>Accurate colors</h3>
-          <p>
-            Get the same color value as you authored, no matter what Color Management setting you’re using? Our color picker is smart enough and tries to get the closest possible result.
-          </p>
-        </li>
-
-        <li class="features__item">
-          <h3>Control with gestures or keyboard</h3>
-          <p>
-            Zoom, change capture diameter, switch between formats or move to the next pixel. You have total and granular control. And you always can see the chosen clipboard format and its values in the overlay.
-          </p>
-        </li>
-
-        <li class="features__item">
-          <h3>Multi-monitor and Spaces support</h3>
-          <p>
-            Use multiple displays or switch between spaces or open applications when looking for the color.
-          </p>
-        </li>
-      </ul>
     </div>
   </section>
 
@@ -149,7 +121,7 @@ layout: home
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">Organize, adjust &amp; export colors with style</h2>
         <p class="tour__description">
-          ColorSnapper 2 build for OS X Yosemite.
+          ColorSnapper 2 designed for OS X Yosemite and support both light and dark themes.
           <div class="switch" id="switch-theme">
             <span class="switch__item">
               <input type="radio" name="theme" id="light" checked="checked" value="light">
