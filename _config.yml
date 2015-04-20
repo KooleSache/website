@@ -14,5 +14,5 @@ twitter_username: colorsnapper
 # Build settings
 markdown: kramdown
 permalink: /blog/:categories/:year/:month/:day/:title.html
-exclude: ["node_modules", "gulpfile.js", "package.json", "webpack.config.js"]
+exclude: ["node_modules", "gulpfile.js", "package.json", "webpack.config.js", "Gemfile", "Gemfile.lock", "README"]
 production: false
