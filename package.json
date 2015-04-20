@@ -6,7 +6,9 @@
   "main": "",
   "scripts": {
     "start": "gulp",
-    "postinstall": "NODE_ENV=production webpack -p && jekyll build",
+    "build": "NODE_ENV=production webpack -p && jekyll build --config _config_production.yml && rm -rf assets/",
+    "clean": "rm -rf assets/ _site/",
+    "deploy": "cd ./_site && surge .",
     "test": "echo \"Error: no test specified\" && exit 1",
     "deps": "npm outdated --depth=0"
   },
@@ -25,6 +27,7 @@
     "gulp-util": "^3.0.4",
     "sass-loader": "^0.4.0",
     "style-loader": "^0.10.1",
+    "surge": "^0.11.1",
     "url-loader": "^0.5.5",
     "webpack": "^1.8.4",
     "webpack-dev-server": "^1.8.0"
