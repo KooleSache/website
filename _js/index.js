@@ -67,9 +67,9 @@ var initVideoProgressInContainer = (id) => {
 };
 
 document.addEventListener("DOMContentLoaded", ()=>{
-    initVideoProgressInContainer('howto');
-    initTourForContainer('loupeTour');
-    initTourForContainer('overlayTour');
+    //initVideoProgressInContainer('howto');
+    //initTourForContainer('loupeTour');
+    //initTourForContainer('overlayTour');
 
     forEach.call(document.querySelectorAll("#switch-theme input"), item => {
         item.addEventListener("change", event => {
@@ -78,5 +78,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 img.src = img.src.replace(/(dark|light)/, themeName);
             });
         });
+    });
+
+    // Videos pre-loading indication
+    const fullCircle = 565.48;
+    const progress = document.querySelector('svg .playButton__progress');
+
+    forEach.call(document.querySelectorAll("video"), video => {
+        video.addEventListener('progress', (event) => {
+            const videoEl = event.target;
+            if (videoEl.buffered && videoEl.buffered.length) {
+                var percentLoaded = videoEl.buffered.end(0) / videoEl.duration
+                console.log("Loading...", percentLoaded);
+                progress.style.strokeDashoffset = fullCircle * (1 - percentLoaded);
+            }
+        })
     });
 });

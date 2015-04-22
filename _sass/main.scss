@@ -55,3 +55,14 @@ $on-laptop:        800px;
     "mas",
     "features"
 ;
+
+
+svg circle {
+    stroke-dashoffset: 565.48;
+    transition: stroke-dashoffset 1s linear;
+    stroke: #666;
+    stroke-width: 1em;
+}
+#svg .playButton__progress {
+    stroke: #FF9F1E;
+}
