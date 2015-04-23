@@ -102,8 +102,14 @@
   &_loupe .wrapper {
 
     .tour__col_video {
+      order: 0;
       position: relative;
+      top: -50px;
       min-height: 500px;
+    }
+
+    .tour__col_features {
+      order: 1;
     }
 
     .tour__slide {
