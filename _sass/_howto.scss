@@ -17,14 +17,24 @@
     }
   }
 
-  &__btn {
+  &__play {
     position: absolute;
     left: 50%;
     top: 50%;
     margin-top: -70px;
     margin-left: -50px;
     z-index: 2;
+    opacity: 1;
+    transition: opacity 1s;
+
+    &.playButton_playing {
+      opacity: 0;
+    }
+    &.playButton_playing:hover {
+      opacity: 1;
+    }
   }
+
 
   &__video {
     position: relative;
