@@ -2,21 +2,23 @@ require('../_sass/main.scss');
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2;
 const forEach = Array.prototype.forEach;
+let currentlyPlayingVideo;
 
-var onMouseEnter = function(event, el, videoEl) {
+let onMouseEnter = (event, el, videoEl) => {
     //console.log("Playing...");
     videoEl.classList.add("active");
     //typeof videoEl.play === "function" && videoEl.play();
 };
 
-var onMouseLeave = function(event, el, videoEl) {
+let onMouseLeave = (event, el, videoEl) => {
     //console.log("Pausing...");
     videoEl.classList.remove("active");
+    stopVideoPlayback(currentlyPlayingVideo);
     //typeof videoEl.pause === "function" && videoEl.pause();
     //videoEl.currentTime = 0; // Always go to the beginning
 };
 
-var onTimeUpdate = function(event, el, videoEl) {
+let onTimeUpdate = (event, el, videoEl) => {
     var playedPercent = (videoEl.currentTime / videoEl.duration) * 100;
     var progressEl = el.querySelector('.js-progress');
     if (progressEl) {
@@ -24,7 +26,7 @@ var onTimeUpdate = function(event, el, videoEl) {
     }
 };
 
-var initTourForContainer = (id) => {
+let initTourForContainer = (id) => {
     var container = document.getElementById(id);
 
     if (!container) return;
@@ -45,7 +47,7 @@ var initTourForContainer = (id) => {
     });
 };
 
-var initVideoProgressInContainer = (id) => {
+function initVideoProgressInContainer(id) {
     var container = document.getElementById(id);
 
     if (!container) return;
@@ -55,7 +57,14 @@ var initVideoProgressInContainer = (id) => {
     video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, container, video));
 };
 
-document.addEventListener("DOMContentLoaded", ()=>{
+function stopVideoPlayback(video) {
+    if (typeof video !== "undefined" && !video.paused) {
+        video.pause();
+        video.currentTime = 0;
+    }
+};
+
+document.addEventListener("DOMContentLoaded", () => {
     initVideoProgressInContainer('howto');
     initTourForContainer('loupeTour');
     initTourForContainer('overlayTour');
@@ -77,10 +86,20 @@ document.addEventListener("DOMContentLoaded", ()=>{
         const playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null;
 
         playButtonEl && playButtonEl.addEventListener('click', () => {
-            video.paused ? video.play() : video.pause();
+            // Stop currently playing video
+            if (video !== currentlyPlayingVideo) {
+                stopVideoPlayback(currentlyPlayingVideo);
+            }
+
+            if (video.paused) {
+                video.play();
+                currentlyPlayingVideo = video;
+            } else {
+                video.pause();
+            }
         });
 
-        video.addEventListener('progress', (event) => {
+        video.addEventListener('progress', event => {
             const videoEl = event.target;
             if (videoEl.buffered && videoEl.buffered.length) {
                 const amount = videoEl.buffered.end(0) / videoEl.duration
@@ -90,7 +109,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             }
         });
 
-        video.addEventListener('timeupdate', (event) => {
+        video.addEventListener('timeupdate', event => {
             const videoEl = event.target;
             const amount = (videoEl.currentTime / videoEl.duration);
             if (playedProgressEl) {
