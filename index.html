@@ -5,17 +5,13 @@ layout: home
 <svg style="display:none">
     <defs>
         <path d="M6.79452055,8 L2,16.5 L4.01369863,18 L9,9.4 L6.79452055,8 Z M1.9,17 L4,18.5 L1,21 L1.9,17 Z M7,7.31578947 L9.48648649,9 L11,6.68421053 L8.40540541,5 L7,7.31578947 Z M9,4.66666667 L10.75,6 C10.75,6 11,5.42857143 11,5.04761905 C10.9166667,4.66666667 10.5,4.28571429 10.5,4.28571429 C10.5,4.28571429 10.0833333,4 9.75,4 C9.25,4 9,4.66666667 9,4.66666667 Z M0,11 L0,15 L1.6744186,15 L4,11 L0,11 Z M9.70833333,11 L7,15 L17,15 L14.3958333,11 L9.70833333,11 Z M18,11 L20.0833333,15 L23,15 L23,11 L18,11 Z M16.2401225,13 L18,12.0017006 C18,12.0017006 14.5837672,5.51275442 12.4098009,2.21836637 C10.7534456,-0.377212095 10.1323124,0.0221076686 10.1323124,0.0221076686 C10.1323124,0.0221076686 9.51117917,0.12193761 10.96049,3.11683584 C14.0661562,10.0051018 16.2401225,13 16.2401225,13 Z M18.6551724,13 L17,14.1428571 L18.5517241,17 L20,15.9714286 L18.6551724,13 Z M20.3991328,16 L19,16.86653 C19,16.86653 19.8994425,20.2243337 20.898823,21.6324449 C21.3985133,22.3906586 22.3978939,21.7407611 22.3978939,21.7407611 C22.3978939,21.7407611 23.2973364,21.0908636 22.8975841,20.2243337 C21.4984514,17.299795 20.3991328,16 20.3991328,16 Z" id="mas__icon"></path>
+
     </defs>
 </svg>
 
 <section class="home">
 
   <div id="test"></div>
-
-  <svg id="svg" width="50" height="50" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
-    <circle class="playButton__progress-bg" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-    <circle class="playButton__progress" r="90" cx="100" cy="100" fill="transparent" stroke-dasharray="565.48" stroke-dashoffset="0"></circle>
-  </svg>
 
   <header>
     <div class="wrapper home__intro">
@@ -36,11 +32,14 @@ layout: home
     <div class="wrapper">
 
       <section class="howto__slide">
-        <video src="img/how-it-works.mp4" autoplay></video>
+        <svg class="playButton howto__btn" data-video="video-intro" width="100" height="100" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          {% include playButton.html %}
+        </svg>
+        <video src="img/how-it-works.mp4" id="video-intro" class="howto__video" preload="none"></video>
       </section>
 
       <div class="howto__timeline timeline">
-        <div class="timeline__progress js-progress" style="width: 40%"></div>
+        <div class="timeline__progress js-progress" style="width: 0"></div>
         <ol class="timeline__events">
           <li class="timeline__event timeline__event_0">Invoke the magnifing glass using menu item</li>
           <li class="timeline__event timeline__event_1">Choose a pixel on the screen. Activate Hi-Precision mode for more accurate movement.</li>
@@ -105,23 +104,25 @@ layout: home
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
           <img src="img/overlay-default_light.png" alt=""  width="600" height="600" class="tour__img active"/>
-          <img src="img/overlay-favorites_light.png" alt=""  width="600" height="600" id="video-favorites"  class="tour__img"/>
-          <img src="img/overlay-filter_light.png" alt=""  width="600" height="600" id="video-filter"  class="tour__img"/>
-          <img src="img/overlay-colorPanel_light.png" alt=""  width="600" height="600" id="video-colorPanel"  class="tour__img"/>
-          <!--<video width="600" height="600" id="video-favorites" loop>-->
-            <!--<source src="videos/CS2-overlay-favorites@2x.mp4" type="video/mp4" />-->
-            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
-          <!--</video>-->
+          <!--<img src="img/overlay-favorites_light.png" alt=""  width="600" height="600" id="video-favorites"  class="tour__img"/>-->
+          <!--<img src="img/overlay-filter_light.png" alt=""  width="600" height="600" id="video-filter"  class="tour__img"/>-->
+          <!--<img src="img/overlay-colorPanel_light.png" alt=""  width="600" height="600" id="video-colorPanel"  class="tour__img"/>-->
 
-          <!--<video width="600" height="600" id="video-colorPanel" loop>-->
-            <!--<source src="videos/CS2-overlay-colorPanel@2x.mp4" type="video/mp4" />-->
-            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
-          <!--</video>-->
+          <video width="600" height="600" id="video-favorites" loop preload="none" poster="img/overlay-favorites_light.png" class="tour__video">
+            <source src="img/CS2-overlay-favorites@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
 
-          <!--<video width="600" height="600" id="video-filter" loop>-->
-            <!--<source src="videos/CS2-overlay-filter@2x.mp4" type="video/mp4" />-->
-            <!--&lt;!&ndash;<source src="video.webm" type="video/webm" />&ndash;&gt;-->
-          <!--</video>-->
+          <video width="600" height="600" id="video-filter" loop preload="none" poster="img/overlay-filter_light.png" class="tour__video">
+            <source src="img/CS2-overlay-filter@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
+
+          <video width="600" height="600" id="video-colorPanel" loop preload="none" poster="img/overlay-colorPanel_light.png" class="tour__video">
+            <source src="img/CS2-overlay-colorPanel@2x.mp4" type="video/mp4" />
+            <!--<source src="video.webm" type="video/webm" />-->
+          </video>
+
         </section>
       </div>
 
@@ -145,7 +146,11 @@ layout: home
             <h3>Favorites &amp; History</h3>
             <p>Add colors you might use ofter to the favorites or go back in time up to one hundred of colors you have already picked.
             </p>
-            <div class="features__progress js-progress"></div>
+
+            <svg class="playButton features__play" data-video="video-favorites" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              {% include playButton.html %}
+            </svg>
+
           </li>
 
           <li class="features__item" id="feature-filter">
@@ -153,7 +158,11 @@ layout: home
             <p>
               Start typing first letters to quickly search through the more than 30 clipboard formats.
             </p>
-            <div class="features__progress js-progress"></div>
+
+            <svg class="playButton features__play" data-video="video-filter" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              {% include playButton.html %}
+            </svg>
+
           </li>
 
           <li class="features__item" id="feature-colorPanel">
@@ -161,7 +170,11 @@ layout: home
             <p>
               ColorSnapper2 seamlessly integrates with the Apple’s Color Panel so you can adjust colors before you export them.
             </p>
-            <div class="features__progress js-progress"></div>
+
+            <svg class="playButton features__play" data-video="video-colorPanel" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              {% include playButton.html %}
+            </svg>
+
           </li>
         </ul>
 

@@ -17,7 +17,16 @@
     }
   }
 
-  video {
+  &__btn {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -70px;
+    margin-left: -50px;
+    z-index: 2;
+  }
+
+  &__video {
     position: relative;
     top: 27px;
     left: 50%;
