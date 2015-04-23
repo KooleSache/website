@@ -1,0 +1,78 @@
+.playButton {
+  cursor: pointer;
+
+  &_loading {
+    cursor: default;
+  }
+
+  &__bg {
+    stroke: #fff;
+    stroke-width: 5px;
+    fill: #dbdbdb;
+    transition: fill .25s;
+  }
+
+  &__play,
+  &__pause {
+    transform: scale(1);
+    transform-origin: 50% 50%;
+    transition: transform .25s ease-in-out,
+      opacity .25s ease-in-out;
+  }
+
+  &__play,
+  &__pause rect {
+    fill: #fff;
+  }
+
+  &__pause {
+    opacity: 0;
+    transform: scale(.5);
+  }
+
+  &_playing &__play {
+    opacity: 0;
+    transform: scale(.5);
+  }
+
+  &_playing &__pause {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+
+  &:hover &__bg {
+    fill: rgba(#000, .85);
+  }
+
+  &_playing &__bg {
+    fill: rgba(#000, .5);
+  }
+
+  &__progress {
+    $dashLength: 3.14 * 45 * 2; // 2 * PI * R
+    fill: none;
+    stroke-width: 0;
+    stroke-dasharray: $dashLength;
+    stroke-dashoffset: $dashLength; // Start from 0
+    transform: scale(.9);
+    transform-origin: 50% 50%;
+    transition: transform .35s,
+      stroke-width .35s,
+      stroke-dashoffset .135s;
+  }
+
+  &__progress_buffer {
+    stroke: rgba(#000, .25);
+  }
+
+  &__progress_time {
+    stroke: #4a90e2;
+  }
+
+  &_playing &__progress,
+  &:hover &__progress {
+    transform: scale(1);
+    stroke-width: 10px;
+  }
+}
