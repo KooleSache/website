@@ -63,13 +63,20 @@ layout: home
           <li class="features__item features__item_video" id="feature-precision">
             <h3>Hi-Precision Mode</h3>
             <p>Allows choosing every retina pixel on HiDPI screens, but also works great on non-retina displays by slowing down the movement of the mouse and increasing a magnification level.</p>
-            <div class="features__progress js-progress"></div>
+
+            <svg class="playButton features__play" data-video="video-precision" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              {% include playButton.html %}
+            </svg>
+
           </li>
 
           <li class="features__item features__item_video" id="feature-gestures">
             <h3>Control using gestures &amp; keyboard</h3>
             <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
-            <div class="features__progress js-progress"></div>
+
+            <svg class="playButton features__play" data-video="video-gestures" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+              {% include playButton.html %}
+            </svg>
           </li>
 
           <!--<li class="features__item">-->
