@@ -8,13 +8,12 @@ $features-separator-color: #e3e3e4;
   &__item {
     position: relative;
     display: inline-block;
-    padding-right: 70px;
+    //padding-left: 60px;
     //padding-bottom: $spacing-unit/2;
 
     h3 {
       font-weight: 500;
       font-size: 175%;
-
     }
 
     P {
@@ -36,7 +35,7 @@ $features-separator-color: #e3e3e4;
 
     h3 {
       display: inline;
-      border-bottom: 1px dashed rgba($nav-color, .125);
+      //border-bottom: 1px dashed rgba($nav-color, .125);
     }
 
     &:hover {
@@ -49,10 +48,12 @@ $features-separator-color: #e3e3e4;
   }
 
   &__play {
-    position: absolute;
-    top: 50%;
-    right: 10px;
-    margin-top: -25px;
+    display: inline-block;
+    margin-left: 5px;
+    margin-bottom: 1px;
+    vertical-align: bottom;
+    width: 34px;
+    height: 34px;
   }
 
 }
