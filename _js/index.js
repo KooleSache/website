@@ -61,8 +61,13 @@ function pauseVideoPlayback(video) {
     }
 };
 
-function toggleVideoPlayback(video) {
+function toggleVideoPlayback(video, playButtonEl) {
     if (video.paused) {
+        const id = video.id.replace('video-', '');
+        const playButtonEl = document.querySelector(`a[href="#${id}"] .playButton`)
+        if (playButtonEl) {
+            playButtonEl.classList.add("playButton_loading");
+        }
         video.wasPlayed = true;
         video.play();
     } else {
@@ -100,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 pauseVideoPlayback(currentlyPlayingVideo);
             }
 
-            toggleVideoPlayback(video);
+            toggleVideoPlayback(video, playButtonEl);
         });
 
         video.addEventListener('progress', event => {
@@ -123,6 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         video.addEventListener('playing', () => {
             currentlyPlayingVideo = video;
+            playButtonEl && playButtonEl.classList.remove("playButton_loading");
             playButtonEl && playButtonEl.classList.add("playButton_playing");
         });
 
@@ -132,6 +138,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         video.addEventListener('pause', () => {
             playButtonEl && playButtonEl.classList.remove("playButton_playing");
+        });
+
+        video.addEventListener('loadeddata', () => {
+            playButtonEl && playButtonEl.classList.remove("playButton_loading");
         });
 
     });

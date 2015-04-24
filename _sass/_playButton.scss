@@ -1,3 +1,7 @@
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(359deg); }
+}
 .playButton {
   cursor: pointer;
 
@@ -13,7 +17,8 @@
   }
 
   &__play,
-  &__pause {
+  &__pause,
+  &__load {
     transform: scale(1);
     transform-origin: 50% 50%;
     transition: transform .25s ease-in-out,
@@ -21,16 +26,21 @@
   }
 
   &__play,
-  &__pause rect {
+  &__pause,
+  &__load {
     fill: #fff;
   }
 
-  &__pause {
+  &__pause,
+  &__load {
     opacity: 0;
     transform: scale(.5);
   }
 
-  &_playing &__play {
+  &_loading &__play,
+  &_loading &__pause,
+  &_playing &__play,
+  &_playing &__load {
     opacity: 0;
     transform: scale(.5);
   }
@@ -38,6 +48,12 @@
   &_playing &__pause {
     opacity: 1;
     transform: scale(1);
+  }
+
+  &_loading &__load {
+    opacity: 1;
+    transform: scale(1);
+    animation: spin 2s linear infinite;
   }
 
 
