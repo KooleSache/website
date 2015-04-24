@@ -61,22 +61,27 @@ layout: home
         </p>
         <ul class="features">
           <li class="features__item features__item_video" id="feature-precision">
-            <h3>Hi-Precision Mode</h3>
-            <p>Allows choosing every retina pixel on HiDPI screens, but also works great on non-retina displays by slowing down the movement of the mouse and increasing a magnification level.</p>
+            <a href="#precision" class="features__link">
 
-            <svg class="playButton features__play" data-video="video-precision" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              {% include playButton.html %}
-            </svg>
+              <h3>Hi-Precision Mode</h3>
+              <p>Allows choosing every retina pixel on HiDPI screens, but also works great on non-retina displays by slowing down the movement of the mouse and increasing a magnification level.</p>
 
+              <svg class="playButton features__play" data-video="video-precision" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+
+            </a>
           </li>
 
           <li class="features__item features__item_video" id="feature-gestures">
-            <h3>Control using gestures &amp; keyboard</h3>
-            <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
+            <a href="#gestures" class="features__link">
+              <h3>Control using gestures &amp; keyboard</h3>
+              <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
 
-            <svg class="playButton features__play" data-video="video-gestures" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              {% include playButton.html %}
-            </svg>
+              <svg class="playButton features__play" data-video="video-gestures" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+            </a>
           </li>
 
           <!--<li class="features__item">-->
@@ -89,7 +94,7 @@ layout: home
 
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
-          <img src="img/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img active"/>
+          <img src="img/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img is-active"/>
 
           <video width="500" height="500" id="video-gestures" class="tour__video" loop>
             <source src="img/loupe-getures.mp4" type="video/mp4" />
@@ -126,38 +131,41 @@ layout: home
         </p>
         <ul class="features">
           <li class="features__item" id="feature-favorites">
-            <h3>Favorites &amp; History</h3>
-            <p>Add colors you might use ofter to the favorites or go back in time up to one hundred of colors you have already picked.
-            </p>
+            <a href="#favorites" class="features__link">
+              <h3>Favorites &amp; History</h3>
+              <p>Add colors you might use ofter to the favorites or go back in time up to one hundred of colors you have already picked.
+              </p>
 
-            <svg class="playButton features__play" data-video="video-favorites" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              {% include playButton.html %}
-            </svg>
-
+              <svg class="playButton features__play" data-video="video-favorites" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+            </a>
           </li>
 
           <li class="features__item" id="feature-filter">
-            <h3>Quick formats filter</h3>
-            <p>
-              Start typing first letters to quickly search through the more than 30 clipboard formats.
-            </p>
+            <a href="#filter" class="features__link">
+              <h3>Quick formats filter</h3>
+              <p>
+                Start typing first letters to quickly search through the more than 30 clipboard formats.
+              </p>
 
-            <svg class="playButton features__play" data-video="video-filter" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              {% include playButton.html %}
-            </svg>
-
+              <svg class="playButton features__play" data-video="video-filter" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+            </a>
           </li>
 
           <li class="features__item" id="feature-colorPanel">
-            <h3>Modify colors</h3>
-            <p>
-              ColorSnapper2 seamlessly integrates with the Apple’s Color Panel so you can adjust colors before you export them.
-            </p>
+            <a href="#colorPanel" class="features__link">
+              <h3>Modify colors</h3>
+              <p>
+                ColorSnapper2 seamlessly integrates with the Apple’s Color Panel so you can adjust colors before you export them.
+              </p>
 
-            <svg class="playButton features__play" data-video="video-colorPanel" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
-              {% include playButton.html %}
-            </svg>
-
+              <svg class="playButton features__play" data-video="video-colorPanel" width="50" height="50" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+            </a>
           </li>
         </ul>
 
@@ -165,7 +173,7 @@ layout: home
 
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
-          <img src="img/overlay-default_light.png" alt=""  width="600" height="600" class="tour__img active"/>
+          <img src="img/overlay-default_light.png" alt=""  width="600" height="600" class="tour__img is-active"/>
 
           <video width="600" height="600" id="video-favorites" loop preload="none" poster="img/overlay-favorites_light.png" class="tour__video">
             <source src="img/CS2-overlay-favorites@2x.mp4" type="video/mp4" />

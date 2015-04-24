@@ -4,22 +4,20 @@ const CIRCLE_LENGTH = Math.PI * 45 * 2;
 const forEach = Array.prototype.forEach;
 let currentlyPlayingVideo;
 
-let onMouseEnter = (event, el, videoEl) => {
-    //console.log("Playing...");
-    videoEl.classList.add("active");
-    //typeof videoEl.play === "function" && videoEl.play();
+let onMouseEnter = (event, el, video) => {
+    el.classList.add("is-hovered");
+    video.classList.add("is-hovered");
+    typeof video !== "undefined" && video.wasPlayed && video.play();
 };
 
-let onMouseLeave = (event, el, videoEl) => {
-    //console.log("Pausing...");
-    videoEl.classList.remove("active");
-    stopVideoPlayback(currentlyPlayingVideo);
-    //typeof videoEl.pause === "function" && videoEl.pause();
-    //videoEl.currentTime = 0; // Always go to the beginning
+let onMouseLeave = (event, el, video) => {
+    el.classList.remove("is-hovered");
+    video.classList.remove("is-hovered");
+    pauseVideoPlayback(currentlyPlayingVideo);
 };
 
-let onTimeUpdate = (event, el, videoEl) => {
-    var playedPercent = (videoEl.currentTime / videoEl.duration) * 100;
+let onTimeUpdate = (event, el, video) => {
+    var playedPercent = (video.currentTime / video.duration) * 100;
     var progressEl = el.querySelector('.js-progress');
     if (progressEl) {
         progressEl.style.width = playedPercent + "%";
@@ -28,42 +26,50 @@ let onTimeUpdate = (event, el, videoEl) => {
 
 let initTourForContainer = (id) => {
     var container = document.getElementById(id);
-
     if (!container) return;
+    var links = container.querySelectorAll('.features__link');
 
-    var items = container.querySelectorAll('.features__item');
-
-    forEach.call(items, item => {
-        if (!item.id) {
+    forEach.call(links, link => {
+        if (!link.href) {
             return;
         }
 
-        var name = item.id.split('-')[1];
-        var video = document.getElementById('video-' + name);
+        const videoID = link.href.replace(/(.+)(#)(.+)/, '$3');
+        const video = document.getElementById('video-' + videoID);
 
-        video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, item, video));
-        item.addEventListener('mouseenter', onMouseEnter.bind(this, event, item, video));
-        item.addEventListener('mouseleave', onMouseLeave.bind(this, event, item, video));
+        video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, link, video));
+        link.addEventListener('mouseenter', onMouseEnter.bind(this, event, link, video));
+        link.addEventListener('mouseleave', onMouseLeave.bind(this, event, link, video));
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            toggleVideoPlayback(video);
+        });
     });
 };
 
 function initVideoProgressInContainer(id) {
-    var container = document.getElementById(id);
-
+    const container = document.getElementById(id);
     if (!container) return;
-
-    var video = container.querySelector('video');
-
+    const video = container.querySelector('video');
     video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, container, video));
 };
 
-function stopVideoPlayback(video) {
-    if (typeof video !== "undefined" && !video.paused) {
+function pauseVideoPlayback(video) {
+    if (typeof video !== "undefined") {
         video.pause();
-        video.currentTime = 0;
     }
 };
 
+function toggleVideoPlayback(video) {
+    if (video.paused) {
+        video.wasPlayed = true;
+        video.play();
+    } else {
+        video.wasPlayed = false;
+        video.pause();
+    }
+}
 document.addEventListener("DOMContentLoaded", () => {
     initVideoProgressInContainer('howto');
     initTourForContainer('loupeTour');
@@ -85,18 +91,16 @@ document.addEventListener("DOMContentLoaded", () => {
         const bufferedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_buffer') : null;
         const playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null;
 
-        playButtonEl && playButtonEl.addEventListener('click', () => {
+        playButtonEl && playButtonEl.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
             // Stop currently playing video
             if (video !== currentlyPlayingVideo) {
-                stopVideoPlayback(currentlyPlayingVideo);
+                pauseVideoPlayback(currentlyPlayingVideo);
             }
 
-            if (video.paused) {
-                video.play();
-                currentlyPlayingVideo = video;
-            } else {
-                video.pause();
-            }
+            toggleVideoPlayback(video);
         });
 
         video.addEventListener('progress', event => {
@@ -118,6 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         video.addEventListener('playing', () => {
+            currentlyPlayingVideo = video;
             playButtonEl && playButtonEl.classList.add("playButton_playing");
         });
 

@@ -91,7 +91,13 @@
     transition: opacity .5s, z-index 1ms .5s;
     will-change: opacity;
 
-    &.active {
+    &.is-hovered {
+      z-index: 1;
+      opacity: 1;
+      transition: opacity .5s, z-index 1ms;
+    }
+
+    &.is-active {
       z-index: 1;
       opacity: 1;
       transition: opacity .5s, z-index 1ms;
