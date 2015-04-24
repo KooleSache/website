@@ -56,3 +56,30 @@ $on-laptop:        800px;
     "playButton",
     "features"
 ;
+
+.badge {
+    display: inline-block;
+    padding: 0 .25em;
+    font-family: $base-font-family;
+    font-size: 10px;
+    text-transform: uppercase;
+    border-radius: 2px;
+    background-color: #d7d7d7;
+    border: 1px solid #ccc;
+
+    &_coming-soon {
+        $color: #faa74f;
+        background-color: $color;
+        border-color: darken($color, 10%);
+        color: darken($color, 40%);
+    }
+}
+
+.shortcut {
+    display: inline-block;
+    padding: 0 .5em;
+    font-size: 85%;
+    font-weight: bold;
+    border: 1px solid #999;
+    border-radius: 3px;
+}
