@@ -12,6 +12,8 @@ function onMouseEnter(video) {
         toggleVideoPlayback(currentlyPlayingVideo);
         video.play();
     }
+    // Toggle screenshots on mouse hover
+    video && video.classList.add("is-active");
 }
 
 function onMouseLeave(video) {
@@ -19,6 +21,8 @@ function onMouseLeave(video) {
     if (video && video.played.length) {
         video.wasPlaying = !video.paused;
     }
+    // Toggle screenshots on mouse hover
+    video && video.classList.remove("is-active");
 }
 
 function onTimeUpdate(el, video) {
