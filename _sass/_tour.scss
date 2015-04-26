@@ -12,7 +12,9 @@
   .wrapper {
     position: relative;
     display: flex;
-    @include media-query($on-palm) {
+    overflow: hidden;
+
+    @include media-query($on-laptop) {
       flex-wrap: wrap;
     }
   }
@@ -23,9 +25,6 @@
     font-size: 220%;
     font-weight: 300;
     line-height: 1.3;
-    @include media-query($on-palm) {
-      font-size: 180%;
-    }
   }
 
   &__description {
@@ -53,32 +52,29 @@
   }
 
   &__col {
+    position: relative;
     padding: $spacing-unit / 2 0;
     box-sizing: border-box;
 
     &_features {
-      flex-basis: 36%;
-      @include media-query($on-palm) {
+      flex-basis: 40%;
+      @include media-query($on-laptop) {
         order: 0;
         flex-basis: 100%;
       }
     }
 
     &_video {
-      position: relative;
       flex-shrink: 1;
       flex-grow: 1;
-      @include media-query($on-palm) {
+      @include media-query($on-laptop) {
         order: 1;
       }
     }
 
     &_image {
-      position: relative;
-      left: -40px;
-      @include media-query($on-palm) {
+      @include media-query($on-laptop) {
         order: 1;
-        left: auto;
       }
     }
   }
@@ -87,9 +83,28 @@
     position: absolute;
     display: block;
     overflow: hidden;
-    @include media-query($on-palm) {
+    @include media-query($on-laptop) {
       position: relative;
-      width: 100% !important;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__figure {
+    @include media-query($on-laptop) {
+      order: 1 !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+    }
+
+    &_left {
+      order: 0;
+      margin-right: 40px;
+    }
+
+    &_right {
+      order: 1;
+      margin-left: 40px;
     }
   }
 
@@ -103,12 +118,6 @@
     z-index: -1;
     transition: opacity .5s, z-index 1ms .5s;
     will-change: opacity;
-
-    @include media-query($on-palm) {
-      position: relative;
-      width: 100%;
-      height: auto;
-    }
 
     &.is-active {
       z-index: 1;
@@ -124,8 +133,10 @@
       order: 0;
       position: relative;
       min-height: 540px;
-      @include media-query($on-palm) {
+
+      @include media-query($on-laptop) {
         order: 1;
+        min-height: 0;
       }
     }
 
@@ -136,18 +147,19 @@
     .tour__slide {
       right: 40px;
       border-radius: 10px;
+      width: 500px;
+      height: 500px;
       box-shadow: 0 3px 8px rgba(#000, .125);
 
+      @include media-query($on-laptop) {
+        right: auto;
+      }
     }
+
     .tour__video,
     .tour__img {
       mask-image: url("../_images/clip.svg");
     }
-  }
-
-  &_loupe &__col_video &__slide {
-    width: 500px;
-    height: 500px;
   }
 
 

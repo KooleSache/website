@@ -9,7 +9,7 @@ $features-separator-color: #e3e3e4;
     display: flex;
     margin: 20px 0;
 
-    @include media-query($on-palm) {
+    @include media-query($on-laptop) {
       flex-wrap: wrap;
     }
   }
@@ -32,11 +32,11 @@ $features-separator-color: #e3e3e4;
     }
 
     &_col {
-      flex: 0 0 33.33%;
+      flex: 0 0 33%;
       margin: 0 10px;
       box-sizing: border-box;
 
-      @include media-query($on-palm) {
+      @include media-query($on-laptop) {
         flex: 1 0 100%;
         margin-left: 0;
         margin-right: 0;

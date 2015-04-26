@@ -69,13 +69,16 @@ layout: home
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">New Magnifing Glass</h2>
         <p class="tour__description">
-          The original ColorSnapper magnifiying glass, introduced in 2010 and adopted by every modern color picker app since then, just got reinvented!
+          The original ColorSnapper magnifiying glass, introduced in 2010 and adopted by every modern color picker app since then, just got even better!
+        </p>
+        <p class="tour__description">
+          Use it with multiple monitors, different resolutions and with different pixel density or switch between Spaces and Applications having the loupe on the screen.
         </p>
         <ul class="features">
           <li class="features__item features__item_video" id="feature-precision">
             <a href="#precision" class="features__link">
               <h3>
-                Hi-Precision Mode
+                Introducing Hi-Precision Mode
                 <svg
                     class="playButton features__play"
                     data-video="precision"
@@ -93,7 +96,7 @@ layout: home
           <li class="features__item features__item_video" id="feature-gestures">
             <a href="#gestures" class="features__link">
               <h3>
-                Control using gestures &amp; keyboard
+                More control with gestures &amp; keyboard shortcuts
                 <svg
                     class="playButton features__play"
                     data-video="gestures"
@@ -144,19 +147,6 @@ layout: home
 
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">Organize, adjust &amp; export colors with style</h2>
-        <p class="tour__description">
-          ColorSnapper 2 designed for OS X Yosemite and support both light and dark themes.
-          <div class="switch" id="switch-theme">
-            <span class="switch__item">
-              <input type="radio" name="theme" id="light" checked="checked" value="light">
-              <label for="light">Light theme</label>
-            </span>
-            <span class="switch__item">
-              <input type="radio" name="theme" id="dark" value="dark">
-              <label for="dark">Dark theme</label>
-            </span>
-          </div>
-        </p>
         <ul class="features">
           <li class="features__item" id="feature-favorites">
             <a href="#favorites" class="features__link">
@@ -222,6 +212,20 @@ layout: home
           </li>
         </ul>
 
+        <p class="tour__description">
+          ColorSnapper 2 designed for OS X Yosemite and supports both light and dark themes.
+        <div class="switch" id="switch-theme">
+            <span class="switch__item">
+              <input type="radio" name="theme" id="light" checked="checked" value="light">
+              <label for="light">Light</label>
+            </span>
+            <span class="switch__item">
+              <input type="radio" name="theme" id="dark" value="dark">
+              <label for="dark">Dark</label>
+            </span>
+        </div>
+        </p>
+
       </div>
 
       <div class="tour__col tour__col_video">
@@ -267,8 +271,12 @@ layout: home
   <section class="tour tour_codestyle tour_alt" id="codeStyle">
     <div class="wrapper">
 
-      <figure class="tour__col tour__col_image">
-        <img src="img/fig_codeStyle@2x.png" alt="Preferences: Code Style" class="tour__image" width="578" />
+      <figure class="tour__col tour__col_image tour__figure tour__figure_left">
+        <img
+            class="tour__image"
+            src="img/fig_codeStyle@2x.png"
+            alt="Preferences: Code Style"
+            width="578" />
       </figure>
 
       <div class="tour__col tour__col_features">
@@ -313,7 +321,29 @@ layout: home
     </div>
   </section>
 
-  <section class="tour tour_more" id="more">
+  <section class="tour tour_colors">
+    <div class="wrapper">
+      <figure class="tour__col tour__col_image tour__figure tour__figure_right">
+        <img
+            class="tour__image"
+            src="img/fig_colors@2x.png"
+            alt="Accurate colors in Xcode"
+            width="628" />
+      </figure>
+
+      <div class="tour__col tour__col_features">
+        <h2 class="tour__heading">Accurate color values.</h2>
+        <p class="tour__description">
+          The new color picker automatically converts colors picked from native OS X applications including Safari and Xcode from your monitor color profile to sRGB. This means, you’ll get the same RGB values as you used in your code<sup>*</sup>.
+        </p>
+        <p class="tour__description footnote">
+          <sup>*</sup> There is no conversion errors when picking colors from non-native applications or applications not using Cocoa framework.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="tour tour_alt tour_more" id="more">
     <div class="wrapper">
       <h2 class="tour__heading">Other Features</h2>
     </div>
@@ -322,33 +352,18 @@ layout: home
       <ul class="features features_multicol">
         <li class="features__item features__item_col">
           <h3>Export to Photoshop<sup>&reg;</sup> &amp; Illustrator<sup>&reg;</sup></h3>
-          <p>Control foreground or background colors in your favorite Adobe<sup>&reg;</sup> designer tool directly from ColorSnapper.</p>
-        </li>
-
-        <li class="features__item features__item_col">
-          <h3>Color profiles conversion</h3>
-          <p>ColorSnapper 2 automatically converts colors from the monitor color profile to sRGB. This allows getting the same color value as you authored, no matter what Color Management setting you’re using.</p>
+          <p>Control foreground or background colors in your favorite Adobe<sup>&reg;</sup> designer tool directly from ColorSnapper. No settings, no hassle: it just works!</p>
+          <p class="footnote">Adobe Photoshop and Adobe Illustrator are registered trademakrs of the Adobe Corp.</p>
         </li>
 
         <li class="features__item features__item_col">
           <h3>Capture screenshots</h3>
-          <p>The new loupe can be used as a review tool. Press <span class="shortcut">P</span> to capture the zoomed in image into clipboard.</p>
-        </li>
-
-      </ul>
-    </div>
-
-    <div class="wrapper">
-      <ul class="features features_multicol">
-        <li class="features__item features__item_col">
-          <h3>Multi-monitor support</h3>
-          <p>The new loupe works perfectly on different monitors, different resolutions and with different pixel density allowing access to real physical pixel on every of your screen. You can also switch betwenn Spaces and Applications having the loupe on the screen.</p>
+          <p>The new loupe can be used as a review tool. Press <span class="shortcut">P</span> to copy the zoomed image into clipboard.</p>
         </li>
 
         <li class="features__item features__item_col">
           <h3>Developers API <sup class="badge badge_coming-soon">Soon</sup></h3>
-          <p>Coming soon...</p>
-          <!--<abbr title="Command Line Interface">CLI</abbr>-->
+          <p>Having access to the magnifying glass using <abbr title="Command Line Interface">CLI</abbr> allows developers to write plugins for popular code editor or graphic software.</p>
         </li>
 
       </ul>

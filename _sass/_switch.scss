@@ -4,9 +4,13 @@ $switch-border-radius: 5px;
   user-select: none;
 
   &__item {
-    display: inline-block;
+    flex: 0 0 100px;
     margin: 0;
     padding: 0;
+
+    @include media-query($on-laptop) {
+      flex-grow: 1;
+    }
 
     &:first-child {
       label {
@@ -23,9 +27,10 @@ $switch-border-radius: 5px;
   }
 
   label {
-    display: inline-block;
-    padding: $switch-border-radius $switch-border-radius*2;
+    display: block;
+    padding: $switch-border-radius*1.5 $switch-border-radius*2;
     margin: 0;
+    text-align: center;
     color: $brand-color;
     font-weight: normal;
     font-size: 13px;
