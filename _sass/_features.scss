@@ -67,26 +67,23 @@ $features-separator-color: #e3e3e4;
     text-decoration: none !important;
 
     h3 {
+      padding-left: 25px;
       display: inline;
-      //border-bottom: 1px dashed rgba($nav-color, .125);
     }
 
+    &.is-active,
     &:hover {
       color: $text-color !important;
-      h3 {
-        border-bottom: none;
-      }
-      //background: linear-gradient(90deg, #edeff2, rgba(#fff,0));
     }
   }
 
   &__play {
-    display: inline-block;
-    margin-left: 5px;
-    margin-bottom: 1px;
-    vertical-align: bottom;
-    width: 34px;
-    height: 34px;
+    position: absolute;
+    top: .6em;
+    left: -5px;
+    display: block;
+    width: 28px;
+    height: 28px;
   }
 
 }
