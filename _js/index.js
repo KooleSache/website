@@ -2,29 +2,34 @@ require('../_sass/main.scss');
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2;
 const forEach = Array.prototype.forEach;
-let currentlyPlayingVideo;
+let currentlyPlayingVideo = null;
 
-let onMouseEnter = (event, el, video) => {
-    el.classList.add("is-hovered");
-    video.classList.add("is-hovered");
-    typeof video !== "undefined" && video.wasPlayed && video.play();
-};
+function onMouseEnter(video) {
+    // Resume the video marked for that on hover
+    if (video &&
+        currentlyPlayingVideo !== video &&
+        video.wasPlaying) {
+        toggleVideoPlayback(currentlyPlayingVideo);
+        video.play();
+    }
+}
 
-let onMouseLeave = (event, el, video) => {
-    el.classList.remove("is-hovered");
-    video.classList.remove("is-hovered");
-    pauseVideoPlayback(currentlyPlayingVideo);
-};
+function onMouseLeave(video) {
+    // If the video is playing now we mark it to resume next time we hover it
+    if (video && video.played.length) {
+        video.wasPlaying = !video.paused;
+    }
+}
 
-let onTimeUpdate = (event, el, video) => {
+function onTimeUpdate(el, video) {
     var playedPercent = (video.currentTime / video.duration) * 100;
     var progressEl = el.querySelector('.js-progress');
     if (progressEl) {
         progressEl.style.width = playedPercent + "%";
     }
-};
+}
 
-let initTourForContainer = (id) => {
+function initTourForContainer(id) {
     var container = document.getElementById(id);
     if (!container) return;
     var links = container.querySelectorAll('.features__link');
@@ -35,44 +40,44 @@ let initTourForContainer = (id) => {
         }
 
         const videoID = link.href.replace(/(.+)(#)(.+)/, '$3');
-        const video = document.getElementById('video-' + videoID);
+        const video = document.getElementById(videoID);
 
-        video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, link, video));
-        link.addEventListener('mouseenter', onMouseEnter.bind(this, event, link, video));
-        link.addEventListener('mouseleave', onMouseLeave.bind(this, event, link, video));
+        video.addEventListener('timeupdate', onTimeUpdate.bind(this, link, video));
+        link.addEventListener('mouseenter', onMouseEnter.bind(this, video));
+        link.addEventListener('mouseleave', onMouseLeave.bind(this, video));
         link.addEventListener('click', event => {
             event.preventDefault();
             event.stopPropagation();
+            if (currentlyPlayingVideo && video !== currentlyPlayingVideo) {
+                toggleVideoPlayback(currentlyPlayingVideo);
+            }
             toggleVideoPlayback(video);
         });
     });
-};
+}
 
 function initVideoProgressInContainer(id) {
     const container = document.getElementById(id);
     if (!container) return;
     const video = container.querySelector('video');
-    video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, container, video));
-};
+    video.addEventListener('timeupdate', onTimeUpdate.bind(this, container, video));
+}
 
 function pauseVideoPlayback(video) {
-    if (typeof video !== "undefined") {
-        video.pause();
-    }
-};
+    video && video.pause();
+}
 
-function toggleVideoPlayback(video, playButtonEl) {
-    if (video.paused) {
-        const id = video.id.replace('video-', '');
-        const playButtonEl = document.querySelector(`a[href="#${id}"] .playButton`)
-        if (playButtonEl) {
-            playButtonEl.classList.add("playButton_loading");
+function toggleVideoPlayback(video) {
+    if (video) {
+        if (video.paused) {
+            const playButtonEl = document.querySelector(`a[href="#${video.id}"] .playButton`)
+            if (playButtonEl) {
+                playButtonEl.classList.add("playButton_loading");
+            }
+            video.play();
+        } else {
+            video.pause();
         }
-        video.wasPlayed = true;
-        video.play();
-    } else {
-        video.wasPlayed = false;
-        video.pause();
     }
 }
 document.addEventListener("DOMContentLoaded", () => {
@@ -83,13 +88,24 @@ document.addEventListener("DOMContentLoaded", () => {
     forEach.call(document.querySelectorAll("#switch-theme input"), item => {
         item.addEventListener("change", event => {
             const themeName = event.target.value;
+
             forEach.call(document.querySelectorAll("#overlayTour .tour__img"), img => {
                 img.src = img.src.replace(/(dark|light)/, themeName);
             });
-             forEach.call(document.querySelectorAll("#overlayTour .tour__video"), video => {
-                video.poster = video.poster.replace(/(dark|light)/, themeName);
-                video.src = video.src.replace(/(dark|light)/, themeName);
-                video.wasPlayed = false;
+
+            forEach.call(document.querySelectorAll("#overlayTour .tour__video"), video => {
+                // Stop all videos
+                video.pause();
+                video.wasPlaying = false;
+                window.setTimeout(() => {
+                    // For some reason events won't fire if this code is sync
+                    video.currentTime = 0;
+                    window.setTimeout(() => {
+                        // For some reason events won't fire if this code is sync
+                        video.poster = video.poster.replace(/(dark|light)/, themeName);
+                        video.src = video.src.replace(/(dark|light)/, themeName);
+                    }, 100);
+                }, 100);
             });
         });
     });
@@ -97,6 +113,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Videos pre-loading indication
     forEach.call(document.querySelectorAll("video"), video => {
         const id = video.id;
+        const linkToVideoEl = document.querySelector(`a[href="#${id}"]`);
         const playButtonEl = document.querySelector(`.playButton[data-video=${id}]`);
         const bufferedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_buffer') : null;
         const playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null;
@@ -133,15 +150,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         video.addEventListener('playing', () => {
             currentlyPlayingVideo = video;
+            video.classList.add("is-active");
+            linkToVideoEl && linkToVideoEl.classList.add("is-active");
             playButtonEl && playButtonEl.classList.remove("playButton_loading");
             playButtonEl && playButtonEl.classList.add("playButton_playing");
         });
 
-        video.addEventListener('ended', () => {
-            playButtonEl && playButtonEl.classList.remove("playButton_playing");
-        });
-
         video.addEventListener('pause', () => {
+            if (currentlyPlayingVideo === video) {
+                currentlyPlayingVideo = null;
+            }
+            video.classList.remove("is-active");
+            linkToVideoEl && linkToVideoEl.classList.remove("is-active");
             playButtonEl && playButtonEl.classList.remove("playButton_playing");
         });
 
