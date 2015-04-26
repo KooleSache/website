@@ -130,22 +130,25 @@ document.addEventListener("DOMContentLoaded", () => {
             toggleVideoPlayback(video, playButtonEl);
         });
 
-        video.addEventListener('progress', event => {
-            const videoEl = event.target;
-            if (videoEl.buffered && videoEl.buffered.length) {
-                const amount = videoEl.buffered.end(0) / videoEl.duration
+        function renderProgress(video) {
+            if (video.buffered && video.buffered.length) {
+                const buffered = video.buffered.end(0) / video.duration
                 if (bufferedProgressEl) {
-                    bufferedProgressEl.style.strokeDashoffset = CIRCLE_LENGTH * (1 - amount);
+                    bufferedProgressEl.style.strokeDashoffset = CIRCLE_LENGTH * (1 - buffered);
                 }
             }
+            const played = video.currentTime / video.duration;
+            if (playedProgressEl) {
+                playedProgressEl.style.strokeDashoffset = CIRCLE_LENGTH * (1 - played);
+            }
+        }
+
+        video.addEventListener('progress', event => {
+            renderProgress(event.target);
         });
 
         video.addEventListener('timeupdate', event => {
-            const videoEl = event.target;
-            const amount = (videoEl.currentTime / videoEl.duration);
-            if (playedProgressEl) {
-                playedProgressEl.style.strokeDashoffset = CIRCLE_LENGTH * (1 - amount);
-            }
+            renderProgress(event.target);
         });
 
         video.addEventListener('playing', () => {
