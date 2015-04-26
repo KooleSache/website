@@ -12,6 +12,9 @@
   .wrapper {
     position: relative;
     display: flex;
+    @include media-query($on-palm) {
+      flex-wrap: wrap;
+    }
   }
 
   &__heading {
@@ -55,28 +58,39 @@
 
     &_features {
       flex-basis: 36%;
+      @include media-query($on-palm) {
+        order: 0;
+        flex-basis: 100%;
+      }
     }
 
     &_video {
       position: relative;
       flex-shrink: 1;
       flex-grow: 1;
+      @include media-query($on-palm) {
+        order: 1;
+      }
     }
 
     &_image {
       position: relative;
       left: -40px;
+      @include media-query($on-palm) {
+        order: 1;
+        left: auto;
+      }
     }
-  }
-
-  &__image {
-    //border: 1px solid #000;
   }
 
   &__slide {
     position: absolute;
     display: block;
     overflow: hidden;
+    @include media-query($on-palm) {
+      position: relative;
+      width: 100% !important;
+    }
   }
 
   &__video,
@@ -90,10 +104,10 @@
     transition: opacity .5s, z-index 1ms .5s;
     will-change: opacity;
 
-    &.is-hovered {
-      z-index: 1;
-      opacity: 1;
-      transition: opacity .5s, z-index 1ms;
+    @include media-query($on-palm) {
+      position: relative;
+      width: 100%;
+      height: auto;
     }
 
     &.is-active {
@@ -109,8 +123,10 @@
     .tour__col_video {
       order: 0;
       position: relative;
-      //top: -50px;
       min-height: 540px;
+      @include media-query($on-palm) {
+        order: 1;
+      }
     }
 
     .tour__col_features {
