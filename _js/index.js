@@ -40,7 +40,7 @@ let initTourForContainer = (id) => {
         video.addEventListener('timeupdate', onTimeUpdate.bind(this, event, link, video));
         link.addEventListener('mouseenter', onMouseEnter.bind(this, event, link, video));
         link.addEventListener('mouseleave', onMouseLeave.bind(this, event, link, video));
-        link.addEventListener('click', (event) => {
+        link.addEventListener('click', event => {
             event.preventDefault();
             event.stopPropagation();
             toggleVideoPlayback(video);
@@ -85,6 +85,11 @@ document.addEventListener("DOMContentLoaded", () => {
             const themeName = event.target.value;
             forEach.call(document.querySelectorAll("#overlayTour .tour__img"), img => {
                 img.src = img.src.replace(/(dark|light)/, themeName);
+            });
+             forEach.call(document.querySelectorAll("#overlayTour .tour__video"), video => {
+                video.poster = video.poster.replace(/(dark|light)/, themeName);
+                video.src = video.src.replace(/(dark|light)/, themeName);
+                video.wasPlayed = false;
             });
         });
     });
