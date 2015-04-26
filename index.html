@@ -62,14 +62,10 @@ layout: home
         <ul class="features">
           <li class="features__item features__item_video" id="feature-precision">
             <a href="#precision" class="features__link">
-
               <h3>Hi-Precision Mode<svg class="playButton features__play" data-video="video-precision" width="40" height="40" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
                 {% include playButton.html %}
               </svg></h3>
               <p>Allows choosing every retina pixel on HiDPI screens, but also works great on non-retina displays by slowing down the movement of the mouse and increasing a magnification level.</p>
-
-
-
             </a>
           </li>
 
@@ -92,12 +88,22 @@ layout: home
         <section class="tour__slide">
           <img src="img/loupe-cover@2x.jpg" alt="Magnifying glass" width="500" height="500" class="tour__img is-active"/>
 
-          <video width="500" height="500" id="video-gestures" class="tour__video" loop>
-            <source src="img/loupe-getures.mp4" type="video/mp4" />
+          <video
+            id="video-gestures"
+            src="img/loupe-getures.mp4"
+            class="tour__video"
+            width="500"
+            height="500"
+            loop>
           </video>
 
-          <video width="500" height="500" id="video-precision" class="tour__video" loop>
-            <source src="img/loupe-precision.mp4" type="video/mp4" />
+          <video
+            id="video-precision"
+            src="img/loupe-precision.mp4"
+            class="tour__video"
+            width="500"
+            height="500"
+            loop>
           </video>
         </section>
       </div>
@@ -128,7 +134,14 @@ layout: home
             <a href="#favorites" class="features__link">
               <h3>
                 Favorites &amp; History
-                <svg class="playButton features__play" data-video="video-favorites" width="40" height="40" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    class="playButton features__play"
+                    data-video="video-favorites"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
                   {% include playButton.html %}
                 </svg>
               </h3>
@@ -142,7 +155,14 @@ layout: home
             <a href="#filter" class="features__link">
               <h3>
                 Quick formats filter
-                <svg class="playButton features__play" data-video="video-filter" width="40" height="40" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    class="playButton features__play"
+                    data-video="video-filter"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
                   {% include playButton.html %}
                 </svg>
               </h3>
@@ -156,7 +176,14 @@ layout: home
             <a href="#colorPanel" class="features__link">
               <h3>
                 Modify colors
-                <svg class="playButton features__play" data-video="video-colorPanel" width="40" height="40" viewBox="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                <svg
+                    class="playButton features__play"
+                    data-video="video-colorPanel"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
                   {% include playButton.html %}
                 </svg>
               </h3>
