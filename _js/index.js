@@ -22,7 +22,9 @@ function onMouseLeave(video) {
         video.wasPlaying = !video.paused;
     }
     // Toggle screenshots on mouse hover
-    video && video.classList.remove("is-active");
+    if (video && video.paused) {
+        video.classList.remove("is-active");
+    }
 }
 
 function onTimeUpdate(el, video) {
