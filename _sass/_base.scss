@@ -21,6 +21,7 @@ body {
     color: $text-color;
     background-color: $background-color;
     -webkit-text-size-adjust: 100%;
+    overflow-x: hidden;
 }
 
 
@@ -41,7 +42,7 @@ ul, ol, dl, figure,
  * Images
  */
 img {
-    max-width: 100%;
+    //max-width: 100%;
     vertical-align: middle;
 }
 

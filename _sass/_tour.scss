@@ -12,7 +12,6 @@
   .wrapper {
     position: relative;
     display: flex;
-    overflow: hidden;
 
     @include media-query($on-laptop) {
       flex-wrap: wrap;
@@ -179,5 +178,10 @@
     width: 600px;
     height: 600px;
     border: none;
+  }
+
+  &_codestyle &__image {
+    position: relative;
+    right: 40px;
   }
 }
