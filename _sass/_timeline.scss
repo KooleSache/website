@@ -1,4 +1,4 @@
-$timelineColor: #2f7ddf;
+$timelineColor: #ccc;
 $timelineEventBorderRadius: 23px;
 
 .timeline {
@@ -9,7 +9,7 @@ $timelineEventBorderRadius: 23px;
     position: absolute;
     top: 0;
     left: 0;
-    border: 1px solid rgba($timelineColor, .25);
+    border: 1px solid rgba($timelineColor, .5);
     border-radius: 3px;
     width: 100%;
     height: 3px;
@@ -33,35 +33,35 @@ $timelineEventBorderRadius: 23px;
     position: absolute;
     margin: 0;
     padding: 5px;
-    padding-right: 10px;
+    //padding-right: 10px;
     font-size: 90%;
-    font-weight: 400;
-    font-style: italic;
-    font-family: $second-font-family;
-    color: darken($timelineColor, 30%);
-    width: 20%;
+    width: 25%;
     box-sizing: border-box;
 
     &:after {
       position: absolute;
       top: -24px;
-      left: 45px;
+      left: 50%;
+      margin-left: -$timelineEventBorderRadius;
       padding: 2px;
       color: $timelineColor;
       text-align: center;
-      //font-weight: 700;
-      font-size: 95%;
+      font-family: $second-font-family;
+      font-size: 85%;
+      font-style: italic;
+      line-height: 1.3;
+      color: #fff;
       width: $timelineEventBorderRadius;
       height: $timelineEventBorderRadius;
-      border-radius: 50%;
-      border: 1px solid rgba($timelineColor, .5);
-      background-color: #fff;
+      border: 2px solid rgba(#fff, 1);
+      border-radius: 5px;
+      background-color: $timelineColor;
       box-sizing: border-box;
     }
 
     @for $i from 0 through 3 {
       &_#{$i} {
-        left: 100% / 4 * $i + 5%;
+        left: 100% / 4 * $i;
 
         &:after {
           content: '#{$i + 1}';
