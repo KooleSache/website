@@ -180,8 +180,13 @@
     border: none;
   }
 
+  &_codestyle &__col_image {
+    width: 578px;
+    height: 504px;
+    margin-right: 20px;
+  }
   &_codestyle &__image {
-    position: relative;
-    right: 40px;
+    position: absolute;
+    right: 0;
   }
 }
