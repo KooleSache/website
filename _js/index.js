@@ -38,27 +38,23 @@ function onTimeUpdate(el, video) {
 function initTourForContainer(id) {
     var container = document.getElementById(id);
     if (!container) return;
-    var links = container.querySelectorAll('.features__link');
+    var links = container.querySelectorAll('.features__item[data-video]');
 
     forEach.call(links, link => {
-        if (!link.href) {
-            return;
+        let videoID = link.getAttribute('data-video');
+        let video = document.getElementById(videoID);
+
+        if (typeof video !== "undefined") {
+            video.addEventListener('timeupdate', onTimeUpdate.bind(this, link, video));
+            link.addEventListener('mouseenter', onMouseEnter.bind(this, video));
+            link.addEventListener('mouseleave', onMouseLeave.bind(this, video));
+            link.addEventListener('click', () => {
+                if (currentlyPlayingVideo && video !== currentlyPlayingVideo) {
+                    toggleVideoPlayback(currentlyPlayingVideo);
+                }
+                toggleVideoPlayback(video);
+            });
         }
-
-        const videoID = link.href.replace(/(.+)(#)(.+)/, '$3');
-        const video = document.getElementById(videoID);
-
-        video.addEventListener('timeupdate', onTimeUpdate.bind(this, link, video));
-        link.addEventListener('mouseenter', onMouseEnter.bind(this, video));
-        link.addEventListener('mouseleave', onMouseLeave.bind(this, video));
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            event.stopPropagation();
-            if (currentlyPlayingVideo && video !== currentlyPlayingVideo) {
-                toggleVideoPlayback(currentlyPlayingVideo);
-            }
-            toggleVideoPlayback(video);
-        });
     });
 }
 
@@ -118,11 +114,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Videos pre-loading indication
     forEach.call(document.querySelectorAll("video"), video => {
-        const id = video.id;
-        const linkToVideoEl = document.querySelector(`a[href="#${id}"]`);
-        const playButtonEl = document.querySelector(`.playButton[data-video=${id}]`);
-        const bufferedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_buffer') : null;
-        const playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null;
+        let id = video.id;
+        let featureEl = document.querySelector(`.features__item[data-video=${id}]`);
+        let playButtonEl = document.querySelector(`.playButton[data-video=${id}]`);
+        let bufferedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_buffer') : null;
+        let playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null;
 
         playButtonEl && playButtonEl.addEventListener('click', (event) => {
             event.preventDefault();
@@ -160,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
         video.addEventListener('playing', () => {
             currentlyPlayingVideo = video;
             video.classList.add("is-active");
-            linkToVideoEl && linkToVideoEl.classList.add("is-active");
+            featureEl && featureEl.classList.add("is-active");
             playButtonEl && playButtonEl.classList.remove("playButton_loading");
             playButtonEl && playButtonEl.classList.add("playButton_playing");
         });
@@ -170,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 currentlyPlayingVideo = null;
             }
             video.classList.remove("is-active");
-            linkToVideoEl && linkToVideoEl.classList.remove("is-active");
+            featureEl && featureEl.classList.remove("is-active");
             playButtonEl && playButtonEl.classList.remove("playButton_playing");
         });
 

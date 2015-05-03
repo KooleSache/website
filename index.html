@@ -73,41 +73,38 @@ layout: home
           Use it with multiple monitors, different resolutions and with different pixel density or switch between Spaces and Applications having the magnifying glass on the screen.
         </p>
         <ul class="features">
-          <li class="features__item features__item_video" id="feature-precision">
-            <a href="#precision" class="features__link">
-              <h3>
-                Introducing Hi-Precision Mode
-                <svg
-                    class="playButton features__play"
-                    data-video="precision"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 100 100"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
+          <li class="features__item features__item_video" data-video="precision">
+            <h3>
+              <svg
+                  class="playButton features__play"
+                  data-video="precision"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 100 100"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg">
                 {% include playButton.html %}
-              </svg></h3>
-              <p>Allows you to choose every physical pixel on a HiDPI screen, but also works great on non-retina displays by slowing down mouse movement and increasing the magnification level.</p>
-            </a>
+              </svg>
+              Introducing Hi-Precision Mode
+            </h3>
+            <p>Allows you to choose every physical pixel on a HiDPI screen, but also works great on non-retina displays by slowing down mouse movement and increasing the magnification level.</p>
           </li>
 
-          <li class="features__item features__item_video" id="feature-gestures">
-            <a href="#gestures" class="features__link">
-              <h3>
-                More control with gestures &amp; keyboard shortcuts
-                <svg
-                    class="playButton features__play"
-                    data-video="gestures"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 100 100"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                  {% include playButton.html %}
-                </svg>
-              </h3>
-              <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
-            </a>
+          <li class="features__item features__item_video" data-video="gestures">
+            <h3>
+              <svg
+                  class="playButton features__play"
+                  data-video="gestures"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 100 100"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+              Control with gestures &amp; keyboard
+            </h3>
+            <p>Zoom, change diameter, switch through formats or move pixel by pixel. You have total and granular control.</p>
           </li>
         </ul>
 
@@ -163,67 +160,61 @@ layout: home
         </p>
 
         <ul class="features">
-          <li class="features__item" id="feature-favorites">
-            <a href="#favorites" class="features__link">
-              <h3>
-                Favorites &amp; History
-                <svg
-                    class="playButton features__play"
-                    data-video="favorites"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 100 100"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                  {% include playButton.html %}
-                </svg>
-              </h3>
-              <p>
-                Add colors you regularly pick to the favorites or go back in time up to one hundred colors.
-              </p>
-            </a>
+          <li class="features__item" data-video="favorites">
+            <h3>
+              <svg
+                  class="playButton features__play"
+                  data-video="favorites"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 100 100"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+              Favorites &amp; History
+            </h3>
+            <p>
+              Add colors you regularly pick to the favorites or go back in time up to one hundred colors.
+            </p>
           </li>
 
-          <li class="features__item" id="feature-filter">
-            <a href="#filter" class="features__link">
-              <h3>
-                Quick formats filter
-                <svg
-                    class="playButton features__play"
-                    data-video="filter"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 100 100"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                  {% include playButton.html %}
-                </svg>
-              </h3>
-              <p>
-                Start typing first letters to quickly search through more than 30 export formats.
-              </p>
-            </a>
+          <li class="features__item" data-video="filter">
+            <h3>
+              <svg
+                  class="playButton features__play"
+                  data-video="filter"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 100 100"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+              Quick formats filter
+            </h3>
+            <p>
+              Start typing first letters to quickly search through more than 30 export formats.
+            </p>
           </li>
 
-          <li class="features__item" id="feature-colorPanel">
-            <a href="#colorPanel" class="features__link">
-              <h3>
-                Modify colors
-                <svg
-                    class="playButton features__play"
-                    data-video="colorPanel"
-                    width="40"
-                    height="40"
-                    viewBox="0 0 100 100"
-                    version="1.1"
-                    xmlns="http://www.w3.org/2000/svg">
-                  {% include playButton.html %}
-                </svg>
-              </h3>
-              <p>
-                The new user interface seamlessly integrates with the Apple’s Color Panel so you can adjust colors before you export them.
-              </p>
-            </a>
+          <li class="features__item" data-video="colorPanel">
+            <h3>
+              <svg
+                  class="playButton features__play"
+                  data-video="colorPanel"
+                  width="40"
+                  height="40"
+                  viewBox="0 0 100 100"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg">
+                {% include playButton.html %}
+              </svg>
+              Modify colors
+            </h3>
+            <p>
+              The new user interface seamlessly integrates with the Apple’s Color Panel so you can adjust colors before you export them.
+            </p>
           </li>
         </ul>
 

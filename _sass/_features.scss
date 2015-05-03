@@ -15,19 +15,21 @@
 
   &__item {
     position: relative;
-    display: inline-block;
+    margin-bottom: 1em;
+
+    &[data-video] {
+      color: lighten($text-color, 35%);
+      cursor: pointer;
+    }
+
+    &[data-video]:hover {
+      color: #000;
+    }
 
     h3 {
       font-weight: 500;
       font-size: 130%;
-    }
-
-    P {
-      margin-top: .5em;
-    }
-
-    p:last-of-type {
-      margin-bottom: 0;
+      margin-bottom: .5em;
     }
 
     &_col {
@@ -57,30 +59,9 @@
     }
   }
 
-  &__link {
-    display: inline-block;
-    margin: 0 -10px;
-    padding: 10px;
-    border-radius: 4px;
-    color: lighten($text-color, 20%) !important;
-    text-decoration: none !important;
-
-    h3 {
-      padding-left: 25px;
-      display: inline;
-    }
-
-    &.is-active,
-    &:hover {
-      color: $text-color !important;
-    }
-  }
-
   &__play {
-    position: absolute;
-    top: .5em;
-    left: -5px;
-    display: block;
+    display: inline-block;
+    vertical-align: bottom;
     width: 28px;
     height: 28px;
   }
