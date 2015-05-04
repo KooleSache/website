@@ -116,6 +116,7 @@
     opacity: 0;
     z-index: -1;
     transition: opacity .5s, z-index 1ms .5s;
+    transform: translateZ(0); // Fixes flickering in Safari
     will-change: opacity;
 
     &.is-active {
