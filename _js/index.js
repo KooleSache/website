@@ -72,7 +72,7 @@ function pauseVideoPlayback(video) {
 function toggleVideoPlayback(video) {
     if (video) {
         if (video.paused) {
-            const playButtonEl = document.querySelector(`a[href="#${video.id}"] .playButton`)
+            const playButtonEl = document.querySelector(`.features__item[data-video=${video.id}] .playButton`)
             if (playButtonEl) {
                 playButtonEl.classList.add("playButton_loading");
             }
