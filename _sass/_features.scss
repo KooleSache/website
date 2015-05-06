@@ -6,6 +6,9 @@
 
   &_multicol {
     display: flex;
+    flex-basis: 100%;
+    flex-shrink: 0;
+    //min-width: 100%;
     margin: 20px 0;
 
     @include media-query($on-laptop) {

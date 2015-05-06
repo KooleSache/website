@@ -10,7 +10,8 @@
     "clean": "rm -rf assets/ _site/",
     "deploy": "surge _site",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deps": "npm outdated --depth=0"
+    "deps": "npm outdated --depth=0",
+    "production": "npm run clean && npm run build && npm run deploy"
   },
   "author": "Andrey Okonetchnikov",
   "license": "MIT",

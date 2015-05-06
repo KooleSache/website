@@ -11,8 +11,6 @@ layout: home
 
 <section class="home">
 
-  <div id="test"></div>
-
   <header>
     <div class="wrapper home__intro">
 
@@ -63,7 +61,7 @@ layout: home
   </section>
 
   <section class="tour tour_alt tour_loupe" id="loupeTour">
-    <div class="wrapper">
+    <div class="wrapper tour__2cols">
 
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">New Magnifying Glass</h2>
@@ -142,7 +140,7 @@ layout: home
   </section>
 
   <section class="tour tour_overlay" id="overlayTour">
-    <div class="wrapper">
+    <div class="wrapper tour__2cols">
 
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">Organize, adjust &amp; export colors with style</h2>
@@ -263,7 +261,7 @@ layout: home
   </section>
 
   <section class="tour tour_codestyle tour_alt" id="codeStyle">
-    <div class="wrapper">
+    <div class="wrapper tour__2cols">
 
       <figure class="tour__col tour__col_image tour__figure tour__figure_left">
         <img
@@ -276,50 +274,25 @@ layout: home
       <div class="tour__col tour__col_features">
         <h2 class="tour__heading">Match your coding style</h2>
         <p class="tour__description">
-          ColorSnapper 2 allows you to match the color export format to your coding style. Along with all new suported formats, including:
-        </p>
-        <ul class="formats">
-          <li class="formats__item formats__item_generic">
-            Generic,
-          </li>
-          <li class="formats__item formats__item_css">
-            CSS,
-          </li>
-          <li class="formats__item formats__item_osx">
-            NSColor,
-          </li>
-          <li class="formats__item formats__item_ios">
-            UIColor,
-          </li>
-          <li class="formats__item formats__item_swift">
-            Swift,
-          </li>
-          <li class="formats__item formats__item_android">
-            Android,
-          </li>
-          <li class="formats__item formats__item_java">
-            Java,
-          </li>
-          <li class="formats__item formats__item_net">
-            .NET,
-          </li>
-          <li class="formats__item formats__item_cg">
-            CGColor
-          </li>
-          and
-          <li class="formats__item formats__item_opengl">
-            OpenGL.
-          </li>
-        </ul>
-        <p class="tour__description">
-          This results in even faster developer workflow.
+          ColorSnapper 2 allows you to match the color export format to your coding style.
+          Along with all new suported formats, including:
+          <span class="format format_generic">Generic</span>,
+          <span class="format format_css">CSS</span>,
+          <span class="format format_osx">NSColor</span>,
+          <span class="format format_ios">UIColor</span>,
+          <span class="format format_swift">Swift</span>,
+          <span class="format format_android">Android</span>,
+          <span class="format format_java">Java</span>,
+          <span class="format format_net">.NET</span>,
+          <span class="format format_cg">CGColor</span> and
+          <span class="format format_opengl">OpenGL</span> this results in even faster developer workflow.
         </p>
       </div>
     </div>
   </section>
 
   <section class="tour tour_colors">
-    <div class="wrapper">
+    <div class="wrapper tour__2cols">
       <figure class="tour__col tour__col_image tour__figure tour__figure_right">
         <img
             class="tour__image"
@@ -344,20 +317,20 @@ layout: home
   </section>
 
   <section class="tour tour_alt tour_more" id="more">
-    <div class="wrapper">
-      <h2 class="tour__heading">Other Features</h2>
+    <div class="wrapper tour__1col">
+      <h2 class="tour__heading">And even more&hellip;</h2>
     </div>
 
     <div class="wrapper">
       <ul class="features features_multicol">
         <li class="features__item features__item_col">
-          <h3>Export to Photoshop<sup>&reg;</sup> &amp; Illustrator<sup>&reg;</sup></h3>
-          <p>Control foreground and background colors in your favorite Adobe<sup>&reg;</sup> designer tool directly from ColorSnapper. No settings, no hassle: it just works!</p>
-          <p class="footnote">Adobe Photoshop and Adobe Illustrator are registered trademarks of Adobe Corp.</p>
+          <h3><span class="format format_photoshop">Photoshop</span> &amp; <span
+              class="format format_illustrator">Illustrator</span> Integration</h3>
+          <p>Control foreground and background colors directly from ColorSnapper in your favorite designer tools. No settings: it just works!</p>
         </li>
 
         <li class="features__item features__item_col">
-          <h3>Capture screenshots</h3>
+          <h3>Capture Screenshots</h3>
           <p>The new magnifying glass can be used as a review tool. Press <span class="shortcut">P</span> to copy the zoomed image into clipboard.</p>
         </li>
 
@@ -365,8 +338,9 @@ layout: home
           <h3>ColorSnapper API <sup class="badge badge_coming-soon">Soon</sup></h3>
           <p>Having command-line access to the magnifying glass allows developers to write plugins for popular code editors or integrate with graphic software.</p>
         </li>
-
       </ul>
+
+      <p class="footnote">Adobe Photoshop and Adobe Illustrator are registered trademarks of Adobe Corp.</p>
     </div>
   </section>
 
