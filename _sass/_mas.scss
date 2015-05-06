@@ -4,20 +4,21 @@
 .mas {
   margin: $spacing-unit 0 0;
   text-align: center;
-}
 
-.mas__link,
-.mas__btn {
-  display: inline-block;
-  text-align: center;
-  border-radius: 1em;
-}
 
-.mas__link {
-  padding: .25em .75em;
-  color: $nav-color;
-  background-color: transparent;
-  border: 1px solid rgba($nav-color, .5);
+  &__link,
+  &__btn {
+    display: inline-block;
+    text-align: center;
+    border-radius: 1em;
+  }
+
+  &__link {
+    padding: .25em .75em;
+    color: $nav-color;
+    background-color: transparent;
+    border: 1px solid rgba($nav-color, .5);
+  }
 }
 
 a.mas__btn {
@@ -34,6 +35,10 @@ a.mas__btn {
     width: 23px;
     height: 22px;
     fill: #fff;
+
+    path {
+      fill: #fff;
+    }
   }
 
   &:hover {
