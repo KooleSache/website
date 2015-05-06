@@ -7,3 +7,8 @@
     </nav>
   </div>
 </footer>
+
+{% if site.production %}
+<link rel="stylesheet" href="{{ '/assets/main.' | prepend: site.baseurl | append: site.webpack_hash | append: '.css' }}">
+<script src="{{ '/assets/main.' | prepend: site.baseurl | append: site.webpack_hash | append: '.js' }}"></script>
+{% endif %}

@@ -33,7 +33,10 @@ if (isProduction) {
 }
 
 module.exports = {
-  entry: ["./_js/index.js"],
+  entry: {
+      main: ["./_js/index.js"],
+      critical: ["./_sass/critical.scss"]
+  },
   output: {
     path: path.join(__dirname, "assets"),
     publicPath: "/assets/",
