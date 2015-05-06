@@ -82,6 +82,8 @@
     position: absolute;
     display: block;
     overflow: hidden;
+    transform: translateZ(0); // Fixes flickering in Safari
+
     @include media-query($on-laptop) {
       position: relative;
       margin-left: auto;
@@ -116,8 +118,7 @@
     opacity: 0;
     z-index: -1;
     transition: opacity .5s, z-index 1ms .5s;
-    transform: translateZ(0); // Fixes flickering in Safari
-    will-change: opacity;
+    will-change: opacity, z-index;
 
     &.is-active {
       z-index: 1;
