@@ -96,18 +96,23 @@ document.addEventListener("DOMContentLoaded", () => {
             });
 
             forEach.call(document.querySelectorAll("#overlayTour .tour__video"), video => {
-                // Stop all videos
-                video.pause();
-                video.wasPlaying = false;
-                window.setTimeout(() => {
-                    // For some reason events won't fire if this code is sync
-                    video.currentTime = 0;
+                if (video.paused) {
+                    video.poster = video.poster.replace(/(dark|light)/, themeName);
+                    video.src = video.src.replace(/(dark|light)/, themeName);
+                } else {
+                    // Stop all videos
+                    video.pause();
+                    video.wasPlaying = false;
                     window.setTimeout(() => {
                         // For some reason events won't fire if this code is sync
-                        video.poster = video.poster.replace(/(dark|light)/, themeName);
-                        video.src = video.src.replace(/(dark|light)/, themeName);
+                        video.currentTime = 0;
+                        window.setTimeout(() => {
+                            // For some reason events won't fire if this code is sync
+                            video.poster = video.poster.replace(/(dark|light)/, themeName);
+                            video.src = video.src.replace(/(dark|light)/, themeName);
+                        }, 100);
                     }, 100);
-                }, 100);
+                }
             });
         });
     });
