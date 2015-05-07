@@ -19,37 +19,41 @@
     background-color: transparent;
     border: 1px solid rgba($nav-color, .5);
   }
-}
 
-a.mas__btn {
-  margin: .25em;
-  padding: 1em;
-  color: #fff;
-  font-weight: normal;
-  background-color: $brand-color;
-  border-radius: 2em;
-  width: 220px;
+  &__btn {
+    margin: .25em;
+    padding: 1em;
+    color: #fff;
+    font-weight: normal;
+    background-color: $brand-color;
+    border-radius: 2em;
 
-  svg {
-    margin-right: 5px;
-    width: 23px;
-    height: 22px;
-    fill: #fff;
-
-    path {
+    svg {
+      margin-right: 5px;
+      width: 23px;
+      height: 22px;
       fill: #fff;
+
+      path {
+        fill: #fff;
+      }
+    }
+
+    // &:hover {
+    //   text-decoration: none;
+    //   background-color: darken($brand-color, 10%);
+    // }
+
+    &_soon {
+      background-color: rgba($brand-color, .25);
+      // color: rgba($text-color, .5);
     }
   }
 
-  &:hover {
-    text-decoration: none;
-    background-color: darken($brand-color, 10%);
+  &__req {
+    color: lighten($text-color, 50%);
+    font-size: 85%;
   }
-}
-
-.mas__req {
-  color: lighten($text-color, 50%);
-  font-size: 85%;
 }
 
 //header {
