@@ -1,0 +1,50 @@
+.buy {
+  margin: $spacing-unit 0 0;
+  text-align: center;
+
+  &__btn {
+    display: inline-block;
+    margin: .25em;
+    padding: .75em 1.25em;
+    color: #fff;
+    font-weight: normal;
+    text-align: center;
+    background-color: $brand-color;
+    border-radius: 5px;
+
+    &_mas {
+      padding-left: 40px;
+      background: url('../_images/mas.svg') 12px 10px no-repeat;
+
+      &:hover {
+        background-color: darken($brand-color, 10%);
+      }
+    }
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &_paddle {
+      background-color: #59b200;
+
+      &:hover {
+        background-color: darken(#59b200, 10%);
+      }
+    }
+
+    &_soon {
+      background-color: rgba($brand-color, .25) !important;
+    }
+  }
+
+  &__req {
+    margin-top: .5em;
+    color: lighten($text-color, 50%);
+    font-size: 85%;
+  }
+}
+
+
+
