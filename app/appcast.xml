@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" xmlns:dc="http://purl.org/dc/elements/1.1/">
+    <channel>
+        <title>ColorSnapper2 – Changelog</title>
+        <link>http://ColorSnapper.com/app/appcast.xml</link>
+        <description>Most recent changes with links to updates.</description>
+        <language>en</language>
+        <item>
+            <title>Version 1.0.0.20</title>
+            <sparkle:releaseNotesLink>
+                http://ColorSnapper.com/app/release_notes-1_0_0_20.html
+            </sparkle:releaseNotesLink>
+            <pubDate>2015-05-12 16:16:05 UTC</pubDate>
+            <enclosure sparkle:version="1.0.0.20" length="4696125" url="http://ColorSnapper.com/app/ColorSnapper2-1_0_0_20.zip" type="application/octet-stream"/>
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
+        </item>
+    </channel>
+</rss>
