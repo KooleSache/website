@@ -1,12 +1,21 @@
 # Site settings
-title: ColorSnapper 2
+title: ColorSnapper2
+description: >
+  The Mac OS X color picker app for designers & developers which makes it easy to collect, adjust, organize and export colors of any pixel on the screen.
+keywords: >
+  color picker mac, color picker, colorpicker, color, picker, mac, color value,
+  application, app, osx, apple, pick retina pixel mac, HiDPI pixel,
+  adjust, export, favorite, favourite, manage, retina, HiDPI, precision,
+  gesture, shortcut, css, cocoa, rgb, hsl, hex, swift, uicolor, .NET,
+  colour, pixel, web, screen, photoshop, illustrator, bgcolor, fgcolor,
+  background, foreground
 email: support@koolesache.com
-description: > # this means to ignore newlines until "baseurl:"
-  ColorSnapper2 is the easiest way for designers & developers to collect, adjust, organize and export colors of any pixel of the screen.
-baseurl: "" # the subpath of your site, e.g. /blog/
-webpackurl: "//localhost:8081"
-url: "http://colorsnapper.com" # the base hostname & protocol for your site
 twitter_username: colorsnapper
+mas_product_id: ""
+paddle_product_id: 499167
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://colorsnapper.com" # the base hostname & protocol for your site
+webpackurl: "//localhost:8081"
 
 # Build settings
 markdown: kramdown
