@@ -1,0 +1,37 @@
+.footer {
+  position: relative;
+  margin-top: $spacing-unit;
+  padding-top: $spacing-unit;
+  text-align: center;
+  font-size: 85%;
+  color: #9c9c9c;
+  background-color: #f5f5f5;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    background: linear-gradient(90deg, #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
+    width: 100%;
+    height: 1px;
+    content: "";
+  }
+
+  &__email {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: 2px;
+    vertical-align: top;
+    font-weight: bold;
+  }
+
+  &__heart {
+    color: #d0171f;
+  }
+
+  &__social {
+    margin-bottom: 10px;
+  }
+
+}
