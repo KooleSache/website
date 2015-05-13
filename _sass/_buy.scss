@@ -7,14 +7,25 @@
     margin: .25em;
     padding: .75em 1.25em;
     color: #fff;
-    font-weight: normal;
+    font-weight: 500;
     text-align: center;
+    line-height: 26px;
+    vertical-align: top;
     background-color: $brand-color;
     border-radius: 5px;
 
     &_mas {
       padding-left: 40px;
-      background: url('../_images/mas.svg') 12px 10px no-repeat;
+      font-size: 85%;
+      font-weight: 300;
+      text-align: left;
+      line-height: 1;
+      background: url('../_images/mas.svg') 10px 1.1em no-repeat;
+
+      strong {
+        font-size: 140%;
+        font-weight: 300;
+      }
 
       &:hover {
         background-color: darken($brand-color, 10%);
@@ -26,7 +37,7 @@
       text-decoration: none;
     }
 
-    &_paddle {
+    &_buy {
       background-color: #59b200;
 
       &:hover {
@@ -34,8 +45,17 @@
       }
     }
 
+    &_download {
+      padding-left: 36px;
+      background: $brand-color url('../_images/icon-download.svg') 14px 1.1em no-repeat;
+
+      &:hover {
+        background-color: darken($brand-color, 10%);
+      }
+    }
+
     &_soon {
-      background-color: rgba($brand-color, .25) !important;
+      background-color: rgba(#333, .25) !important;
     }
   }
 
