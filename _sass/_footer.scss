@@ -1,3 +1,14 @@
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  90% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(.9);
+  }
+}
 .footer {
   position: relative;
   margin-top: $spacing-unit;
@@ -28,6 +39,12 @@
 
   &__heart {
     color: #d0171f;
+    cursor: default;
+  }
+
+  &:hover .footer__heart {
+    animation: heartbeat .5s infinite;
+    animation-timing-function: ease-in-out;
   }
 
   &__social {
