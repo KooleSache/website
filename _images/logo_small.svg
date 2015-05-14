@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.3.2 (12043) - http://www.bohemiancoding.com/sketch -->
-    <title>statusIcon</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="statusIcon" sketch:type="MSArtboardGroup">
-            <g id="Loupe-icon" sketch:type="MSLayerGroup" transform="translate(0.000000, -1.000000)">
-                <path d="M16.5344315,32.9912426 C16.3570034,32.9970657 16.1788444,33 16,33 C7.16344357,33 0,25.8365564 0,17 C0,8.16344357 7.16344357,1 16,1 C24.8365564,1 32,8.16344357 32,17 C32,17.178867 31.9970649,17.3570484 31.9912404,17.5344988 C31.9970496,17.6227739 32,17.711831 32,17.8015782 L32,28.9984218 C32,31.210952 30.2084324,33 27.9984218,33 L16.8015782,33 C16.7118016,33 16.6227223,32.9970503 16.5344315,32.9912426 L16.5344315,32.9912426 Z M16,29.8 C23.0692451,29.8 28.8,24.0692451 28.8,17 C28.8,9.93075485 23.0692451,4.2 16,4.2 C8.93075485,4.2 3.2,9.93075485 3.2,17 C3.2,24.0692451 8.93075485,29.8 16,29.8 Z" id="Oval-21" fill="#000000" sketch:type="MSShapeGroup"></path>
-                <rect id="Rectangle-147" stroke="#000000" stroke-width="0.5" sketch:type="MSShapeGroup" x="14.5" y="15.5" width="3" height="3"></rect>
-            </g>
-        </g>
-    </g>
-</svg>
+<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"><title>statusIcon</title><g fill="none" fill-rule="evenodd"><path d="M16.534 31.99c-.177.007-.355.01-.534.01-8.837 0-16-7.163-16-16S7.163 0 16 0s16 7.163 16 16c0 .18-.003.357-.01.534.007.09.01.178.01.268v11.196C32 30.21 30.208 32 27.998 32H16.802c-.09 0-.18-.003-.268-.01zM16 28.8c7.07 0 12.8-5.73 12.8-12.8S23.07 3.2 16 3.2 3.2 8.93 3.2 16 8.93 28.8 16 28.8z" fill="#000"/><path stroke="#000" stroke-width=".5" d="M14.5 14.5h3v3h-3z"/></g></svg>

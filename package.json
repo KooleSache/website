@@ -13,6 +13,7 @@
     "production": "npm run clean && npm run build && npm run deploy",
     "staging": "npm run clean && npm run build && surge _site -d cs2-test.surge.sh",
     "imageoptim": "imageoptim --directory ./img -a -q && imageoptim --directory ./_images -a -q",
+    "svgo": "svgo -f ./_images",
     "deps": "npm outdated --depth=0"
   },
   "author": "Andrey Okonetchnikov",
@@ -32,6 +33,7 @@
     "sass-loader": "^0.4.0",
     "style-loader": "^0.12.2",
     "surge": "^0.11.1",
+    "svgo": "^0.5.1",
     "url-loader": "^0.5.5",
     "webpack": "^1.8.4",
     "webpack-dev-server": "^1.8.0"
