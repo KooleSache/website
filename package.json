@@ -11,6 +11,7 @@
     "deploy": "surge _site",
     "test": "echo \"Error: no test specified\" && exit 1",
     "production": "npm run clean && npm run build && npm run deploy",
+    "staging": "npm run clean && npm run build && surge _site -d cs2-test.surge.sh",
     "imageoptim": "imageoptim --directory ./img -a -q && imageoptim --directory ./_images -a -q",
     "deps": "npm outdated --depth=0"
   },

@@ -82,7 +82,32 @@ function toggleVideoPlayback(video) {
         }
     }
 }
+
+function initGA(classNames) {
+    classNames.forEach(className => {
+        forEach.call(document.querySelectorAll(`.${className}`), (el) => {
+            // Display alert about incompatible OS X version
+            el && el.addEventListener('click', () => {
+                if (className === 'buy-paddle' && !checkOSXVersionCompatibility()) {
+                    alert('Your OS version is not compatible with ColorSnapper2, which requires Mac OS X 10.9+.')
+                }
+            })
+
+            // Send tracking code
+            ga && ga('send', 'event', 'button', 'click', className);
+        });
+
+    })
+}
+
+function checkOSXVersionCompatibility() {
+    const userAgent = navigator.userAgent.toLowerCase()
+    return /mac os x 10(.|_)(9|10)/.test(userAgent)
+}
+
+
 document.addEventListener("DOMContentLoaded", () => {
+    initGA(['buy-mas', 'buy-paddle']);
     initVideoProgressInContainer('howto');
     initTourForContainer('loupeTour');
     initTourForContainer('overlayTour');

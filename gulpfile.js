@@ -21,7 +21,7 @@ gulp.task("webpack-dev-server", function(callback) {
     var myConfig = Object.create(webpackConfig);
     myConfig.devtool = "source-maps";
     myConfig.debug = true;
-    myConfig.entry.main = myConfig.entry.main.concat([
+    myConfig.entry = myConfig.entry.concat([
         "webpack-dev-server/client?http://localhost:8081",
         "webpack/hot/dev-server"
     ]);
@@ -30,9 +30,9 @@ gulp.task("webpack-dev-server", function(callback) {
 
     // Start a webpack-dev-server
     new WebpackDevServer(webpack(myConfig), {
-        //contentBase: "http://localhost:8081/assets/",
+        contentBase: "http://localhost:8081/assets/",
         publicPath: myConfig.output.publicPath,
-        //port: 8081,
+        port: 8081,
         hot: true,
         stats: {
             colors: true
