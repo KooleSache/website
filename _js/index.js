@@ -107,7 +107,7 @@ function checkOSXVersionCompatibility() {
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    initGA(['buy-mas', 'buy-paddle']);
+    initGA(['buy-mas', 'buy-paddle', 'buy-download']);
     initVideoProgressInContainer('howto');
     initTourForContainer('loupeTour');
     initTourForContainer('overlayTour');
