@@ -36,6 +36,16 @@ P
 : Copy zoomed image into clipboard
 {: .shortcuts}
 
+⇦⇧⇩⇨ cursor keys
+: Use to move loupe around by 1 pixel (hold shift to move 10 pixels)
+
++ / -
+: Increase / Decrease magnification
+
+⌥ + / -
+: Increase / Decrease capture area
+
+
 ## Colors & Formats Shortcuts
 
 ⇧⌘C
@@ -52,5 +62,20 @@ P
 : Edit selected color
 {: .shortcuts}
 
+↩ 
+⌘↩︎
+: Confirm changes in the color panel and close it
+
+⇦ ⇨ left, right
+: Navigate through history or favorites
+
+⇧⇩ up, down
+: Navigate through export formats
+
+
+## Menubar
+
+⌥
+: Pressing option shows recent favorites in the menu 
 
 [^1]: Can be changed in Preferences
