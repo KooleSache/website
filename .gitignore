@@ -5,3 +5,4 @@ node_modules
 .rbenv*
 assets
 _config_production.yml
+npm-debug.log
