@@ -13,13 +13,10 @@ ColorSnapper 2 has built-in keyboard shortcuts for even faster workflow.
 
 ⇧
 Long Click
-: Activate Hi-Precision mode[^1]
-
-⌥
-: Toggle alternate workflow[^1]
+: Hi-Precision mode[^1] --- bigger zoom level + slower mouse movement
 
 fn
-: Activate "hover" mode. You can scroll the content underneath the loupe.
+: "Hover" mode --- scroll the content underneath the loupe
 
 ⇥
 [
@@ -31,6 +28,9 @@ Space
 Click
 : Pick a color
 
+⌥
+: Alternate workflow --- keep pressing when picking color
+
 P
 : Copy zoomed image into clipboard
 {: .shortcuts}
@@ -38,7 +38,7 @@ P
 ## Colors & Formats Shortcuts
 
 ⇧⌘C
-: Activate Colors & Formats[^1].
+: Activate Colors & Formats[^1]
 
 ⌘F
 : Switch between Favorites and History
@@ -47,7 +47,7 @@ P
 : Mark/unmark selected color as favorite
 
 ⌘↩︎
-⌥ + Click
+⌥ Click
 : Edit selected color
 {: .shortcuts}
 
