@@ -5,16 +5,5 @@
   padding: $spacing-unit 0;
   margin-bottom: $spacing-unit;
   text-align: center;
-  color: #AEC2D9;
-  background: linear-gradient(#375170, #27344D 70%, #1C2035);
-
-  &:after {
-    position: relative;
-    top: $spacing-unit;
-    display: block;
-    background: linear-gradient(90deg #ef4549, #ef4549 20%, #f79945 20%, #f79945 40%, #54ba5e 40%, #54ba5e 60%, #5897d0 60%, #5897d0 80%, #a860a9 80%, #a860a9);
-    height: 5px;
-    content: "";
-  }
 }
 
