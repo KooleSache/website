@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Keyboard Shortcuts
+slug: Shortcuts
 permalink: /shortcuts/
 ---
 
