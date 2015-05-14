@@ -9,13 +9,17 @@ ColorSnapper 2 has built-in keyboard shortcuts for even faster workflow.
 ## Magnifying Glass Shortcuts
 
 ⌥⌘C
-: Activate magnifying glass[^1].
+: Activate magnifying glass[^1]
 
 ⇧
-: Activate Hi-Precision mode[^1].
+Long Click
+: Activate Hi-Precision mode[^1]
 
 ⌥
-: Toggle alternate workflow[^1].
+: Toggle alternate workflow[^1]
+
+fn
+: Activate "hover" mode. You can scroll the content underneath the loupe.
 
 ⇥
 [
@@ -24,7 +28,8 @@ ColorSnapper 2 has built-in keyboard shortcuts for even faster workflow.
 
 Space
 ↩︎
-: Pick a color.
+Click
+: Pick a color
 
 P
 : Copy zoomed image into clipboard
