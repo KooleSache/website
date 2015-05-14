@@ -1,0 +1,41 @@
+.shortcuts dt,
+.shortcut {
+  display: inline-block;
+  padding: .1em .5em;
+  font-size: .85em;
+  font-weight: bold;
+  line-height: 1.6em;
+  color: inherit;
+  border: 1px solid rgba(#888, .25);
+  border-bottom-width: 2px;
+  border-radius: 3px;
+}
+
+.shortcuts {
+
+  // Clearfix
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  dt {
+    float: left;
+    margin-right: .5em;
+  }
+
+  dd {
+    float: left;
+    margin-bottom: 1em;
+
+    &:before {
+      color: #ccc;
+      content: "— ";
+    }
+  }
+
+  dd + dt {
+    clear: both;
+  }
+}
