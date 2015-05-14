@@ -5,9 +5,10 @@
 .nav {
   display: flex;
   align-items: center;
+  margin: 1em 0;
   font-family: $second-font-family;
   font-weight: 700;
-  font-size: 90%;
+  font-size: .85em;
 
   a {
     display: inline-block;
@@ -28,6 +29,12 @@
 
   &_top {
     padding: 7px 0px;
+  }
+
+  &__logo {
+    padding-left: 20px;
+    background: url('../_images/logo_small.svg') 0 0 no-repeat;
+    background-size: 16px 16px;
   }
 
   &__home {
