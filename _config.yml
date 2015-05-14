@@ -1,7 +1,11 @@
 # Site settings
-title: ColorSnapper2 &mdash; The Color Picker App for Mac OS X
+title: ColorSnapper
 description: >
-  The Mac OS X color picker app for designers & developers which makes it easy to collect, adjust, organize and export colors of any pixel on the screen.
+  The Mac OS X <strong>color picker</strong> app for designers
+  <span class="amp">&amp;</span> developers which makes it easy
+  to <strong>collect</strong>, <strong>adjust</strong>,
+  <strong>organize</strong> and <strong>export</strong> colors of
+  <strong>any pixel</strong> on the screen.
 keywords: >
   color picker mac, color picker, colorpicker, color, picker, mac, color value,
   application, app, osx, apple, pick retina pixel mac, HiDPI pixel,
