@@ -6,7 +6,7 @@
     display: inline-block;
     margin: .25em;
     padding: .75em 1.25em;
-    color: #fff;
+    color: #fff !important;
     font-weight: 500;
     text-align: center;
     line-height: 26px;
@@ -38,7 +38,8 @@
     }
 
     &_buy {
-      background-color: #59b200;
+      padding-left: 46px;
+      background: #59b200 url('../_images/icon-shop.svg') 14px 1em no-repeat;
 
       &:hover {
         background-color: darken(#59b200, 10%);
@@ -56,6 +57,7 @@
 
     &_soon {
       background-color: rgba(#333, .25) !important;
+      cursor: not-allowed;
     }
   }
 
