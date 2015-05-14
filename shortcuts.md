@@ -30,52 +30,49 @@ Click
 : Pick a color
 
 ⌥
-: Alternate workflow --- keep pressing when picking color
+: Alternate workflow --- press when picking color
 
 P
 : Copy zoomed image into clipboard
+
+↑
+↓
+←
+→
+: Move by 1px (hold __⇧__{: .shortcut} to move by 10px)
+
++
+\-
+: Magnification level (hold __⌥__{: .shortcut} to change capture area)
 {: .shortcuts}
-
-⇦⇧⇩⇨ cursor keys
-: Use to move loupe around by 1 pixel (hold shift to move 10 pixels)
-
-+ / -
-: Increase / Decrease magnification
-
-⌥ + / -
-: Increase / Decrease capture area
-
 
 ## Colors & Formats Shortcuts
 
 ⇧⌘C
 : Activate Colors & Formats[^1]
 
+←
+→
+: Navigate through history or favorites
+
+↑
+↓
+: Navigate through export formats
+
 ⌘F
 : Switch between Favorites and History
 
 ⌃F
-: Mark/unmark selected color as favorite
+: Mark selected color as favorite
 
 ⌘↩︎
-⌥ Click
-: Edit selected color
+: Toggle edit color panel
 {: .shortcuts}
-
-↩ 
-⌘↩︎
-: Confirm changes in the color panel and close it
-
-⇦ ⇨ left, right
-: Navigate through history or favorites
-
-⇧⇩ up, down
-: Navigate through export formats
-
 
 ## Menubar
 
 ⌥
-: Pressing option shows recent favorites in the menu 
+: Show 5 recent favorite colors
+{: .shortcuts}
 
 [^1]: Can be changed in Preferences
