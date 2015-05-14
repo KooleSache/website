@@ -12,8 +12,8 @@ The original version of ColorSnapper, released in early 2011, was born after try
 But we always wanted to make the experience for developers & designers working with colors even better.
 Therefore after some feedback from our users (Thank you!) and ourselves, we decided to start working on version 2.
  
-We put a lot of thought and love into this version, which led to a complete rewrite of the application. It also has a shiny new icon, new User Interface but most importantly, it does its task even better and faster!
+We put a lot of thought and love into this version, which led to a complete rewrite of the application. ColorSnapper has a shiny new icon, new User Interface but most importantly, it is better and faster at its task!
 
-If you like what we did tweet about it or leave a review on Mac App Store – Thanks again.
+If you like what we have created, help spread the word and tweet about it or leave a review on Mac App Store – Thanks again.
 
 Andrey & Alex
