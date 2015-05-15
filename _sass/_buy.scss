@@ -17,18 +17,20 @@
     &_mas {
       padding-left: 40px;
       font-size: 85%;
-      font-weight: 300;
+      font-weight: normal;
       text-align: left;
       line-height: 1;
-      background: url('../_images/mas.svg') 10px 1.1em no-repeat;
+      letter-spacing: .07em;
+      background: #333 url('../_images/mas.svg') 10px 1.1em no-repeat;
 
       strong {
-        font-size: 140%;
-        font-weight: 300;
+        letter-spacing: 0;
+        font-weight: normal;
+        font-size: 125%;
       }
 
       &:hover {
-        background-color: darken($brand-color, 10%);
+        background-color: darken(#333, 10%);
       }
     }
 
