@@ -3,6 +3,7 @@
   text-align: center;
 
   &__btn {
+    position: relative;
     display: inline-block;
     margin: .25em;
     padding: .75em 1.25em;
@@ -61,6 +62,21 @@
       background-color: rgba(#333, .25) !important;
       cursor: not-allowed;
     }
+  }
+
+  &__badge {
+    position: absolute;
+    left: 50%;
+    top: -25px;
+    display: inline-block;
+    margin-left: -10em;
+    color: #888;
+    font-size: 11px;
+    font-style: italic;
+    font-family: $second-font-family;
+    text-align: center;
+    font-weight: normal;
+    width: 20em;
   }
 
   &__req {
