@@ -104,14 +104,19 @@ h1, h2, h3, h4, h5, h6 {
 a {
     color: $brand-color;
     text-decoration: none;
+    line-height: 1;
+    border-bottom: 1px solid rgba($brand-color, .25);
 
     &:visited {
-        color: darken($brand-color, 15%);
+        $color: lighten($brand-color, 15%);
+        color: $color;
+        border-bottom: 1px solid rgba($color, .25);
     }
 
     &:hover {
-        color: $text-color;
-        text-decoration: underline;
+        $color: darken($brand-color, 15%);
+        color: $color;
+        border-bottom: 1px solid rgba($color, .45);
     }
 }
 
