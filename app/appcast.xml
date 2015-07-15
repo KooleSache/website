@@ -11,7 +11,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_8.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-06-19 10:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.8" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_8.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.8" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_8.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -20,7 +20,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_7.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-06-14 10:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.7" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_7.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.7" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_7.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -29,7 +29,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_6.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-05-29 08:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.6" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_6.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.6" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_6.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -38,7 +38,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_5.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-05-29 08:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.5" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_5.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.5" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_5.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -47,7 +47,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_3.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-05-22 20:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.3" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_3.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.3" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_3.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -56,7 +56,7 @@
                 http://colorsnapper.com/app/release_notes-1_0_2_21.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-05-20 16:01:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.2.21" length="4696125" url="http://www.colorsnapper.com/app/ColorSnapper2-1_0_2_21.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.2.21" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_2_21.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
         </item>
         <item>
@@ -65,7 +65,7 @@
                 http://ColorSnapper.com/app/release_notes-1_0_0_20.html
             </sparkle:releaseNotesLink>
             <pubDate>2015-05-12 16:16:05 UTC</pubDate>
-            <enclosure sparkle:version="1.0.0.20" length="4696125" url="http://ColorSnapper.com/app/ColorSnapper2-1_0_0_20.zip" type="application/octet-stream"/>
+            <enclosure sparkle:version="1.0.0.20" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_0_20.zip" type="application/octet-stream"/>
             <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>
         </item>
     </channel>
