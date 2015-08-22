@@ -6,6 +6,15 @@
         <description>Most recent changes with links to updates.</description>
         <language>en</language>
         <item>
+            <title>Version 1.0.9</title>
+            <sparkle:releaseNotesLink>
+                http://colorsnapper.com/app/release_notes-1_0_9.html
+            </sparkle:releaseNotesLink>
+            <pubDate>2015-08-22 10:01:05 UTC</pubDate>
+            <enclosure sparkle:version="1.0.9" length="4696125" url="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2-1_0_9.zip" type="application/octet-stream"/>
+            <sparkle:minimumSystemVersion>10.9</sparkle:minimumSystemVersion>            
+        </item>
+        <item>
             <title>Version 1.0.8</title>
             <sparkle:releaseNotesLink>
                 http://colorsnapper.com/app/release_notes-1_0_8.html
