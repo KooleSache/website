@@ -102,7 +102,7 @@ function initGA(classNames) {
 
 function checkOSXVersionCompatibility() {
     const userAgent = navigator.userAgent.toLowerCase()
-    return /mac os x 10(.|_)(9|10)/.test(userAgent)
+    return /mac os x 10(.|_)(9|10|11)/.test(userAgent)
 }
 
 
