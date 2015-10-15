@@ -5,7 +5,7 @@ slug: F.A.Q.
 permalink: /faq/
 ---
 
-1. [ColorSnapper v1 is lagging on OS X 10.11 El Capitain](#a-namecolorsnapperlaggingcolorsnapper-v1-is-lagging-on-os-x-1011-el-capitaina)
+1. [ColorSnapper v1 is lagging on OS X 10.11 El Capitain](#colorsnapper-v1-is-lagging-on-os-x-1011-el-capitaina)
 1. [Picking from Adobe Photoshop or Illustrator results in wrong colors](#picking-from-adobe-photoshop-or-illustrator-results-in-wrong-colors)
 1. [How can I delete colors from history](#how-can-i-delete-colors-from-history)
 
