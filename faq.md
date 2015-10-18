@@ -11,7 +11,7 @@ permalink: /faq/
 
 ## ColorSnapper v1 is lagging on OS X 10.11 El Capitain
 
-** We stopped supporting ColorSnapper 1 with the release of [ColorSnapper 2](/) in the beginning of 2015. You can try ColorSnapper 2 for 14 days for free — it’s faster and better in every way.**
+**We stopped supporting ColorSnapper 1 with the release of [ColorSnapper 2](/) in the beginning of 2015. You can try ColorSnapper 2 for 14 days for free — it’s faster and better in every way.**
 
 The issue you are seeing is due to the fact that apple brings massive changes to the way the graphics rendering on the Mac works with El Capitan (Metal). It brings huge performance improvements for users. At the same time this required significant changes for the old codebase of ColorSnapper 1, which we released back in 2011 and supported for 5 different OSX versions.
 
