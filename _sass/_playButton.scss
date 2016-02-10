@@ -68,7 +68,7 @@
   }
 
   &__progress {
-    $dashLength: 3.14 * 45 * 2; // 2 * PI * R
+    $dashLength: calc(3.14 * 45 * 2); // 2 * PI * R
     fill: none;
     stroke-width: 0;
     stroke-dasharray: $dashLength;

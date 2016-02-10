@@ -54,7 +54,7 @@
 
   &__col {
     position: relative;
-    padding: $spacing-unit / 2 0;
+    padding: calc($spacing-unit / 2) 0;
     box-sizing: border-box;
 
     &_features {

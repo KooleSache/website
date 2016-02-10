@@ -38,7 +38,7 @@
       @include media-query($on-palm) {
         display: block;
         left: 50%;
-        margin-left: -$logo-size / 2 - 10px;
+        margin-left: calc(-$logo-size / 2 - 10px);
         margin-bottom: .75em;
       }
     }

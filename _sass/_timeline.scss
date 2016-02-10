@@ -61,14 +61,13 @@ $timelineEventBorderRadius: 23px;
     }
 
     @for $i from 1 to 4 {
-      & _ $ (i) {
-      left: calc(100% / 4 * ($(i) - 1));
+      &_$(i) {
+        left: calc(100% / 4 * ($(i) - 1));
 
-      &:after {
-        content: '$(i)';
+        &:after {
+          content: '$(i)';
+        }
       }
     }
-    }
-
   }
 }
