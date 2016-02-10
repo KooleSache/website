@@ -109,7 +109,7 @@ function initGA(classNames) {
             })
 
             // Send tracking code
-            ga && ga('send', 'event', 'button', 'click', className);
+            window.ga && window.ga('send', 'event', 'button', 'click', className);
         });
 
     })
