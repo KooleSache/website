@@ -13,8 +13,8 @@
   &_coming-soon {
     $color: #faa74f;
     background-color: $color;
-    border-color: darken($color, 10%);
-    color: darken($color, 40%);
+    border-color: color($color b(10%));
+    color: color($color b(40%));
   }
 }
 

@@ -15,7 +15,7 @@
   &__bg {
     stroke: #fff;
     stroke-width: 3px;
-    fill: rgba(#000, .25);
+    fill: color(#000 a(.25));
     transition: fill .25s;
   }
 
@@ -60,11 +60,11 @@
 
 
   &:hover &__bg {
-    fill: rgba(#000, .85);
+    fill: color(#000 a(.85));
   }
 
   &_playing &__bg {
-    fill: rgba(#000, .5);
+    fill: color(#000 a(.5));
   }
 
   &__progress {
@@ -81,7 +81,7 @@
   }
 
   &__progress_buffer {
-    stroke: rgba(#000, .25);
+    stroke: color(#000 a(.25));
   }
 
   &__progress_time {

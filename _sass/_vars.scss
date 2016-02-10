@@ -10,11 +10,11 @@ $switch-border-radius: 5px;
 $text-color: #2f2f2f;
 $background-color: #fff;
 $brand-color: #2a7ae2;
-$nav-color: rgba($text-color, .85);
+$nav-color: color($text-color a(.85));
 
 $grey-color: #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$grey-color-light: color($grey-color l(40%));
+$grey-color-dark:  color($grey-color b(25%));
 
 // Width of the content area
 $content-width: 960px;
