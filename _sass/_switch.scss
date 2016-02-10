@@ -1,4 +1,7 @@
+@import './_vars.scss';
+
 $switch-border-radius: 5px;
+
 .switch {
   display: flex;
   user-select: none;
@@ -28,7 +31,7 @@ $switch-border-radius: 5px;
 
   label {
     display: block;
-    padding: $switch-border-radius*1.5 $switch-border-radius*2;
+    padding: calc($switch-border-radius * 1.5) calc($switch-border-radius * 2);
     margin: 0;
     text-align: center;
     color: $brand-color;

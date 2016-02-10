@@ -1,4 +1,19 @@
-require('../_sass/main.scss');
+import '../_sass/_vars.scss'
+import '../_sass/_base.scss'
+import '../_sass/_layout.scss'
+import '../_sass/_home.scss'
+import '../_sass/_buy.scss'
+import '../_sass/_tour.scss'
+import '../_sass/_switch.scss'
+import '../_sass/_format.scss'
+import '../_sass/_howto.scss'
+import '../_sass/_timeline.scss'
+import '../_sass/_nav.scss'
+import '../_sass/_playButton.scss'
+import '../_sass/_features.scss'
+import '../_sass/_shortcuts.scss'
+import '../_sass/_footer.scss'
+import '../_sass/main.scss'
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2;
 const forEach = Array.prototype.forEach;

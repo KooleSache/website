@@ -1,3 +1,5 @@
+@import './_vars.scss';
+
 $timelineColor: #ccc;
 $timelineEventBorderRadius: 23px;
 
@@ -58,14 +60,14 @@ $timelineEventBorderRadius: 23px;
       box-sizing: border-box;
     }
 
-    @for $i from 0 through 3 {
-      &_#{$i} {
-        left: 100% / 4 * $i;
+    @for $i from 1 to 4 {
+      & _ $ (i) {
+      left: calc(100% / 4 * ($(i) - 1));
 
-        &:after {
-          content: '#{$i + 1}';
-        }
+      &:after {
+        content: '$(i)';
       }
+    }
     }
 
   }

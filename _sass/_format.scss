@@ -3,10 +3,9 @@
   font-style: normal;
   white-space: nowrap;
 
-  $formats: generic, css, osx, ios, swift, android, java, net, cg, opengl, photoshop, illustrator;
-  @each $format in $formats {
-    &_#{$format} {
-      background: url("../_images/formats/format-icon_#{$format}@2x.png") 0 .05em no-repeat;
+  @each $format in (generic, css, osx, ios, swift, android, java, net, cg, opengl, photoshop, illustrator) {
+    &_$(format) {
+      background: url("../_images/formats/format-icon_$(format)@2x.png") 0 .05em no-repeat;
       background-size: 16px 16px;
     }
   }

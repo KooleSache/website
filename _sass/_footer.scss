@@ -1,3 +1,5 @@
+@import './_vars.scss';
+
 @keyframes heartbeat {
   0% {
     transform: scale(1);
@@ -9,6 +11,7 @@
     transform: scale(.9);
   }
 }
+
 .footer {
   position: relative;
   margin-top: $spacing-unit / 2;

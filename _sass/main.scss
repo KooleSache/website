@@ -1,43 +1,24 @@
-@import url(//fonts.googleapis.com/css?family=Lato:100,300,700,300italic);
-// Import partials from `sass_dir` (defaults to `_sass`)
-@import
-    "vars",
-    "base",
-    "layout",
-    //"syntax-highlighting",
-    "home",
-    "buy",
-    "tour",
-    "switch",
-    "format",
-    "howto",
-    "timeline",
-    "nav",
-    "playButton",
-    "features",
-    "shortcuts",
-    "footer"
-;
+@import './_vars.scss';
 
 .badge {
-    display: inline-block;
-    padding: 0 .25em;
-    font-family: $base-font-family;
-    font-size: 10px;
-    text-transform: uppercase;
-    border-radius: 2px;
-    background-color: #d7d7d7;
-    border: 1px solid #ccc;
+  display: inline-block;
+  padding: 0 .25em;
+  font-family: $base-font-family;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background-color: #d7d7d7;
+  border: 1px solid #ccc;
 
-    &_coming-soon {
-        $color: #faa74f;
-        background-color: $color;
-        border-color: darken($color, 10%);
-        color: darken($color, 40%);
-    }
+  &_coming-soon {
+    $color: #faa74f;
+    background-color: $color;
+    border-color: darken($color, 10%);
+    color: darken($color, 40%);
+  }
 }
 
 .footnote {
-    color: #afafaf;
-    font-size: 85%;
+  color: #afafaf;
+  font-size: 85%;
 }
