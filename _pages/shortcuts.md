@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page.html
 title: Keyboard Shortcuts
 slug: Shortcuts
 permalink: /shortcuts/

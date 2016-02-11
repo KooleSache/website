@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page.html
 title: Frequently Asked Questions
 slug: F.A.Q.
 permalink: /faq/
