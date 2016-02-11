@@ -4,10 +4,13 @@ const permalinks = require('metalsmith-permalinks')
 const inplace = require('metalsmith-in-place')
 const layouts = require('metalsmith-layouts')
 const define = require('metalsmith-define')
+const watch = require('metalsmith-watch')
+
+const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
 const config = require('./config')
 
-metalsmith(__dirname)
+const server = metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
     .metadata(metadata)
@@ -30,7 +33,18 @@ metalsmith(__dirname)
         default: 'default.html'
     }))
     .use(define(config))
-    .build(function(err) {
-        if (err) throw err;
-        console.log('Built web-site to ' + config.destination)
-    });
+
+if (!isProduction) {
+    server.use(watch({
+        paths: {
+            "${source}/**/*": true,
+            "_layouts/*": "**/*",
+            "_includes/*": "**/*"
+        }
+    }))
+}
+
+server.build(function (err) {
+    if (err) throw err;
+    console.log('Built web-site to ' + config.destination)
+})
