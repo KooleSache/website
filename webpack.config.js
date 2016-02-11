@@ -30,7 +30,7 @@ module.exports = {
     entry: ['./_js/index.js'],
     output: {
         path: path.join(__dirname, '_site'),
-        publicPath: isProduction ? '/assets/' : 'http://localhost:8081/assets/',
+        publicPath: isProduction ? '/' : 'http://localhost:8081/',
         filename: isProduction ? '[name].[hash].js' : '[name].js',
         chunkFilename: '[name].[id].js'
     },

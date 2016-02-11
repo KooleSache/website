@@ -18,7 +18,9 @@ const webpackConfig = require('./webpack.config')
 const server = metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
-    .metadata(Object.assign(metadata, config))
+    .metadata(Object.assign(metadata, {
+        config
+    }))
     .use(markdown({
         html: true,
         typographer: true,
@@ -47,36 +49,36 @@ if (!isProduction) {
     server
         .use(watch({
             paths: {
-                "${source}/**/*": true,
-                "_layouts/*": "**/*",
-                "_includes/*": "**/*"
+                '${source}/**/*': true,
+                '_layouts/*': '**/*',
+                '_includes/*': '**/*'
             }
         }))
         .use(serve())
         .use(webpackDevServer(webpackConfig, {
             port: 8081,
-            contentBase: "http://localhost:8081/",
-            // or: contentBase: "http://localhost/",
+            contentBase: 'http://localhost:8081/',
+            // or: contentBase: 'http://localhost/',
 
             hot: true,
             // Enable special support for Hot Module Replacement
-            // Page is no longer updated, but a "webpackHotUpdate" message is send to the content
-            // Use "webpack/hot/dev-server" as additional module in your entry point
+            // Page is no longer updated, but a 'webpackHotUpdate' message is send to the content
+            // Use 'webpack/hot/dev-server' as additional module in your entry point
             // Note: this does _not_ add the `HotModuleReplacementPlugin` like the CLI option does.
 
             // Set this if you want webpack-dev-server to delegate a single path to an arbitrary server.
-            // Use "*" to proxy all paths to the specified server.
+            // Use '*' to proxy all paths to the specified server.
             // This is useful if you want to get rid of 'http://localhost:8080/' in script[src],
             // and has many other use cases (see https://github.com/webpack/webpack-dev-server/pull/127 ).
             proxy: {
-                "*": "http://localhost:8080"
+                '*': 'http://localhost:8080'
             },
 
             // webpack-dev-middleware options
             quiet: false,
             noInfo: false,
-            publicPath: "/assets/",
-            //headers: { "X-Custom-Header": "yes" },
+            publicPath: 'http://localhost:8081/',
+            //headers: { 'X-Custom-Header': 'yes' },
             stats: {colors: true}
 
         }))

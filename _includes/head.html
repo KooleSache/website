@@ -14,10 +14,10 @@
 
     <link href='//fonts.googleapis.com/css?family=Lato:100,300,700,300italic' rel='stylesheet' type='text/css'>
 
-    {{#if site.production }}
+    {{#if config.production }}
     <link rel="stylesheet"
-          href="{{ site.baseurl }}{{ site.url }}/assets/main.{{ site.webpack_hash }}.css">
+          href="{{ site.baseurl }}{{ site.url }}/main.{{ site.webpack_hash }}.css">
     {{else}}
-    <script src="{{ webpackUrl }}/assets/main.js"></script>
+    <script src="{{ config.webpackUrl }}/main.js"></script>
     {{/if}}
 </head>
