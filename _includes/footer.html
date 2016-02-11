@@ -13,11 +13,11 @@
   </div>
 </footer>
 
-{{#if site.production }}
+{{#if config.production }}
 <script src="{{ site.url }}/main.{{ site.webpack_hash }}.js"></script>
 {{/if}}
 
-{{#if site.production }}
+{{#if config.production }}
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
