@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: page.html
 title: About ColorSnapper
 slug: About
 permalink: /about/
