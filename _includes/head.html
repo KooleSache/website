@@ -16,7 +16,7 @@
 
     {{#if config.production }}
     <link rel="stylesheet"
-          href="{{ site.baseurl }}{{ site.url }}/main.{{ config.webpack_hash }}.css">
+          href="{{ site.url }}/main.{{ webpackStats.hash }}.css">
     {{else}}
     <script src="{{ config.webpackUrl }}/main.js"></script>
     {{/if}}

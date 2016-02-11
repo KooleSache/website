@@ -19,7 +19,9 @@ const server = metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
     .metadata(Object.assign(metadata, {
-        config
+        config: Object.assign(config, {
+            production: isProduction
+        })
     }))
     .use(markdown({
         html: true,
@@ -28,16 +30,6 @@ const server = metalsmith(__dirname)
     }))
     .use(permalinks({
         pattern: ':permalink'
-    }))
-    .use(inplace({
-        engine: 'handlebars',
-        partials: '_includes'
-    }))
-    .use(layouts({
-        engine: 'handlebars',
-        directory: '_layouts',
-        partials: '_includes',
-        default: 'default.html'
     }))
     .use(define(config))
     .use(assets({
@@ -74,7 +66,18 @@ if (!isProduction) {
         .use(webpack(webpackConfig))
 }
 
-server.build(function (err) {
-    if (err) throw err;
-    console.log('Built web-site to ' + config.destination)
-})
+server
+    .use(inplace({
+        engine: 'handlebars',
+        partials: '_includes'
+    }))
+    .use(layouts({
+        engine: 'handlebars',
+        directory: '_layouts',
+        partials: '_includes',
+        default: 'default.html'
+    }))
+    .build(function (err) {
+        if (err) throw err;
+        console.log('Built web-site to ' + config.destination)
+    })
