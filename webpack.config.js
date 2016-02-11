@@ -29,8 +29,8 @@ if (isProduction) {
 module.exports = {
     entry: ['./_js/index.js'],
     output: {
-        path: path.join(__dirname, 'assets'),
-        publicPath: '/assets/',
+        path: path.join(__dirname, '_site'),
+        publicPath: '/_site/',
         filename: isProduction ? '[name].[hash].js' : '[name].js',
         chunkFilename: '[name].[id].js'
     },

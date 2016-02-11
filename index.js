@@ -4,11 +4,13 @@ const permalinks = require('metalsmith-permalinks')
 const inplace = require('metalsmith-in-place')
 const layouts = require('metalsmith-layouts')
 const define = require('metalsmith-define')
+const webpack = require('metalsmith-webpack')
 const watch = require('metalsmith-watch')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
 const config = require('./config')
+const webpackConfig = require('./webpack.config')
 
 const server = metalsmith(__dirname)
     .source(config.source)
@@ -33,6 +35,7 @@ const server = metalsmith(__dirname)
         default: 'default.html'
     }))
     .use(define(config))
+    .use(webpack(webpackConfig))
 
 if (!isProduction) {
     server.use(watch({
