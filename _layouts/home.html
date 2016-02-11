@@ -5,7 +5,364 @@
 
   <body>
 
-    {{{ contents }}}
+  <section class="home">
+
+    <header>
+      <div class="wrapper home__intro">
+
+        <h1 class="home__logo">ColorSnapper 2</h1>
+        <p class="home__tagline">{{ site.description }}</p>
+
+      </div>
+    </header>
+
+    {{> buy-links }}
+
+    <section class="howto" id="howto">
+      <div class="wrapper">
+
+        <section class="howto__slide">
+          <svg
+              class="playButton howto__play"
+              data-video="intro"
+              width="100"
+              height="100"
+              viewBox="0 0 100 100"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+            {{> playButton }}
+          </svg>
+          <video
+              poster="img/how-it-works@2x.jpg"
+              src="img/how-it-works.mp4"
+              id="intro"
+              class="howto__video"
+              preload="none">
+          </video>
+        </section>
+
+        <div class="howto__timeline timeline">
+          <div class="timeline__progress js-progress" style="width: 0"></div>
+          <ol class="timeline__events">
+            <li class="timeline__event timeline__event_1">Invoke the magnifying glass using menu item or a global
+              shortcut
+            </li>
+            <li class="timeline__event timeline__event_2">Choose a pixel on the screen. Activate Hi-Precision mode for
+              more accurate selection
+            </li>
+            <li class="timeline__event timeline__event_3">Choose a format of your choice and hit <span
+                class="shortcut">↩︎</span> or press <span class="shortcut">⌥</span> to use previous format
+            </li>
+            <li class="timeline__event timeline__event_4">Press <span class="shortcut">⌘V</span> to paste the color into
+              your code editor with your code style
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="tour tour_alt tour_loupe" id="loupeTour">
+      <div class="wrapper tour__2cols">
+
+        <div class="tour__col tour__col_features">
+          <h2 class="tour__heading">New Magnifying Glass</h2>
+          <p class="tour__description">
+            The original ColorSnapper magnifying glass &ndash; introduced in 2010 and adopted by every modern color picker
+            app since then &ndash; just got even better!
+          </p>
+          <p class="tour__description">
+            It works with multiple displays, different resolutions and with different pixel density. You can switch
+            between Spaces and Applications having the magnifying glass on the screen.
+          </p>
+          <ul class="features">
+            <li class="features__item features__item_video" data-video="precision">
+              <h3>
+                <svg
+                    class="playButton features__play"
+                    data-video="precision"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                  {{> playButton }}
+                </svg>
+                Introducing Hi-Precision Mode
+              </h3>
+              <p>Allows to choose every physical pixel on a retina screen, but also works great on displays with normal
+                pixel density by increasing mouse sensitivity and magnification level.</p>
+            </li>
+
+
+            <li class="features__item features__item_video" data-video="gestures">
+              <h3>
+                <svg
+                    class="playButton features__play"
+                    data-video="gestures"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                  {{> playButton }}
+                </svg>
+                Control with gestures &amp; keyboard
+              </h3>
+              <p>Zoom in &amp; out, change diameter, cycle through formats or move pixel by pixel using gestures and <a
+                  href="/shortcuts/" title="Keyboard Shortcuts">keyboard shortcuts</a>.</p>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="tour__col tour__col_video">
+          <section class="tour__slide">
+            <img src="img/loupe-default@2x.jpg" alt="Magnifying glass" width="500" height="500"
+                 class="tour__img is-active"/>
+
+            <video
+                id="gestures"
+                src="img/loupe-gestures.mp4"
+                poster="img/loupe-gestures@2x.jpg"
+                class="tour__video"
+                width="500"
+                height="500"
+                loop>
+            </video>
+
+            <video
+                id="precision"
+                src="img/loupe-precision.mp4"
+                poster="img/loupe-precision@2x.jpg"
+                class="tour__video"
+                width="500"
+                height="500"
+                loop>
+            </video>
+          </section>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="tour tour_overlay" id="overlayTour">
+      <div class="wrapper tour__2cols">
+
+        <div class="tour__col tour__col_features">
+          <h2 class="tour__heading">Organize, adjust &amp; export colors with style</h2>
+
+          <p class="tour__description">
+            ColorSnapper 2 is designed for OS X Yosemite and supports both light and dark themes.
+          <div class="switch" id="switch-theme">
+              <span class="switch__item">
+                <input type="radio" name="theme" id="light" checked="checked" value="light">
+                <label for="light">Light</label>
+              </span>
+              <span class="switch__item">
+                <input type="radio" name="theme" id="dark" value="dark">
+                <label for="dark">Dark</label>
+              </span>
+          </div>
+          </p>
+
+          <ul class="features">
+            <li class="features__item" data-video="favorites">
+              <h3>
+                <svg
+                    class="playButton features__play"
+                    data-video="favorites"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                  {{> playButton }}
+                </svg>
+                Favorites &amp; History
+              </h3>
+              <p>
+                Mark colors you regularly pick as favorites or go back in time to hundreds of colors.
+              </p>
+            </li>
+
+            <li class="features__item" data-video="colorPanel">
+              <h3>
+                <svg
+                    class="playButton features__play"
+                    data-video="colorPanel"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                  {{> playButton }}
+                </svg>
+                Modify colors
+              </h3>
+              <p>
+                The new user interface seamlessly integrates with Apple’s Color Panel so you can adjust colors before you
+                export them.
+              </p>
+            </li>
+
+            <li class="features__item" data-video="filter">
+              <h3>
+                <svg
+                    class="playButton features__play"
+                    data-video="filter"
+                    width="40"
+                    height="40"
+                    viewBox="0 0 100 100"
+                    version="1.1"
+                    xmlns="http://www.w3.org/2000/svg">
+                  {{> playButton }}
+                </svg>
+                Quick formats filter
+              </h3>
+              <p>
+                Start typing to quickly search through more than 30 export formats.
+              </p>
+            </li>
+          </ul>
+
+        </div>
+
+        <div class="tour__col tour__col_video">
+          <section class="tour__slide">
+            <img src="img/overlay-default_light@2x.jpg" alt="Organize, adjust &amp; export" width="600" height="600"
+                 class="tour__img is-active"/>
+
+            <video
+                id="favorites"
+                poster="img/overlay-favorites_light@2x.jpg"
+                src="img/overlay-favorites_light.mp4"
+                class="tour__video"
+                width="600"
+                height="600"
+                loop
+                preload="none"></video>
+
+            <video
+                id="filter"
+                class="tour__video"
+                poster="img/overlay-filter_light@2x.jpg"
+                src="img/overlay-filter_light.mp4"
+                width="600"
+                height="600"
+                loop
+                preload="none"></video>
+
+            <video
+                id="colorPanel"
+                poster="img/overlay-colorPanel_light@2x.jpg"
+                src="img/overlay-colorPanel_light.mp4"
+                class="tour__video"
+                width="600"
+                height="600"
+                loop
+                preload="none"></video>
+
+          </section>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="tour tour_codestyle tour_alt" id="codeStyle">
+      <div class="wrapper tour__2cols">
+
+        <figure class="tour__col tour__col_image tour__figure tour__figure_left">
+          <img
+              class="tour__image"
+              src="img/fig_codeStyle@2x.png"
+              alt="Preferences: Code Style"
+              width="578"/>
+        </figure>
+
+        <div class="tour__col tour__col_features">
+          <h2 class="tour__heading">Match your coding style</h2>
+          <p class="tour__description">
+            ColorSnapper 2 allows you to match the color export format to your coding style.
+            Along with all new suported formats, including:
+            <span class="format format_generic">Generic</span>,
+            <span class="format format_css">CSS</span>,
+            <span class="format format_osx">NSColor</span>,
+            <span class="format format_ios">UIColor</span>,
+            <span class="format format_swift">Swift</span>,
+            <span class="format format_android">Android</span>,
+            <span class="format format_java">Java</span>,
+            <span class="format format_net">.NET</span>,
+            <span class="format format_cg">CGColor</span> and
+            <span class="format format_opengl">OpenGL</span> this results in even faster developer workflow.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tour tour_colors">
+      <div class="wrapper tour__2cols">
+        <figure class="tour__col tour__col_image tour__figure tour__figure_right">
+          <img
+              class="tour__image"
+              src="img/fig_colors@2x.png"
+              alt="Accurate colors in Xcode"
+              width="628"/>
+        </figure>
+
+        <div class="tour__col tour__col_features">
+          <h2 class="tour__heading">Accurate color values</h2>
+          <p class="tour__description">
+            The new color picker automatically converts colors picked from native OS X applications, including Safari and
+            Xcode from your monitor’s color profile to sRGB. This means, you’ll get the same <sup>1</sup> RGB values as
+            those used in your code.<sup>2</sup>
+          </p>
+          <p class="tour__description footnote">
+            <sup>1</sup> There may be small conversion differences when picking colors from monitors with a smaller color
+            space than sRGB.
+          </p>
+          <p class="tour__description footnote">
+            <sup>2</sup> Non-native applications and applications that are not using the Cocoa framework are not affected
+            by conversion issues.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="tour tour_alt tour_more" id="more">
+      <div class="wrapper tour__1col">
+        <h2 class="tour__heading">And even more&hellip;</h2>
+      </div>
+
+      <div class="wrapper">
+        <ul class="features features_multicol">
+          <li class="features__item features__item_col">
+            <h3><span class="format format_photoshop">Photoshop</span> &amp; <span
+                class="format format_illustrator">Illustrator</span> Integration</h3>
+            <p>Control foreground and background colors directly from ColorSnapper in your favorite designer tools. No
+              settings: it just works!</p>
+          </li>
+
+          <li class="features__item features__item_col">
+            <h3>Capture Screenshots</h3>
+            <p>The new magnifying glass can be used as a review tool. Press <span class="shortcut">P</span> to copy the
+              zoomed image into clipboard.</p>
+          </li>
+
+          <li class="features__item features__item_col">
+            <h3>ColorSnapper API <sup class="badge badge_coming-soon">Soon</sup></h3>
+            <p>Having command-line access to the magnifying glass allows developers to write plugins for popular code
+              editors or integrate with graphic software.</p>
+          </li>
+        </ul>
+
+        <p class="footnote">Adobe Photoshop and Adobe Illustrator are registered trademarks of Adobe Corp.</p>
+      </div>
+    </section>
+
+    {{> buy-links }}
+
+  </section>
 
     {{> footer }}
 
