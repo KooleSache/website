@@ -1,6 +1,7 @@
 const metalsmith = require('metalsmith')
 const markdown = require('metalsmith-markdownit')
 const permalinks = require('metalsmith-permalinks')
+const inplace = require('metalsmith-in-place')
 const layouts = require('metalsmith-layouts')
 const define = require('metalsmith-define')
 const metadata = require('./metadata')
@@ -17,6 +18,10 @@ metalsmith(__dirname)
     }))
     .use(permalinks({
         pattern: ':permalink'
+    }))
+    .use(inplace({
+        engine: 'handlebars',
+        partials: '_includes'
     }))
     .use(layouts({
         engine: 'handlebars',
