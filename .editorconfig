@@ -13,7 +13,7 @@ insert_final_newline = true
 quote_type = single
 spaces_around_operators = true
 
-[*.{scss,css}]
+[*.{scss,css,html}]
 quote_type = double
 indent_size = 2
 
