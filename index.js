@@ -6,6 +6,9 @@ const layouts = require('metalsmith-layouts')
 const define = require('metalsmith-define')
 const webpack = require('metalsmith-webpack')
 const watch = require('metalsmith-watch')
+const serve = require('metalsmith-serve')
+const assets = require('metalsmith-assets')
+const webpackDevServer = require('./metalsmith-webpack-dev-server')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
@@ -15,7 +18,7 @@ const webpackConfig = require('./webpack.config')
 const server = metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
-    .metadata(metadata)
+    .metadata(Object.assign(metadata, config))
     .use(markdown({
         html: true,
         typographer: true,
@@ -35,16 +38,51 @@ const server = metalsmith(__dirname)
         default: 'default.html'
     }))
     .use(define(config))
-    .use(webpack(webpackConfig))
+    .use(assets({
+        source: './img', // relative to the working directory
+        destination: './img' // relative to the build directory
+    }))
 
 if (!isProduction) {
-    server.use(watch({
-        paths: {
-            "${source}/**/*": true,
-            "_layouts/*": "**/*",
-            "_includes/*": "**/*"
-        }
-    }))
+    server
+        .use(watch({
+            paths: {
+                "${source}/**/*": true,
+                "_layouts/*": "**/*",
+                "_includes/*": "**/*"
+            }
+        }))
+        .use(serve())
+        .use(webpackDevServer(webpackConfig, {
+            port: 8081,
+            contentBase: "http://localhost:8081/",
+            // or: contentBase: "http://localhost/",
+
+            hot: true,
+            // Enable special support for Hot Module Replacement
+            // Page is no longer updated, but a "webpackHotUpdate" message is send to the content
+            // Use "webpack/hot/dev-server" as additional module in your entry point
+            // Note: this does _not_ add the `HotModuleReplacementPlugin` like the CLI option does.
+
+            // Set this if you want webpack-dev-server to delegate a single path to an arbitrary server.
+            // Use "*" to proxy all paths to the specified server.
+            // This is useful if you want to get rid of 'http://localhost:8080/' in script[src],
+            // and has many other use cases (see https://github.com/webpack/webpack-dev-server/pull/127 ).
+            proxy: {
+                "*": "http://localhost:8080"
+            },
+
+            // webpack-dev-middleware options
+            quiet: false,
+            noInfo: false,
+            publicPath: "/assets/",
+            //headers: { "X-Custom-Header": "yes" },
+            stats: {colors: true}
+
+        }))
+} else {
+    server
+        .use(webpack(webpackConfig))
 }
 
 server.build(function (err) {
