@@ -5,27 +5,6 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var isProduction = process.env.NODE_ENV === 'production';
 var plugins = [new ExtractTextPlugin('[name].[hash].css', { disable: !isProduction })];
 
-if (isProduction) {
-    console.log('Compiling for production!')
-    plugins = plugins.concat([
-        // Write a bundle compilation hash to application.properties to use it in HTML
-        function () {
-            this.plugin('done', function (stats) {
-                var jekyllConfig = fs.readFileSync(path.join(__dirname, '_config.yml'), {encoding: 'utf-8'});
-                jekyllConfig = jekyllConfig.replace('production: false', 'production: true')
-                fs.writeFileSync(
-                    path.join(__dirname, '_config_production.yml'),
-                    jekyllConfig
-                );
-                fs.appendFileSync(
-                    path.join(__dirname, '_config_production.yml'),
-                    'webpack_hash: ' + stats.hash + '\n'
-                );
-            });
-        }
-    ]);
-}
-
 module.exports = {
     entry: ['./_js/index.js'],
     output: {
