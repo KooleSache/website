@@ -1,17 +1,42 @@
-var MemoryInputFileSystem = require('enhanced-resolve/lib/MemoryInputFileSystem')
-var MemoryOutputFileSystem = require('webpack/lib/MemoryOutputFileSystem')
-var tty = require('tty')
-var path = require('path')
+var chalk = require('chalk')
 var webpack = require('webpack')
 var WebpackDevServer = require('webpack-dev-server')
 
-module.exports = function(config, devConfig) {
-    var compiler = webpack(config)
-
-    return function (files, metalsmith, done) {
-        var server = new WebpackDevServer(compiler, devConfig);
-        server.listen(devConfig.port || 8081, "localhost", function() {
-            done()
-        });
-    }
+var defaults = {
+    host: 'localhost',
+    port: 8081
 }
+
+module.exports = function(config, opts) {
+    var server
+    var options = Object.assign(defaults, opts)
+    var compiler = webpack(Object.assign({}, config))
+
+    function process(files, metalsmith, done) {
+
+        // Prevent from starting webpack dev server multiple times
+        if (server) {
+            done()
+            return
+        }
+
+        server = new WebpackDevServer(compiler, options)
+
+        server.listen(options.port || 8081, "localhost", function() {
+            console.log(
+                chalk.blue('[metalsmith-webpack-dev-server]: ') +
+                chalk.green("Running webpack dev server at http://" + options.host + ":" + options.port)
+            )
+            done()
+        })
+    }
+
+    process.shutdown = function(done) {
+        server.close(function() {
+            done()
+        })
+    }
+
+    return process
+}
+
