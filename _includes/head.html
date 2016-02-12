@@ -10,13 +10,12 @@
 
     <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="canonical" href="{{ site.url }}{{ page.url }}">
-    <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}/feed.xml" />
 
     <link href='//fonts.googleapis.com/css?family=Lato:100,300,700,300italic' rel='stylesheet' type='text/css'>
 
     {{#if config.production }}
     <link rel="stylesheet"
-          href="{{ site.url }}/main.{{ webpackStats.hash }}.css">
+          href="{{ site.baseurl }}/main.{{ webpackStats.hash }}.css">
     {{else}}
     <script src="{{ config.webpackUrl }}/main.js"></script>
     {{/if}}
