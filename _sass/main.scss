@@ -16,7 +16,7 @@
     font-size: 9px;
     font-weight: lighter;
     background-color: $color;
-    border-color: color($color b(10%));
+    border-color: color($color l(-10%));
     color: #fff;
   }
 }

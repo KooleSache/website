@@ -14,7 +14,7 @@ $nav-color: color($text-color a(.85));
 
 $grey-color: #828282;
 $grey-color-light: color($grey-color l(40%));
-$grey-color-dark:  color($grey-color b(25%));
+$grey-color-dark:  color($grey-color l(-25%));
 
 // Width of the content area
 $content-width: 960px;
