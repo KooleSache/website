@@ -4,11 +4,12 @@ const permalinks = require('metalsmith-permalinks')
 const inplace = require('metalsmith-in-place')
 const layouts = require('metalsmith-layouts')
 const define = require('metalsmith-define')
-const webpack = require('metalsmith-webpack')
+const msWebpack = require('metalsmith-webpack')
 const watch = require('metalsmith-watch')
 const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
 const webpackDevServer = require('./metalsmith-webpack-dev-server')
+const webpack = require('webpack')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
@@ -38,6 +39,16 @@ const server = metalsmith(__dirname)
     }))
 
 if (!isProduction) {
+
+    var myConfig = Object.assign({}, webpackConfig)
+    myConfig.devtool = 'source-maps'
+    myConfig.entry = myConfig.entry.concat([
+        'webpack-dev-server/client?http://localhost:8081',
+        'webpack/hot/dev-server'
+    ])
+    myConfig.output.publicPath = 'http://localhost:8081/'
+    myConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
+
     server
         .use(watch({
             paths: {
@@ -47,7 +58,7 @@ if (!isProduction) {
             }
         }))
         .use(serve())
-        .use(webpackDevServer(webpackConfig, {
+        .use(webpackDevServer(myConfig, {
             port: 8081,
             contentBase: 'http://localhost:8081/',
             hot: true,
@@ -63,7 +74,7 @@ if (!isProduction) {
         }))
 } else {
     server
-        .use(webpack(webpackConfig))
+        .use(msWebpack(webpackConfig))
 }
 
 server
@@ -78,6 +89,6 @@ server
         default: 'default.html'
     }))
     .build(function (err) {
-        if (err) throw err;
+        if (err) throw err
         console.log('Built web-site to ' + config.destination)
     })
