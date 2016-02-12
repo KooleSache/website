@@ -12,9 +12,12 @@
 
   &_coming-soon {
     $color: #faa74f;
+    padding: 2px 3px;
+    font-size: 9px;
+    font-weight: lighter;
     background-color: $color;
     border-color: color($color b(10%));
-    color: color($color b(40%));
+    color: #fff;
   }
 }
 
