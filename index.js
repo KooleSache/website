@@ -85,8 +85,7 @@ server
     .use(layouts({
         engine: 'handlebars',
         directory: '_layouts',
-        partials: '_includes',
-        default: 'default.html'
+        partials: '_includes'
     }))
     .build(function (err) {
         if (err) throw err
