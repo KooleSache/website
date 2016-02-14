@@ -36,6 +36,9 @@ const server = metalsmith(__dirname)
     .use(assets({
         source: './img', // relative to the working directory
         destination: './img' // relative to the build directory
+    })).use(assets({
+        source: './app', // relative to the working directory
+        destination: './app' // relative to the build directory
     }))
 
 if (!isProduction) {
