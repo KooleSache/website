@@ -1,0 +1,14 @@
+---
+layout: page.html
+title: Changelog
+slug: Changelog
+permalink: /changelog/
+---
+
+<h1>Changelog</h1>
+
+{{#each collections.changelog }}
+  <h2>{{ title }}</h2>
+  <section>{{{ contents }}}</section>
+
+{{/each }}

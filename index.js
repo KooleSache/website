@@ -1,3 +1,4 @@
+const webpack = require('webpack')
 const metalsmith = require('metalsmith')
 const markdown = require('metalsmith-markdownit')
 const permalinks = require('metalsmith-permalinks')
@@ -9,7 +10,7 @@ const watch = require('metalsmith-watch')
 const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
 const webpackDevServer = require('metalsmith-webpack-dev-server')
-const webpack = require('webpack')
+const collections = require('metalsmith-collections')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
@@ -31,6 +32,13 @@ const server = metalsmith(__dirname)
     }))
     .use(permalinks({
         pattern: ':permalink'
+    }))
+    .use(collections({
+        changelog: {
+            pattern: 'changelog/**/*.md',
+            sortBy: 'date',
+            refer: false
+        }
     }))
     .use(define(config))
     .use(assets({
