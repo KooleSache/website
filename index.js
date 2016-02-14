@@ -8,7 +8,7 @@ const msWebpack = require('metalsmith-webpack')
 const watch = require('metalsmith-watch')
 const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
-const webpackDevServer = require('./metalsmith-webpack-dev-server')
+const webpackDevServer = require('metalsmith-webpack-dev-server')
 const webpack = require('webpack')
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -39,14 +39,13 @@ const server = metalsmith(__dirname)
     }))
 
 if (!isProduction) {
-
     var myConfig = Object.assign({}, webpackConfig)
     myConfig.devtool = 'source-maps'
     myConfig.entry = myConfig.entry.concat([
-        'webpack-dev-server/client?http://localhost:8081',
+        'webpack-dev-server/client?' + config.webpackUrl,
         'webpack/hot/dev-server'
     ])
-    myConfig.output.publicPath = 'http://localhost:8081/'
+    myConfig.output.publicPath = config.webpackUrl + '/'
     myConfig.plugins.push(new webpack.HotModuleReplacementPlugin())
 
     server
@@ -59,16 +58,11 @@ if (!isProduction) {
         }))
         .use(serve())
         .use(webpackDevServer(myConfig, {
-            port: 8081,
-            contentBase: 'http://localhost:8081/',
+            port: config.webpackPort,
+            host: config.webpackHost,
             hot: true,
-            proxy: {
-                '*': 'http://localhost:8080'
-            },
-            // webpack-dev-middleware options
             quiet: true,
-            noInfo: false,
-            publicPath: 'http://localhost:8081/',
+            noInfo: true,
             stats: {colors: true}
 
         }))

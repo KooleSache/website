@@ -40,6 +40,7 @@
     "metalsmith-permalinks": "^0.4.1",
     "metalsmith-serve": "0.0.7",
     "metalsmith-webpack": "github:okonet/metalsmith-webpack",
+    "metalsmith-webpack-dev-server": "^1.0.0",
     "npm-check": "^4.1.4",
     "postcss-calc": "^5.2.0",
     "postcss-loader": "^0.8.0",
