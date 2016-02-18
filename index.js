@@ -1,5 +1,6 @@
 const webpack = require('webpack')
 const metalsmith = require('metalsmith')
+const debug = require('metalsmith-debug')
 const markdown = require('metalsmith-markdownit')
 const permalinks = require('metalsmith-permalinks')
 const inplace = require('metalsmith-in-place')
@@ -41,6 +42,7 @@ const server = metalsmith(__dirname)
             production: isProduction
         })
     }))
+    .use(debug())
     .use(remote({
         url: 'https://api.github.com/repos/adanmayer/ColorSnapper2/releases',
         fetchOpts: {
