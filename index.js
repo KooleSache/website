@@ -11,11 +11,27 @@ const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
 const webpackDevServer = require('metalsmith-webpack-dev-server')
 const collections = require('metalsmith-collections')
+const remote = require('metalsmith-remote-json-to-files').default
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
 const config = require('./config')
 const webpackConfig = require('./webpack.config')
+
+function cb(json) {
+    return json.reduce((prev, curr) => {
+        const key = 'changelog/' + curr.tag_name + '.md'
+        const transformed = {}
+        transformed[key] = Object.assign({}, {
+            layout: 'page.html',
+            collection: 'changelog',
+            title: curr.tag_name,
+            date: curr.published_at,
+            contents: new Buffer(curr.body)
+        })
+        return Object.assign(prev, transformed)
+    }, {})
+}
 
 const server = metalsmith(__dirname)
     .source(config.source)
@@ -25,6 +41,16 @@ const server = metalsmith(__dirname)
             production: isProduction
         })
     }))
+    .use(remote({
+        url: 'https://api.github.com/repos/adanmayer/ColorSnapper2/releases',
+        fetchOpts: {
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json',
+                'Authorization': 'token c8930579e19220e1b8c39876476e06c94d7fa4c5'
+            }
+        }
+    }, cb))
     .use(markdown({
         html: true,
         typographer: true,
