@@ -27,7 +27,7 @@ function cb(json) {
             layout: 'page.html',
             collection: 'changelog',
             title: curr.tag_name,
-            date: curr.published_at,
+            date: new Date(curr.created_at),
             contents: new Buffer(curr.body)
         })
         return Object.assign(prev, transformed)
@@ -65,6 +65,7 @@ const server = metalsmith(__dirname)
         changelog: {
             pattern: 'changelog/**/*.md',
             sortBy: 'date',
+            reverse: true,
             refer: false
         }
     }))
@@ -103,7 +104,6 @@ if (!isProduction) {
             quiet: true,
             noInfo: true,
             stats: {colors: true}
-
         }))
 } else {
     server
