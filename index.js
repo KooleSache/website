@@ -1,4 +1,6 @@
+const webpack = require('webpack')
 const metalsmith = require('metalsmith')
+const debug = require('metalsmith-debug')
 const markdown = require('metalsmith-markdownit')
 const permalinks = require('metalsmith-permalinks')
 const inplace = require('metalsmith-in-place')
@@ -9,12 +11,31 @@ const watch = require('metalsmith-watch')
 const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
 const webpackDevServer = require('metalsmith-webpack-dev-server')
-const webpack = require('webpack')
+const collections = require('metalsmith-collections')
+const remote = require('metalsmith-remote-json-to-files')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
 const config = require('./config')
 const webpackConfig = require('./webpack.config')
+
+function cb(json) {
+    const formatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
+    return json.reduce((prev, item) => {
+        var versionNumber = item.tag_name.replace('v', '')
+        const filename = `changelog/${ versionNumber }.md`
+        return Object.assign(prev, {
+            [filename]: {
+                layout: 'page.html',
+                collection: 'changelog',
+                title: versionNumber,
+                dateString: new Date(item.created_at).toLocaleDateString('en', formatOptions),
+                date: new Date(item.created_at),
+                contents: new Buffer(item.body)
+            }
+        })
+    }, {})
+}
 
 const server = metalsmith(__dirname)
     .source(config.source)
@@ -24,6 +45,22 @@ const server = metalsmith(__dirname)
             production: isProduction
         })
     }))
+    .use(debug())
+    .use(define(config))
+    .use(remote({
+        url: 'https://api.github.com/repos/adanmayer/ColorSnapper2/releases',
+        headers: {
+            'Authorization': 'token c8930579e19220e1b8c39876476e06c94d7fa4c5'
+        }
+    }, cb))
+    .use(collections({
+        changelog: {
+            pattern: 'changelog/**/*.md',
+            sortBy: 'date',
+            reverse: true,
+            refer: false
+        }
+    }))
     .use(markdown({
         html: true,
         typographer: true,
@@ -32,7 +69,6 @@ const server = metalsmith(__dirname)
     .use(permalinks({
         pattern: ':permalink'
     }))
-    .use(define(config))
     .use(assets({
         source: './img', // relative to the working directory
         destination: './img' // relative to the build directory
@@ -67,7 +103,6 @@ if (!isProduction) {
             quiet: true,
             noInfo: true,
             stats: {colors: true}
-
         }))
 } else {
     server

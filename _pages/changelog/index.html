@@ -1,0 +1,19 @@
+---
+layout: page.html
+title: What’s New
+slug: Changelog
+permalink: /changelog/
+---
+
+<ul class="changelog">
+    {{#each collections.changelog }}
+    <li class="changelog__item">
+        <time datetime="{{ date }}" class="changelog__date">{{ dateString }}</time>
+        <div class="changelog__content">
+            <h2 class="changelog__title">{{ title }}</h2>
+            <section class="changelog__body">{{{ contents }}}</section>
+        </div>
+    </li>
+    {{/each }}
+</ul>
+

@@ -13,6 +13,7 @@ import '../_sass/_playButton.scss'
 import '../_sass/_features.scss'
 import '../_sass/_shortcuts.scss'
 import '../_sass/_footer.scss'
+import '../_sass/changelog.scss'
 import '../_sass/main.scss'
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2;
