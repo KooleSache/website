@@ -1,12 +1,21 @@
 @import './_vars.scss';
 
 .nav {
-  display: flex;
-  align-items: center;
-  margin: 1em 0;
-  font-family: $second-font-family;
-  font-weight: 700;
-  font-size: .85em;
+  display: block;
+  font-weight: 500;
+  font-size: 12px;
+  text-align: center;
+  width: 100%;
+
+  &_top {
+    padding: calc($spacing-unit / 2) 0;
+    border-bottom: 1px solid #efefef;
+  }
+
+  &_home {
+    padding: calc($spacing-unit / 2) 0 0;
+    border-bottom: none;
+  }
 
   a {
     display: inline-block;
@@ -17,30 +26,20 @@
     }
   }
 
-  &_top {
-    color: $nav-color;
-
-    a {
-      color: $nav-color;
-    }
-  }
-
-  &_top {
-    padding: 7px 0px;
-  }
-
   &__logo {
+    display: block;
+    margin: $spacing-unit 0;
     padding-left: 20px;
+    text-indent: -9999px;
+    border-bottom: none !important;
     background: url('../_images/logo_small.svg') 0 0 no-repeat;
-    background-size: 16px 16px;
-    line-height: 16px;
-  }
+    width: 32px;
+    height: 32px;
+    opacity: .5;
+    transition: opacity .5s;
 
-  &__home {
-    flex: 0 0 50%;
-  }
-  &__links {
-    flex: 0 0 50%;
-    text-align: right;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
