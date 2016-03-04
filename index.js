@@ -19,6 +19,23 @@ const metadata = require('./metadata')
 const config = require('./config')
 const webpackConfig = require('./webpack.config')
 
+function cb(json) {
+    const formatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
+    return json.reduce((prev, item) => {
+        const filename = `changelog/${ item.tag_name }.md`
+        return Object.assign(prev, {
+            [filename]: {
+                layout: 'page.html',
+                collection: 'changelog',
+                title: item.tag_name.replace('v', ''),
+                dateString: new Date(item.created_at).toLocaleDateString('en', formatOptions),
+                date: new Date(item.created_at),
+                contents: new Buffer(item.body)
+            }
+        })
+    }, {})
+}
+
 const server = metalsmith(__dirname)
     .source(config.source)
     .destination(config.destination)
@@ -34,14 +51,7 @@ const server = metalsmith(__dirname)
         headers: {
             'Authorization': 'token c8930579e19220e1b8c39876476e06c94d7fa4c5'
         }
-    }, {
-        filename: 'changelog/${ tag_name }.md',
-        layout: 'page.html',
-        collection: 'changelog',
-        title: '${tag_name}',
-        date: '${new Date(created_at).getTime()}',
-        contents: '${body}'
-    }))
+    }, cb))
     .use(collections({
         changelog: {
             pattern: 'changelog/**/*.md',
