@@ -6,7 +6,7 @@ var isProduction = process.env.NODE_ENV === 'production';
 var plugins = [new ExtractTextPlugin('[name].[hash].css', { disable: !isProduction })];
 
 module.exports = {
-    entry: ['./_js/index.js'],
+    entry: [__dirname + '/_js/index.js'],
     output: {
         path: path.join(__dirname, '_site'),
         publicPath: isProduction ? '/' : 'http://localhost:8081/',
