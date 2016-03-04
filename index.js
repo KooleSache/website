@@ -22,12 +22,13 @@ const webpackConfig = require('./webpack.config')
 function cb(json) {
     const formatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
     return json.reduce((prev, item) => {
-        const filename = `changelog/${ item.tag_name }.md`
+        var versionNumber = item.tag_name.replace('v', '')
+        const filename = `changelog/${ versionNumber }.md`
         return Object.assign(prev, {
             [filename]: {
                 layout: 'page.html',
                 collection: 'changelog',
-                title: item.tag_name.replace('v', ''),
+                title: versionNumber,
                 dateString: new Date(item.created_at).toLocaleDateString('en', formatOptions),
                 date: new Date(item.created_at),
                 contents: new Buffer(item.body)
