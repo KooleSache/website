@@ -1,0 +1,45 @@
+.changelog {
+  list-style-type: none;
+
+  &__item {
+    display: flex;
+    &:first-of-type {
+      border-top: 1px solid #e4eaf3;
+    }
+  }
+
+  &__date {
+    position: relative;
+    flex-basis: 100px;
+    display: block;
+    padding: 20px 10px;
+    min-width: 120px;
+    font-size: 10px;
+    line-height: 17pt;
+    color: #a8aeb6;
+    text-align: right;
+
+    &:after {
+      position: absolute;
+      top: 20pt;
+      right: -6px;
+      background-color: #c2c8d0;
+      border: 2px solid #fff;
+      border-radius: 100%;
+      width: 6px;
+      height: 6px;
+      content: "";
+    }
+  }
+
+  &__content {
+    padding: 10px;
+    border-left: 2px solid #e4eaf3;
+  }
+
+  &__title {
+    font-weight: normal;
+    font-size: 18pt;
+  }
+
+}
