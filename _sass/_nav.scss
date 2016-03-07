@@ -4,26 +4,49 @@
   display: block;
   font-weight: 500;
   font-size: 12px;
-  text-align: center;
   width: 100%;
+
+  &_home {
+    display: flex;
+    align-items: baseline;
+    margin-left: 80px;
+    padding: calc($spacing-unit / 2) 0 0;
+    border-bottom: none;
+  }
 
   &_top {
     padding: calc($spacing-unit / 2) 0;
-    border-bottom: 1px solid #efefef;
+    text-align: center;
+
+    .nav__social {
+      display: none;
+    }
   }
 
-  &_home {
-    padding: calc($spacing-unit / 2) 0 0;
-    border-bottom: none;
+  &_footer {
+    text-align: center;
+
+    .nav__social {
+      margin-top: 1em;
+    }
+  }
+
+  &__links {
+    flex: auto;
   }
 
   a {
     display: inline-block;
     margin-right: 1em;
+    line-height: 0.9;
 
     &:last-child {
       margin-right: 0;
     }
+  }
+
+  .twitter-follow-button {
+    margin-bottom: -5px;
   }
 
   &__logo {
