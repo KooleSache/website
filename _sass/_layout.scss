@@ -2,6 +2,13 @@
 
 .page-content {
   padding: 0 0 $spacing-unit 0;
+  margin-bottom: $spacing-unit;
+
+  img {
+    display: block;
+    margin: 0 auto 2em;
+    max-width: 100%;
+  }
 }
 
 .page-heading {
@@ -39,8 +46,4 @@
   letter-spacing: -1px;
   line-height: 2;
   text-align: center;
-}
-
-.post-content {
-  margin-bottom: $spacing-unit;
 }
