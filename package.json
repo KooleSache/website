@@ -8,7 +8,7 @@
     "start": "DEBUG=metalsmith:* babel-node index.js",
     "build": "NODE_ENV=production babel-node index.js",
     "clean": "rm -rf _site/",
-    "deploy": "surge _site",
+    "deploy": "surge _site -d colorsnapper.com",
     "test": "echo \"Error: no test specified\" && exit 1",
     "production": "npm run clean && npm run build && npm run deploy",
     "staging": "npm run clean && npm run build && surge _site -d cs2-test.surge.sh",
