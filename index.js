@@ -51,8 +51,9 @@ const server = metalsmith(__dirname)
         url: 'https://api.github.com/repos/adanmayer/ColorSnapper2/releases',
         headers: {
             'Authorization': 'token c8930579e19220e1b8c39876476e06c94d7fa4c5'
-        }
-    }, cb))
+        },
+        transformOpts: cb
+    }))
     .use(collections({
         changelog: {
             pattern: 'changelog/**/*.md',
