@@ -15,6 +15,7 @@ import '../_sass/_shortcuts.scss'
 import '../_sass/_footer.scss'
 import '../_sass/changelog.scss'
 import '../_sass/main.scss'
+import checkOSCompatibility from './checkOSCompatibility'
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2;
 const forEach = Array.prototype.forEach;
@@ -100,12 +101,14 @@ function toggleVideoPlayback(video) {
 }
 
 function initGA(classNames) {
+    const userAgent = navigator.userAgent.toLowerCase()
     classNames.forEach(className => {
         forEach.call(document.querySelectorAll(`.${className}`), (el) => {
             // Display alert about incompatible OS X version
             el && el.addEventListener('click', () => {
-                if (className === 'buy-paddle' && !checkOSXVersionCompatibility()) {
-                    alert('Your OS version is not compatible with ColorSnapper2, which requires Mac OS X 10.9+.')
+                if (className === 'buy-paddle' && !checkOSCompatibility(userAgent)) {
+                    alert('Your OS version is not compatible with ColorSnapper2, which requires' +
+                        ' Mac OS X 10.9+ or macOS 11+.')
                 }
             })
 
@@ -115,12 +118,6 @@ function initGA(classNames) {
 
     })
 }
-
-function checkOSXVersionCompatibility() {
-    const userAgent = navigator.userAgent.toLowerCase()
-    return /mac os x 10(.|_)(9|10|11)/.test(userAgent)
-}
-
 
 document.addEventListener("DOMContentLoaded", () => {
     initGA(['buy-mas', 'buy-paddle', 'buy-download']);
