@@ -3,7 +3,6 @@
 .features {
   margin: 0;
   padding: 0;
-  font-family: $base-font-family;
   list-style: none;
 
   &_multicol {
@@ -20,6 +19,7 @@
   &__item {
     position: relative;
     margin: 0;
+    margin-left: 30px;
     padding-bottom: 1em;
 
     &:last-of-type {
@@ -36,8 +36,7 @@
     }
 
     h3 {
-      font-weight: 500;
-      font-size: 130%;
+      line-height: 1.5;
       margin-bottom: .5em;
     }
 
@@ -59,18 +58,13 @@
       &:last-of-type {
         padding-right: 0;
       }
-
-      h3 {
-        font-size: 100%;
-        font-weight: 600;
-        line-height: 1;
-      }
     }
   }
 
   &__play {
-    display: inline-block;
-    vertical-align: bottom;
+    position: absolute;
+    left: -30px;
+    top: -3px;
     width: 28px;
     height: 28px;
   }

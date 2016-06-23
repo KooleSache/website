@@ -13,6 +13,7 @@
 
     position: relative;
     text-align: center;
+    font-family: $second-font-family;
     font-size: 3.5em;
     line-height: 1.2;
     letter-spacing: -.02em;
@@ -47,9 +48,8 @@
     margin: .5em 60px 0;
     font-size: 1.5em;
     text-align: center;
-    font-family: $second-font-family;
     font-weight: 300;
-    max-width: 680px;
+    max-width: 700px;
 
     @include media-query($on-palm) {
       font-size: 1.6em;
