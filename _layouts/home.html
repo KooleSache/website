@@ -9,8 +9,12 @@
 
 {{> footer }}
 
-<script async src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-<script async src="//paddle.s3.amazonaws.com/checkout/checkout.js"></script>
+<script src="//cdn.paddle.com/paddle/paddle.js"></script>
+<script type="text/javascript">
+  Paddle.Setup({
+    vendor: {{ site.paddle_vendor_id }}
+  });
+</script>
 
 </body>
 
