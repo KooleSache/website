@@ -101,12 +101,11 @@ function toggleVideoPlayback(video) {
 }
 
 function initGA(classNames) {
-    const userAgent = navigator.userAgent.toLowerCase()
     classNames.forEach(className => {
         forEach.call(document.querySelectorAll(`.${className}`), (el) => {
             // Display alert about incompatible OS X version
             el && el.addEventListener('click', () => {
-                if (className === 'buy-paddle' && !checkOSCompatibility(userAgent)) {
+                if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
                     alert('Your OS version is not compatible with ColorSnapper2, which requires' +
                         ' Mac OS X 10.9+ or macOS 11+.')
                 }
