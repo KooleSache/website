@@ -1,11 +1,12 @@
-Public website for the ColorSnapper2
+# Public website for the ColorSnapper2
 
-## Development
+## Installation && Development
 
 1. Install nvm (https://github.com/creationix/nvm)
+1. Install yarn (`brew install yarn` or `npm install -g yarn`)
 1. `nvm install && nvm use`
-1. `npm install`
-1. `npm start`
+1. `yarn`
+1. `yarn start`
 
 ## Deploying to production
 
