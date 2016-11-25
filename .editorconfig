@@ -3,7 +3,7 @@ root = true
 [*]
 indent_style = space
 indent_size = 4
-continuation_indent_size = 4
+continuation_indent_size = 2
 end_of_line = lf
 charset = utf-8
 trim_trailing_whitespace = true
@@ -15,7 +15,6 @@ spaces_around_operators = true
 
 [*.{scss,css,html}]
 quote_type = double
-indent_size = 2
 
 [*.{html,json}]
 quote_type = double
