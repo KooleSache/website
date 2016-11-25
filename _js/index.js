@@ -42,18 +42,20 @@ function toggleVideoPlayback(video) {
 
 function initGA(classNames) {
   classNames.forEach((className) => {
-    forEach.call(document.querySelectorAll(`.${ className }`), (el) => {
-            // Display alert about incompatible OS X version
-            el && el.addEventListener('click', () => { // eslint-disable-line
-              if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
-                alert('Your OS version is not compatible with ColorSnapper2, which requires' +
-                      ' Mac OS X 10.9+ or macOS 11+.')
-              }
-            })
+    forEach.call(
+      document.querySelectorAll(`.${ className }`), (el) => {
+        // Display alert about incompatible OS X version
+        el && el.addEventListener('click', () => { // eslint-disable-line
+          if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
+            alert('Your OS version is not compatible with ColorSnapper2, which requires' +
+                  ' Mac OS X 10.9+ or macOS 11+.')
+          }
+        })
 
-            // Send tracking code
-            window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
-    })
+        // Send tracking code
+        window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
+      }
+    )
   })
 }
 
@@ -135,14 +137,14 @@ document.addEventListener('DOMContentLoaded', () => {
           video.poster = video.poster.replace(/(dark|light)/, themeName)
           video.src = video.src.replace(/(dark|light)/, themeName)
         } else {
-                    // Stop all videos
+          // Stop all videos
           video.pause()
           video.wasPlaying = false
           window.setTimeout(() => {
-                        // For some reason events won't fire if this code is sync
+            // For some reason events won't fire if this code is sync
             video.currentTime = 0
             window.setTimeout(() => {
-                            // For some reason events won't fire if this code is sync
+              // For some reason events won't fire if this code is sync
               video.poster = video.poster.replace(/(dark|light)/, themeName)
               video.src = video.src.replace(/(dark|light)/, themeName)
             }, 100)
@@ -165,7 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
         event.preventDefault()
         event.stopPropagation()
 
-            // Stop currently playing video
+        // Stop currently playing video
         if (video !== currentlyPlayingVideo) {
           pauseVideoPlayback(currentlyPlayingVideo)
         }
@@ -204,9 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
     })
 
     video.addEventListener('pause', () => {
-      if (currentlyPlayingVideo === video) {
-        currentlyPlayingVideo = null
-      }
+      if (currentlyPlayingVideo === video) currentlyPlayingVideo = null
       video.classList.remove('is-active')
       if (featureEl) featureEl.classList.remove('is-active')
       if (playButtonEl) playButtonEl.classList.remove('playButton_playing')
