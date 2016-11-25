@@ -2236,9 +2236,9 @@ eslint-config-airbnb@^12.0.0:
   dependencies:
     eslint-config-airbnb-base "^8.0.0"
 
-eslint-config-okonet@^1.1.1:
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-okonet/-/eslint-config-okonet-1.1.1.tgz#34d36f05f4cf94c6e57bda2b09813db01e1cddbc"
+eslint-config-okonet@1.2.1:
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/eslint-config-okonet/-/eslint-config-okonet-1.2.1.tgz#94248408f9948b3ae3f6bafd6f91f8e89efca22c"
   dependencies:
     babel-eslint "^7.0.0"
     eslint "^3.7.1"
