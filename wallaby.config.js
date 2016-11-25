@@ -3,7 +3,7 @@ module.exports = function (wallaby) {
     debug: true,
     files: [
       '_js/**/*.js',
-            { pattern: '_js/**/*.spec.js', ignore: true }
+      '!_js/**/*.spec.js'
     ],
 
     tests: [
