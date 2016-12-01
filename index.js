@@ -12,30 +12,13 @@ const serve = require('metalsmith-serve')
 const assets = require('metalsmith-assets')
 const webpackDevServer = require('metalsmith-webpack-dev-server')
 const collections = require('metalsmith-collections')
-const remote = require('metalsmith-remote-json-to-files')
+const addMetadata = require('metalsmith-collections-addmeta')
+const formatDate = require('./metalsmith-format-date-plugin')
 
 const isProduction = process.env.NODE_ENV === 'production'
 const metadata = require('./metadata')
 const config = require('./config')
 const webpackConfig = require('./webpack.config')
-
-function cb(json) {
-  const formatOptions = { year: 'numeric', month: 'long', day: 'numeric' }
-  return json.reduce((prev, item) => {
-    const versionNumber = item.tag_name.replace('v', '')
-    const filename = `changelog/${ versionNumber }.md`
-    return Object.assign(prev, {
-      [filename]: {
-        layout: 'page.html',
-        collection: 'changelog',
-        title: versionNumber,
-        dateString: new Date(item.created_at).toLocaleDateString('en', formatOptions),
-        date: new Date(item.created_at),
-        contents: new Buffer(item.body)
-      }
-    })
-  }, {})
-}
 
 const server = metalsmith(__dirname)
   .source(config.source)
@@ -47,19 +30,18 @@ const server = metalsmith(__dirname)
   }))
   .use(debug())
   .use(define(config))
-  .use(remote({
-    url: 'https://api.github.com/repos/adanmayer/ColorSnapper2/releases',
-    headers: {
-      Authorization: 'token c8930579e19220e1b8c39876476e06c94d7fa4c5'
-    },
-    transformOpts: cb
-  }))
+  .use(formatDate())
   .use(collections({
     changelog: {
       pattern: 'changelog/**/*.md',
       sortBy: 'date',
       reverse: true,
       refer: false
+    }
+  }))
+  .use(addMetadata({
+    changelog: {
+      layout: 'page.html'
     }
   }))
   .use(markdown({
