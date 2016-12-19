@@ -1,12 +1,11 @@
 /* eslint no-unused-expressions: 0 */
 
-import expect from 'expect'
 import checkOSCompatibility from './checkOSCompatibility'
 
 describe('checkOSCompatibility', () => {
 
   it('should be defined', () => {
-    expect(checkOSCompatibility).toNotBe(undefined)
+    expect(checkOSCompatibility).not.toBe(undefined)
   })
 
   it('should return true for OS X 10.9+ and macOS', () => {

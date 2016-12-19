@@ -1,21 +1,30 @@
-module.exports = function (wallaby) {
-  return {
-    debug: true,
-    files: [
-      '_js/**/*.js',
-      '!_js/**/*.spec.js'
-    ],
+/* eslint global-require: 0 */
+/* eslint import/no-extraneous-dependencies: 0 */
 
-    tests: [
-      '_js/**/*.spec.js'
-    ],
+process.env.BABEL_ENV = 'test'
 
-    compilers: {
-      '**/*.js': wallaby.compilers.babel()
-    },
+module.exports = wallaby => ({
+  files: [
+    'package.json',
+    '_js/**/*.js',
+    '_js/**/*.js.snap',
+    '!_js/**/*.spec.js'
+  ],
 
-    env: {
-      type: 'node'
+  tests: ['_js/**/*.spec.js'],
+
+  compilers: {
+    '_js/**/*.js': wallaby.compilers.babel()
+  },
+
+  env: {
+    type: 'node',
+    runner: 'node',
+    params: {
+      runner: '--harmony_proxies'
     }
-  }
-}
+  },
+
+  testFramework: 'jest'
+
+})
