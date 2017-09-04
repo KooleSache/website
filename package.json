@@ -5,7 +5,7 @@
   "description": "ColorSnapper Public Website",
   "main": "",
   "scripts": {
-    "start": "DEBUG=metalsmith:* node index.js",
+    "start": "node index.js",
     "build": "NODE_ENV=production node index.js",
     "clean": "rm -rf _site/",
     "deploy": "surge _site -d colorsnapper.com",
