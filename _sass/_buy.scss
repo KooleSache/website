@@ -1,6 +1,7 @@
 @import './_vars.scss';
 
 .buy {
+  position: relative;
   margin: $spacing-unit 0 0;
   text-align: center;
 
@@ -73,14 +74,15 @@
     left: 50%;
     top: -25px;
     display: inline-block;
-    margin-left: -10em;
-    color: #59b200;
+    margin-left: -6em;
+    color: #fff;
+    background-color: #f58b33;
     font-size: 13px;
-    font-style: italic;
     font-family: $second-font-family;
-    text-align: center;
     font-weight: bold;
-    width: 20em;
+    text-align: center;
+    border-radius: 1em;
+    width: 12em;
   }
 
   &__req {
