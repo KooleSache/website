@@ -5,10 +5,6 @@ slug: F.A.Q.
 permalink: /faq/
 ---
 
-1. [ColorSnapper v1 is lagging on OS X 10.11 El Capitain](#colorsnapper-v1-is-lagging-on-os-x-1011-el-capitain)
-1. [Picking from Adobe Photoshop or Illustrator results in wrong colors](#picking-from-adobe-photoshop-or-illustrator-results-in-wrong-colors)
-1. [How can I delete colors from history](#how-can-i-delete-colors-from-history)
-
 ## ColorSnapper v1 is lagging on OS X 10.11 El Capitain
 
 The issue you are seeing is because Apple made massive changes to the graphics rendering engine ([Metal](https://developer.apple.com/metal/)) with the release of El Capitan. It brings performance improvements for applications but to take advantage of it, we would require to make some significant changes to the codebase of ColorSnapper 1, which was released back in 2011 and got supported for 5 different OSX versions.
