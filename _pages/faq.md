@@ -21,7 +21,7 @@ ColorSnapper detects the monitor color profiles and converts to sRGB automatical
 
 **Please make sure you disable color management for the document you're picking color from.**
 
-## How can I delete colors from history
+## How can I delete colors from history?
 
 We believe there is no need to delete colors from the history. It is a history after all. But if you still want to remove colors from the history for whatever reason, you could run this command in Terminal.app:
 
@@ -30,4 +30,14 @@ defaults delete com.koolesache.ColorSnapper2 HistoryColors
 ```
 
 **Warning! This will delete all history items and it is not undoable.**
+
+## How can I hide ColorSnapper from the menu bar?
+
+Run the following command in the Terminal.app and restart ColorSnapper.app:
+
+```
+defaults write com.koolesache.ColorSnapper2 showMenubarIcon false
+```
+
+**Warning!** This will make ColorSnapper accessible only via keyboard shortcuts.
 
