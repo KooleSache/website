@@ -32,7 +32,8 @@
       "eslint --fix",
       "git add"
     ],
-    "*.json": "jsonlint"
+    "*.json": "jsonlint",
+    "*.md": "textlint"
   },
   "devDependencies": {
     "browser-sync": "^2.12.10",
@@ -45,7 +46,12 @@
     "jest": "^17.0.3",
     "jsonlint": "^1.6.2",
     "lint-staged": "^3.2.1",
-    "svgo": "^0.6.1"
+    "svgo": "^0.6.1",
+    "textlint": "^8.2.1",
+    "textlint-rule-common-misspellings": "^1.0.1",
+    "textlint-rule-ginger": "^2.1.0",
+    "textlint-rule-rousseau": "^1.4.5",
+    "textlint-rule-write-good": "^1.6.0"
   },
   "dependencies": {
     "autoprefixer": "^6.3.6",

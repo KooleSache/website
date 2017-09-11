@@ -7,25 +7,29 @@ permalink: /faq/
 
 ## ColorSnapper v1 is lagging on OS X 10.11 El Capitain
 
-The issue you are seeing is because Apple made massive changes to the graphics rendering engine ([Metal](https://developer.apple.com/metal/)) with the release of El Capitan. It brings performance improvements for applications but to take advantage of it, we would require to make some significant changes to the codebase of ColorSnapper 1, which was released back in 2011 and got supported for 5 different OSX versions.
+ColorSnapper 1 was released back in 2011 and supported for 5 different OS X versions. With the release of ColorSnapper 2 in beginning of 2015 (at that time mac OS "El Capitan" wasn't even announced) we stopped development and support for the ColorSnapper 1.
 
-**With the release of ColorSnapper 2 we stopped development and support for ColorSnapper 1. At that time – beginning of 2015 – El Capitan wasn't even announced. This means ColorSnapper 1 will no longer receive updates or bugfixes. You can try ColorSnapper 2 for 14 days for free — it’s faster and better in every way.**
+The release of the macOS 10.12 "El Capitan" later that year introduced a new rendering engine — [Metal](https://developer.apple.com/metal/). It brought performance improvements for some applications but, unfortunately, made ColorSnapper 1 rendering slow. 
+
+In order to fix those issues we would need to make significant changes to the codebase of ColorSnapper 1. This means ColorSnapper 1 will no longer receive updates or bug fixes. 
+
+You can try ColorSnapper 2 for 14 days for free — it’s faster and better in every way.
 
 ## Picking from Adobe Photoshop or Illustrator results in wrong colors
 
-ColorSnapper detects the monitor color profiles and converts to sRGB automatically to ensure consistent colors between display and your code. To do that, ColorSnapper 2 uses monitor color profile defined in System Preferences but it does not know anything about Adobe software, which has a custom color management.
+ColorSnapper detects the color profile and automatically converts colors to sRGB to ensure consistent RGB values between your display and your code. To do that, ColorSnapper 2 uses color profile defined in System Preferences. But since Adobe software has a custom color management, ColorSnapper doesn’t know anything about it.
 
-**Please make sure you disable color management for the document you're picking color from.**
+As a work around we suggest that you disable color management for the document you're picking colors from in the Adobe software.
 
 ## How can I delete colors from history?
 
-We believe there is no need to delete colors from the history. It is a history after all. But if you still want to remove colors from the history for whatever reason, you could run this command in Terminal.app:
+We believe there is no need to delete colors from the history, but if you still want to do so for whatever reason, run this command in the Terminal.app:
 
 ```
 defaults delete com.koolesache.ColorSnapper2 HistoryColors
 ```
 
-**Warning! This will delete all history items and it is not undoable.**
+**Warning!** This will delete all history items and can not be undone.
 
 ## How can I hide ColorSnapper from the menu bar?
 
