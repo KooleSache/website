@@ -6,3 +6,4 @@ node_modules
 assets
 _config_production.yml
 npm-debug.log
+.DS_Store
