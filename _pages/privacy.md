@@ -5,8 +5,6 @@ slug: privacy
 permalink: /privacy/
 ---
 
-# Privacy Policy
-
 ## Data protection
 
 We take the protection of your personal data very seriously. We treat your
@@ -28,7 +26,7 @@ The party responsible for processing data on this website is:
 
 Alexander Danmayer
 
-Felberstrasse 98 / 46 1150 Vienna
+Felberstrasse 98 / 46 1150 Vienna, Austria
 
 [a.danmayer@koolesache.com](mailto:a.danmayer@koolesache.com)
 
