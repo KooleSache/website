@@ -23,15 +23,28 @@
   }
 
   &_footer {
-    text-align: center;
+    display: flex;
+    //text-align: center;
+
+    .nav__links {
+      flex: 0 1 50%;
+      text-align: right;
+      margin-right: 1rem;
+    }
 
     .nav__social {
-      margin-top: 1em;
+      flex: 0 1 50%;
+      text-align: left;
     }
+  }
+  
+  &_secondary {
+    margin-top: $spacing-unit;
+    font-size: 1em;
   }
 
   &__links {
-    flex: auto;
+    flex: 1 auto;
   }
 
   a {
