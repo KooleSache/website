@@ -2,8 +2,11 @@
 
 .buy {
   position: relative;
-  margin: $spacing-unit 0 0;
+  margin: 2em 0;
   text-align: center;
+
+  .wrapper {
+  }
 
   &__btn {
     position: relative;
@@ -69,12 +72,17 @@
     }
   }
 
+  &__trial {
+    font-weight: bold;
+  }
+
   &__badge {
     position: absolute;
-    left: 50%;
-    top: -25px;
+    right: -24px;
+    top: -14px;
     display: inline-block;
     margin-left: -6em;
+    padding: 0 1em;
     color: #fff;
     background-color: #f58b33;
     font-size: 13px;
@@ -82,7 +90,7 @@
     font-weight: bold;
     text-align: center;
     border-radius: 1em;
-    width: 12em;
+    z-index: 1;
   }
 
   &__req {
