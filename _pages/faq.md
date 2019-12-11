@@ -11,7 +11,7 @@ In macOS 10.15 Apple added additional privacy permissions. In order for
 ColorSnapper to work properly it needs to be given the "Screen Recording"
 permission. You can do this in:
 
-System Preferences -> Security & Privacy -> Screen Recording
+System Preferences → Security & Privacy → Screen Recording
 
 ## ColorSnapper v1 is lagging on OS X 10.11 El Capitain
 
