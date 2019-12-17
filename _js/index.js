@@ -29,7 +29,9 @@ function pauseVideoPlayback(video) {
 function toggleVideoPlayback(video) {
   if (video) {
     if (video.paused) {
-      const playButtonEl = document.querySelector(`.features__item[data-video=${ video.id }] .playButton`)
+      const playButtonEl = document.querySelector(
+        `.features__item[data-video=${video.id}] .playButton`
+      )
       if (playButtonEl) {
         playButtonEl.classList.add('playButton_loading')
       }
@@ -41,40 +43,38 @@ function toggleVideoPlayback(video) {
 }
 
 function initGA(classNames) {
-  classNames.forEach((className) => {
-    forEach.call(
-      document.querySelectorAll(`.${ className }`), (el) => {
-        // Display alert about incompatible OS X version
-        el && el.addEventListener('click', () => { // eslint-disable-line
-          if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
-            alert('Your OS version is not compatible with ColorSnapper2, which requires' +
-                  ' Mac OS X 10.9+ or macOS 11+.')
-          }
-        })
+  classNames.forEach(className => {
+    forEach.call(document.querySelectorAll(`.${className}`), el => {
+      // Display alert about incompatible OS X version
+      // el && el.addEventListener('click', () => { // eslint-disable-line
+      //   if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
+      //     alert('Your OS version is not compatible with ColorSnapper2, which requires' +
+      //           ' Mac OS X 10.9+ or macOS 11+.')
+      //   }
+      // })
 
-        // Send tracking code
-        window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
-      }
-    )
+      // Send tracking code
+      window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
+    })
   })
 }
 
 function onMouseEnter(video) {
-    // Resume the video marked for that on hover
+  // Resume the video marked for that on hover
   if (video && currentlyPlayingVideo !== video && video.wasPlaying) {
     toggleVideoPlayback(currentlyPlayingVideo)
     video.play()
   }
-    // Toggle screenshots on mouse hover
+  // Toggle screenshots on mouse hover
   if (video) video.classList.add('is-active')
 }
 
 function onMouseLeave(video) {
-    // If the video is playing now we mark it to resume next time we hover it
+  // If the video is playing now we mark it to resume next time we hover it
   if (video && video.played.length) {
     video.wasPlaying = !video.paused
   }
-    // Toggle screenshots on mouse hover
+  // Toggle screenshots on mouse hover
   if (video && video.paused) {
     video.classList.remove('is-active')
   }
@@ -84,7 +84,7 @@ function onTimeUpdate(el, video) {
   const playedPercent = (video.currentTime / video.duration) * 100
   const progressEl = el.querySelector('.js-progress')
   if (progressEl) {
-    progressEl.style.width = `${ playedPercent }%`
+    progressEl.style.width = `${playedPercent}%`
   }
 }
 
@@ -93,7 +93,7 @@ function initTourForContainer(id) {
   if (!container) return
   const links = container.querySelectorAll('.features__item[data-video]')
 
-  forEach.call(links, (link) => {
+  forEach.call(links, link => {
     const videoID = link.getAttribute('data-video')
     const video = document.getElementById(videoID)
 
@@ -115,7 +115,10 @@ function initVideoProgressInContainer(id) {
   const container = document.getElementById(id)
   if (!container) return
   const video = container.querySelector('video')
-  video.addEventListener('timeupdate', onTimeUpdate.bind(this, container, video))
+  video.addEventListener(
+    'timeupdate',
+    onTimeUpdate.bind(this, container, video)
+  )
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -124,46 +127,58 @@ document.addEventListener('DOMContentLoaded', () => {
   initTourForContainer('loupeTour')
   initTourForContainer('overlayTour')
 
-  forEach.call(document.querySelectorAll('#switch-theme input'), (item) => {
-    item.addEventListener('change', (event) => {
+  forEach.call(document.querySelectorAll('#switch-theme input'), item => {
+    item.addEventListener('change', event => {
       const themeName = event.target.value
 
-      forEach.call(document.querySelectorAll('#overlayTour .tour__img'), (img) => {
-        img.src = img.src.replace(/(dark|light)/, themeName)
-      })
+      forEach.call(
+        document.querySelectorAll('#overlayTour .tour__img'),
+        img => {
+          img.src = img.src.replace(/(dark|light)/, themeName)
+        }
+      )
 
-      forEach.call(document.querySelectorAll('#overlayTour .tour__video'), (video) => {
-        if (video.paused) {
-          video.poster = video.poster.replace(/(dark|light)/, themeName)
-          video.src = video.src.replace(/(dark|light)/, themeName)
-        } else {
-          // Stop all videos
-          video.pause()
-          video.wasPlaying = false
-          window.setTimeout(() => {
-            // For some reason events won't fire if this code is sync
-            video.currentTime = 0
+      forEach.call(
+        document.querySelectorAll('#overlayTour .tour__video'),
+        video => {
+          if (video.paused) {
+            video.poster = video.poster.replace(/(dark|light)/, themeName)
+            video.src = video.src.replace(/(dark|light)/, themeName)
+          } else {
+            // Stop all videos
+            video.pause()
+            video.wasPlaying = false
             window.setTimeout(() => {
               // For some reason events won't fire if this code is sync
-              video.poster = video.poster.replace(/(dark|light)/, themeName)
-              video.src = video.src.replace(/(dark|light)/, themeName)
+              video.currentTime = 0
+              window.setTimeout(() => {
+                // For some reason events won't fire if this code is sync
+                video.poster = video.poster.replace(/(dark|light)/, themeName)
+                video.src = video.src.replace(/(dark|light)/, themeName)
+              }, 100)
             }, 100)
-          }, 100)
+          }
         }
-      })
+      )
     })
   })
 
-    // Videos pre-loading indication
-  forEach.call(document.querySelectorAll('video'), (video) => {
+  // Videos pre-loading indication
+  forEach.call(document.querySelectorAll('video'), video => {
     const id = video.id
-    const featureEl = document.querySelector(`.features__item[data-video=${ id }]`)
-    const playButtonEl = document.querySelector(`.playButton[data-video=${ id }]`)
-    const bufferedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_buffer') : null
-    const playedProgressEl = playButtonEl ? playButtonEl.querySelector('.playButton__progress_time') : null
+    const featureEl = document.querySelector(
+      `.features__item[data-video=${id}]`
+    )
+    const playButtonEl = document.querySelector(`.playButton[data-video=${id}]`)
+    const bufferedProgressEl = playButtonEl
+      ? playButtonEl.querySelector('.playButton__progress_buffer')
+      : null
+    const playedProgressEl = playButtonEl
+      ? playButtonEl.querySelector('.playButton__progress_time')
+      : null
 
     if (playButtonEl) {
-      playButtonEl.addEventListener('click', (event) => {
+      playButtonEl.addEventListener('click', event => {
         event.preventDefault()
         event.stopPropagation()
 
@@ -180,7 +195,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (videoEl.buffered && videoEl.buffered.length) {
         const buffered = videoEl.buffered.end(0) / videoEl.duration
         if (bufferedProgressEl) {
-          bufferedProgressEl.style.strokeDashoffset = CIRCLE_LENGTH * (1 - buffered)
+          bufferedProgressEl.style.strokeDashoffset =
+            CIRCLE_LENGTH * (1 - buffered)
         }
       }
       const played = videoEl.currentTime / videoEl.duration
@@ -189,11 +205,11 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    video.addEventListener('progress', (event) => {
+    video.addEventListener('progress', event => {
       renderProgress(event.target)
     })
 
-    video.addEventListener('timeupdate', (event) => {
+    video.addEventListener('timeupdate', event => {
       renderProgress(event.target)
     })
 
