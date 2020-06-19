@@ -12,10 +12,10 @@ describe('checkOSCompatibility', () => {
     expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(true)
     expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(true)
     expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(true)
-    expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(true)
   })
 
-  it('should return false for OS X 10.8- and macOS', () => {
+  it('should return false for OS X 10.11- and macOS', () => {
+    expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(false)
     expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(false)
     expect(checkOSCompatibility('Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36')).toEqual(false)
     expect(checkOSCompatibility('mozilla/5.0 (macintosh; intel mac os x 10_8_5)' +
