@@ -5,9 +5,9 @@ slug: F.A.Q.
 permalink: /faq/
 ---
 
-## Mac App Store version isn't up to date
+## Why ColorSnapper isn't avaibalbe on the Mac App Store anymore?
 
-Unfortunately, we won't be able to update the Mac App Store version anymore since Apple decided to block any further updates all of the sudden (we didn't change  how the application works but they claim that we're using their Screen Recording API inappropriately). We are offering all our App Store customers a 50% off the stand alone license of the application. Please contact us with a copy of your MAS invoice we'll email your personal coupon code to upgrade to the latest version. 
+Unfortunately, we had to remove the Mac App Store version after Apple decided to block any further updates all of the sudden (we didn't change  how the application works but they claim that we're using their Screen Recording API inappropriately). Please contact us with a copy of your MAS invoice we'll email you a coupon code to upgrade to the latest version. 
 
 ## ColorSnapper v2 showing only colors from the background on macOS 10.15 Catalina
 
