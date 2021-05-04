@@ -16,7 +16,6 @@ import '../_sass/_shortcuts.scss'
 import '../_sass/_footer.scss'
 import '../_sass/changelog.scss'
 import '../_sass/main.scss'
-import checkOSCompatibility from './checkOSCompatibility'
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2
 const forEach = Array.prototype.forEach
