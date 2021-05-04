@@ -16,7 +16,6 @@ import '../_sass/_shortcuts.scss'
 import '../_sass/_footer.scss'
 import '../_sass/changelog.scss'
 import '../_sass/main.scss'
-import checkOSCompatibility from './checkOSCompatibility'
 
 const CIRCLE_LENGTH = Math.PI * 45 * 2
 const forEach = Array.prototype.forEach
@@ -40,23 +39,6 @@ function toggleVideoPlayback(video) {
       video.pause()
     }
   }
-}
-
-function initGA(classNames) {
-  classNames.forEach(className => {
-    forEach.call(document.querySelectorAll(`.${className}`), el => {
-      // Display alert about incompatible OS X version
-      // el && el.addEventListener('click', () => { // eslint-disable-line
-      //   if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
-      //     alert('Your OS version is not compatible with ColorSnapper2, which requires' +
-      //           ' Mac OS X 10.9+ or macOS 11+.')
-      //   }
-      // })
-
-      // Send tracking code
-      window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
-    })
-  })
 }
 
 function onMouseEnter(video) {
@@ -122,7 +104,6 @@ function initVideoProgressInContainer(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initGA(['buy-mas', 'buy-paddle', 'buy-download'])
   initVideoProgressInContainer('howto')
   initTourForContainer('loupeTour')
   initTourForContainer('overlayTour')
