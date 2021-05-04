@@ -42,23 +42,6 @@ function toggleVideoPlayback(video) {
   }
 }
 
-function initGA(classNames) {
-  classNames.forEach(className => {
-    forEach.call(document.querySelectorAll(`.${className}`), el => {
-      // Display alert about incompatible OS X version
-      // el && el.addEventListener('click', () => { // eslint-disable-line
-      //   if (className === 'buy-paddle' && !checkOSCompatibility(navigator.userAgent)) {
-      //     alert('Your OS version is not compatible with ColorSnapper2, which requires' +
-      //           ' Mac OS X 10.9+ or macOS 11+.')
-      //   }
-      // })
-
-      // Send tracking code
-      window.ga && window.ga('send', 'event', 'button', 'click', className) // eslint-disable-line
-    })
-  })
-}
-
 function onMouseEnter(video) {
   // Resume the video marked for that on hover
   if (video && currentlyPlayingVideo !== video && video.wasPlaying) {
@@ -122,7 +105,6 @@ function initVideoProgressInContainer(id) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  initGA(['buy-mas', 'buy-paddle', 'buy-download'])
   initVideoProgressInContainer('howto')
   initTourForContainer('loupeTour')
   initTourForContainer('overlayTour')
