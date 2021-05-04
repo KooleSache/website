@@ -54,12 +54,12 @@ notice if you have further questions on the topic of personal data.
 
 Depending on what features and services you use we store different data.
 
-### Google Analytics
+### Splitbee
 
-To tracks visitor interaction with the website we use Google Analytics. That
-being said, we do not transmit any personal data to Google Analytics. IPs are
-anonmyized and cookie usage is deactivated for Google Analytics. The data we
-gather is stored for 24 months.
+To tracks visitor interaction with the website we use [Splitbee](https://splitbee.io). That
+being said, we do not transmit any personal data to Splitbee. IPs are
+anonmyized and cookie usage is deactivated for Splitbee. The data we
+gather is stored for 2 months.
 
 ### Netlify
 
