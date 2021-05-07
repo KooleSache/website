@@ -49,7 +49,7 @@
     "easypattern": "0.0.2",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
-    "handlebars": "^4.0.5",
+    "handlebars": "^4.7.7",
     "metalsmith": "^2.1.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-collections": "^0.7.0",
