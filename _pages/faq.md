@@ -7,7 +7,11 @@ permalink: /faq/
 
 ## Why ColorSnapper isn't available on the Mac App Store anymore?
 
-Unfortunately, we had to remove the Mac App Store version after Apple decided to block any further updates all of the sudden (we didn't change  how the application works but they claim that we're using their Screen Recording API inappropriately). Please contact us with a copy of your MAS invoice we'll email you a coupon code to upgrade to the latest version. 
+Unfortunately, we had to remove the Mac App Store version after Apple decided to block any further updates all of the sudden (we didn't change  how the application works but they claim that we're using their Screen Recording API inappropriately). Please [contact us](mailto@support@koolesache.com) with a copy of your MAS invoice we'll email you a coupon code to upgrade to the latest version. 
+
+## What should I do if I reached maximum amount of activations
+
+If you're planning to intsall ColorSnapper on a new computer, please deactivate it on the previous machine prior. If you can't do this anymore, please [email us](mailto@support@koolesache.com) details of your order (order ID and your email) and we'll deactivate previous installations for you.  
 
 ## ColorSnapper v2 showing only colors from the background on macOS 10.15 Catalina
 
