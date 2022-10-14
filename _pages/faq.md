@@ -11,7 +11,7 @@ Unfortunately, we had to remove the Mac App Store version after Apple decided to
 
 ## What should I do if I reached maximum amount of activations
 
-If you're planning to intsall ColorSnapper on a new computer, please deactivate it on the previous machine prior. If you can't do this anymore, please [email us](mailto:support@koolesache.com) details of your order (order ID and your email) and we'll deactivate previous installations for you.  
+If you're planning to intsall ColorSnapper on a new computer, please deactivate it on the previous machine prior. If you can't do this anymore, please [email us](mailto:support@colorsnapper.com) details of your order (order ID and your email) and we'll deactivate previous installations for you.  
 
 ## ColorSnapper v2 showing only colors from the background on macOS 10.15 Catalina
 
