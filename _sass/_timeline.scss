@@ -58,7 +58,7 @@ $timelineEventBorderRadius: 23px;
       box-sizing: border-box;
     }
 
-    @for $i from 1 to 4 {
+    @for $i from 1 through 4 {
       &_#{$i} {
         left: calc(100% / 4 * (#{$i} - 1));
 
