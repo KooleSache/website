@@ -101,6 +101,7 @@ function build({ production, cssFilename, jsFilename }) {
     }))
     .use(permalinks())
     .use(copyDir('img', 'img'))
+    .use(copyDir('_images', '_images'))
     .use(copyDir('app', 'app'))
     .use(discoverPartials({
       directory: '_includes',
