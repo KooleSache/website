@@ -1,6 +1,7 @@
-_site
+node_modules/
+dist/
+.astro/
 .sass-cache
-node_modules
 .idea
 .rbenv*
 assets
