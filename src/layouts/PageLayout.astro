@@ -2,10 +2,15 @@
 import BaseLayout from './BaseLayout.astro';
 
 interface Props {
-  title: string;
+  title?: string;
+  frontmatter?: { title: string };
 }
 
 const { title } = Astro.props.frontmatter ?? Astro.props;
+
+if (!title) {
+  throw new Error('PageLayout requires a `title` prop or `frontmatter.title`.');
+}
 ---
 <BaseLayout title={title}>
   <div class="post">

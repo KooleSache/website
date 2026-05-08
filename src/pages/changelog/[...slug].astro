@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from 'astro:content';
+import { getCollection, render, type CollectionEntry } from 'astro:content';
 import PageLayout from '../../layouts/PageLayout.astro';
 import type { GetStaticPaths } from 'astro';
 
@@ -10,6 +10,10 @@ export const getStaticPaths: GetStaticPaths = async () => {
     props: { entry },
   }));
 };
+
+interface Props {
+  entry: CollectionEntry<'changelog'>;
+}
 
 const { entry } = Astro.props;
 const { Content } = await render(entry);
