@@ -1,0 +1,72 @@
+@use 'sass:color';
+@use 'vars' as *;
+
+$timelineColor: #ccc;
+$timelineEventBorderRadius: 23px;
+
+.timeline {
+  position: relative;
+  margin: 3em 0;
+
+  &:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid color.change($timelineColor, $alpha: 0.5);
+    border-radius: 1px;
+    width: 100%;
+    height: 3px;
+    content: '';
+  }
+
+  &__progress {
+    background: $timelineColor;
+    border-radius: 1px;
+    height: 5px;
+  }
+
+  &__events {
+    margin: 0;
+    margin-top: 10px;
+    height: 7em;
+    list-style: none;
+  }
+
+  &__event {
+    position: absolute;
+    margin: 0;
+    padding: 10px;
+    font-size: 16px;
+    width: 25%;
+    box-sizing: border-box;
+
+    &:after {
+      position: absolute;
+      top: -24px;
+      left: 50%;
+      margin-left: -$timelineEventBorderRadius;
+      padding: 2px;
+      color: $timelineColor;
+      text-align: center;
+      font-size: 11px;
+      line-height: 1.7;
+      color: #fff;
+      width: $timelineEventBorderRadius;
+      height: $timelineEventBorderRadius;
+      border: 2px solid color.change(#fff, $alpha: 1);
+      border-radius: 5px;
+      background-color: $timelineColor;
+      box-sizing: border-box;
+    }
+
+    @for $i from 1 to 4 {
+      &_#{$i} {
+        left: calc(100% / 4 * (#{$i} - 1));
+
+        &:after {
+          content: '#{$i}';
+        }
+      }
+    }
+  }
+}

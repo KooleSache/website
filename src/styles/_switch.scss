@@ -1,0 +1,53 @@
+@use 'vars' as *;
+
+$switch-border-radius: 5px;
+
+.switch {
+  display: flex;
+  user-select: none;
+
+  &__item {
+    flex: 0 0 100px;
+    margin: 0;
+    padding: 0;
+
+    @include media-query($on-laptop) {
+      flex-grow: 1;
+    }
+
+    &:first-child {
+      label {
+        border-top-left-radius: $switch-border-radius ;
+        border-bottom-left-radius: $switch-border-radius ;
+      }
+    }
+    &:last-child {
+      label {
+        border-top-right-radius: $switch-border-radius ;
+        border-bottom-right-radius: $switch-border-radius ;
+      }
+    }
+  }
+
+  label {
+    display: block;
+    padding: calc($switch-border-radius * 1.5) calc($switch-border-radius * 2);
+    margin: 0;
+    text-align: center;
+    color: $brand-color;
+    font-weight: normal;
+    font-size: 13px;
+    border: 1px solid $brand-color;
+    cursor: pointer;
+  }
+
+  input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+
+    &:checked ~ label {
+      color: #fff;
+      background-color: $brand-color;
+    }
+  }
+}

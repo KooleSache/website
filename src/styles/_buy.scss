@@ -1,0 +1,102 @@
+@use 'sass:color';
+@use 'vars' as *;
+
+.buy {
+  position: relative;
+  margin: 2em 0;
+  text-align: center;
+
+  .wrapper {
+  }
+
+  &__btn {
+    position: relative;
+    display: inline-block;
+    margin: .25em;
+    padding: .75em 1.25em;
+    color: #fff !important;
+    font-weight: 500;
+    text-align: center;
+    line-height: 26px;
+    vertical-align: top;
+    background-color: $brand-color;
+    border-radius: 5px;
+
+    &_mas {
+      margin: .30em;
+      padding: .82em 1.25em;
+      padding-left: 40px;
+      font-size: 85%;
+      font-weight: normal;
+      text-align: left;
+      line-height: 1;
+      //letter-spacing: .07em;
+      background: #333 url('/img/_images/mas.svg') 10px 1.1em no-repeat;
+
+      strong {
+        letter-spacing: 0;
+        font-weight: normal;
+        font-size: 125%;
+      }
+
+      &:hover {
+        background-color: color.adjust(#333, $lightness: -10%);
+      }
+    }
+
+    &:hover {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    &_buy {
+      padding-left: 46px;
+      background: #59b200 url('/img/_images/icon-shop.svg') 14px 1em no-repeat;
+
+      &:hover {
+        background-color: color.adjust(#59b200, $lightness: -10%);
+      }
+    }
+
+    &_download {
+      padding-left: 36px;
+      background: $brand-color url('/img/_images/icon-download.svg') 14px 1.1em no-repeat;
+
+      &:hover {
+        background-color: color.adjust($brand-color, $lightness: -10%);
+      }
+    }
+
+    &_soon {
+      background-color: color.change(#333, $alpha: 0.25) !important;
+      cursor: not-allowed;
+    }
+  }
+
+  &__trial {
+    font-weight: bold;
+  }
+
+  &__badge {
+    position: absolute;
+    right: -24px;
+    top: -14px;
+    display: inline-block;
+    margin-left: -6em;
+    padding: 0 1em;
+    color: #fff;
+    background-color: #f58b33;
+    font-size: 13px;
+    font-family: $second-font-family;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 1em;
+    z-index: 1;
+  }
+
+  &__req {
+    margin-top: .5em;
+    color: color.adjust($text-color, $lightness: 50%);
+    font-size: 85%;
+  }
+}

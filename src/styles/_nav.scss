@@ -1,0 +1,80 @@
+@use 'vars' as *;
+
+.nav {
+  display: block;
+  font-weight: normal;
+  font-size: 14px;
+  width: 100%;
+
+  &_home {
+    display: flex;
+    align-items: baseline;
+    padding: calc($spacing-unit / 2) 0 0;
+    border-bottom: none;
+  }
+
+  &_top {
+    padding: calc($spacing-unit / 2) 0;
+    text-align: center;
+
+    .nav__social {
+      display: none;
+    }
+  }
+
+  &_footer {
+    display: flex;
+    //text-align: center;
+
+    .nav__links {
+      flex: 0 1 50%;
+      text-align: right;
+      margin-right: 1rem;
+    }
+
+    .nav__social {
+      flex: 0 1 50%;
+      text-align: left;
+    }
+  }
+
+  &_secondary {
+    margin-top: $spacing-unit;
+    font-size: 1em;
+  }
+
+  &__links {
+    flex: 1 auto;
+  }
+
+  a {
+    display: inline-block;
+    margin-right: 1em;
+    line-height: 0.9;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .twitter-follow-button {
+    margin-bottom: -5px;
+  }
+
+  &__logo {
+    display: block;
+    margin: $spacing-unit 0;
+    padding-left: 20px;
+    text-indent: -9999px;
+    border-bottom: none !important;
+    background: url('/img/_images/logo_small.svg') 0 0 no-repeat;
+    width: 32px;
+    height: 32px;
+    opacity: .5;
+    transition: opacity .5s;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}

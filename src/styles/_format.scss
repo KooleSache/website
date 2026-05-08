@@ -1,0 +1,12 @@
+.format {
+  padding-left: 19px;
+  font-style: normal;
+  white-space: nowrap;
+
+  @each $format in (generic, css, osx, ios, swift, android, java, net, cg, opengl, photoshop, illustrator) {
+    &_#{$format} {
+      background: url("/img/_images/formats/format-icon_#{$format}@2x.png") 0 .05em no-repeat;
+      background-size: 16px 16px;
+    }
+  }
+}
