@@ -198,3 +198,28 @@ pre {
     }
   }
 }
+
+.badge {
+  display: inline-block;
+  padding: 0 .25em;
+  font-size: 10px;
+  text-transform: uppercase;
+  border-radius: 2px;
+  background-color: #d7d7d7;
+  border: 1px solid #ccc;
+
+  &_coming-soon {
+    $color: #faa74f;
+    padding: 2px 3px;
+    font-size: 9px;
+    font-weight: lighter;
+    background-color: $color;
+    border-color: color.adjust($color, $lightness: -10%);
+    color: #fff;
+  }
+}
+
+.footnote {
+  color: #afafaf;
+  font-size: 85%;
+}
