@@ -1,0 +1,25 @@
+---
+import { site } from '../site.config';
+
+interface Props {
+  title: string;
+  pageUrl: string;
+}
+
+const { title, pageUrl } = Astro.props;
+---
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>{site.title} &mdash; {title}</title>
+  <meta name="description" content={site.description} />
+  <meta name="keywords" content={site.keywords} />
+  <meta name="google-site-verification" content="frv_pvwjkYtqV8pv5hktqoSVzmCqDiSiuIQgbZwn_s8" />
+
+  <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon" />
+  <link rel="canonical" href={`${site.url}${pageUrl}`} />
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:100,300,700,300italic" rel="stylesheet" type="text/css" />
+</head>
