@@ -31,7 +31,7 @@ $switch-border-radius: 5px;
 
   label {
     display: block;
-    padding: calc($switch-border-radius * 1.5) calc($switch-border-radius * 2);
+    padding: calc(#{$switch-border-radius} * 1.5) calc(#{$switch-border-radius} * 2);
     margin: 0;
     text-align: center;
     color: $brand-color;

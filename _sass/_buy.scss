@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import './_vars.scss';
 
 .buy {
@@ -39,7 +40,7 @@
       }
 
       &:hover {
-        background-color: color(#333 l(-10%));
+        background-color: color.adjust(#333, $lightness: -10%);
       }
     }
 
@@ -53,7 +54,7 @@
       background: #59b200 url('../_images/icon-shop.svg') 14px 1em no-repeat;
 
       &:hover {
-        background-color: color(#59b200 l(-10%));
+        background-color: color.adjust(#59b200, $lightness: -10%);
       }
     }
 
@@ -62,12 +63,12 @@
       background: $brand-color url('../_images/icon-download.svg') 14px 1.1em no-repeat;
 
       &:hover {
-        background-color: color($brand-color l(-10%));
+        background-color: color.adjust($brand-color, $lightness: -10%);
       }
     }
 
     &_soon {
-      background-color: color(#333 a(.25)) !important;
+      background-color: rgba(#333, .25) !important;
       cursor: not-allowed;
     }
   }
@@ -95,7 +96,7 @@
 
   &__req {
     margin-top: .5em;
-    color: color($text-color l(50%));
+    color: color.adjust($text-color, $lightness: 50%);
     font-size: 85%;
   }
 }

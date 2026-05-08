@@ -1,3 +1,4 @@
+@use 'sass:color';
 @import './_vars.scss';
 
 .badge {
@@ -15,7 +16,7 @@
     font-size: 9px;
     font-weight: lighter;
     background-color: $color;
-    border-color: color($color l(-10%));
+    border-color: color.adjust($color, $lightness: -10%);
     color: #fff;
   }
 }

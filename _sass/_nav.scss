@@ -9,12 +9,12 @@
   &_home {
     display: flex;
     align-items: baseline;
-    padding: calc($spacing-unit / 2) 0 0;
+    padding: calc(#{$spacing-unit} / 2) 0 0;
     border-bottom: none;
   }
 
   &_top {
-    padding: calc($spacing-unit / 2) 0;
+    padding: calc(#{$spacing-unit} / 2) 0;
     text-align: center;
 
     .nav__social {
