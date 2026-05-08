@@ -8,3 +8,7 @@ assets
 _config_production.yml
 npm-debug.log
 .DS_Store
+.playwright-cli/
+prod-*.png
+preview-*.png
+local-*.png
