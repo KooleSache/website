@@ -43,7 +43,10 @@ import { site } from '../site.config';
             id="intro"
             class="howto__video"
             autoplay
-            preload="auto">
+            muted
+            playsinline
+            preload="auto"
+            aria-label="ColorSnapper workflow demo: invoke the magnifier, pick a pixel, choose a format, and paste into your code editor">
         </video>
       </section>
 
@@ -134,7 +137,10 @@ import { site } from '../site.config';
               class="tour__video"
               width="500"
               height="500"
-              loop>
+              muted
+              playsinline
+              loop
+              aria-label="Magnifying glass controlled with trackpad gestures and keyboard shortcuts">
           </video>
 
           <video
@@ -144,7 +150,10 @@ import { site } from '../site.config';
               class="tour__video"
               width="500"
               height="500"
-              loop>
+              muted
+              playsinline
+              loop
+              aria-label="Hi-Precision mode for picking individual pixels on retina displays">
           </video>
         </section>
       </div>
@@ -246,8 +255,11 @@ import { site } from '../site.config';
               class="tour__video"
               width="600"
               height="600"
+              muted
+              playsinline
               loop
-              preload="none"></video>
+              preload="none"
+              aria-label="Marking colors as favorites and browsing color history"></video>
 
           <video
               id="filter"
@@ -256,8 +268,11 @@ import { site } from '../site.config';
               src="img/overlay-filter_light.mp4"
               width="600"
               height="600"
+              muted
+              playsinline
               loop
-              preload="none"></video>
+              preload="none"
+              aria-label="Filtering through export formats by typing"></video>
 
           <video
               id="colorPanel"
@@ -266,8 +281,11 @@ import { site } from '../site.config';
               class="tour__video"
               width="600"
               height="600"
+              muted
+              playsinline
               loop
-              preload="none"></video>
+              preload="none"
+              aria-label="Adjusting picked colors with the macOS Color Panel"></video>
 
         </section>
       </div>
