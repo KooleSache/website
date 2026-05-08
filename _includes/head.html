@@ -13,11 +13,6 @@
 
     <link href='//fonts.googleapis.com/css?family=Lato:100,300,700,300italic' rel='stylesheet' type='text/css'>
 
-    {{#if config.production }}
-    <link rel="stylesheet"
-          href="{{ site.baseurl }}/main.{{ webpackStats.hash }}.css">
-    {{else}}
-    <script src="{{ config.webpackUrl }}/main.js"></script>
-    {{/if}}
+    <link rel="stylesheet" href="{{ site.baseurl }}/{{ assets.css }}">
     <script async data-no-cookie data-respect-dnt src="https://cdn.splitbee.io/sb.js"></script>
 </head>

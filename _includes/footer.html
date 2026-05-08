@@ -16,6 +16,4 @@
   </div>
 </footer>
 
-{{#if config.production }}
-<script src="{{ site.baseurl }}/main.{{ webpackStats.hash }}.js"></script>
-{{/if}}
+<script src="{{ site.baseurl }}/{{ assets.js }}"></script>
