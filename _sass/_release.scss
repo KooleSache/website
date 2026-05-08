@@ -6,11 +6,11 @@
   border-color: #ebebeb;
   border-style: solid;
   border-width: 1px 0 1px 0;
-  padding: calc($spacing-unit * 1.5) 0;
+  padding: calc($spacing-unit * 1.5) 0 calc($spacing-unit * 2);
   text-align: center;
 
   @include media-query($on-palm) {
-    padding: $spacing-unit 0;
+    padding: $spacing-unit 0 calc($spacing-unit * 1.5);
   }
 
   &__inner {

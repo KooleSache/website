@@ -204,39 +204,19 @@
     }
   }
 
-  &_pro &__col_image {
-    width: 578px;
-    margin-right: 20px;
-  }
-
   &__description_muted {
     color: $grey-color;
     font-size: 90%;
   }
 }
 
-.cta_pro {
-  position: relative;
+.color-space {
   display: inline-block;
-  margin: .25em 0;
-  padding: calc(.75em - 1.5px) calc(1.25em - 1.5px);
-  font-weight: 500;
-  text-align: center;
-  line-height: 26px;
-  vertical-align: top;
+  padding: 1px 7px;
+  font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 92%;
   color: $pro-accent;
-  background-color: transparent;
-  border: 1.5px solid $pro-accent;
-  border-radius: 5px;
-
-  &:hover {
-    background-color: $pro-accent;
-    color: #fff;
-    border-color: $pro-accent;
-  }
-
-  &:visited {
-    color: $pro-accent;
-    border-color: $pro-accent;
-  }
+  background-color: rgba($pro-accent, .1);
+  border-radius: 3px;
+  white-space: nowrap;
 }
