@@ -1,0 +1,18 @@
+@import './_vars.scss';
+
+.pill {
+  display: inline-block;
+  padding: 2px 7px;
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 999px;
+  vertical-align: middle;
+
+  &_pro {
+    background-color: $pro-accent;
+    color: #fff7e0;
+  }
+}
