@@ -15,7 +15,7 @@ $brand-color: #2a7ae2;
 $nav-color: rgba($text-color, .85);
 
 $grey-color: #828282;
-$grey-color-light: color.adjust($grey-color, $lightness: 40%);
+$grey-color-light: color.change($grey-color, $lightness: 40%);
 $grey-color-dark:  color.adjust($grey-color, $lightness: -25%);
 
 // Width of the content area

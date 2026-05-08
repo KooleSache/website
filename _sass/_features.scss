@@ -27,7 +27,7 @@
     }
 
     &[data-video] {
-      color: color.adjust($text-color, $lightness: 35%);
+      color: color.change($text-color, $lightness: 35%);
       cursor: pointer;
     }
 

@@ -96,7 +96,7 @@
 
   &__req {
     margin-top: .5em;
-    color: color.adjust($text-color, $lightness: 50%);
+    color: color.change($text-color, $lightness: 50%);
     font-size: 85%;
   }
 }
