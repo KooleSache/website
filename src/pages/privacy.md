@@ -52,13 +52,6 @@ notice if you have further questions on the topic of personal data.
 
 Depending on what features and services you use we store different data.
 
-### Google Analytics
-
-To tracks visitor interaction with the website we use Google Analytics. That
-being said, we do not transmit any personal data to Google Analytics. IPs are
-anonmyized and cookie usage is deactivated for Google Analytics. The data we
-gather is stored for 24 months.
-
 ### Netlify
 
 The website is hosted via the service Netlify. By visiting the website Netlify
