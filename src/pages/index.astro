@@ -1,9 +1,14 @@
 ---
+import { Image } from 'astro:assets';
 import HomeLayout from '../layouts/HomeLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import BuyLinks from '../components/BuyLinks.astro';
 import PlayButton from '../components/PlayButton.astro';
 import { site } from '../site.config';
+import loupeDefault from '../assets/loupe-default.jpg';
+import overlayDefaultLight from '../assets/overlay-default-light.jpg';
+import figCodeStyle from '../assets/fig-code-style.png';
+import figColors from '../assets/fig-colors.png';
 ---
 <HomeLayout title="The Color Picker App for Mac">
 <section class="home">
@@ -127,8 +132,8 @@ import { site } from '../site.config';
 
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
-          <img src="img/loupe-default@2x.jpg" alt="Magnifying glass" width="500" height="500"
-               class="tour__img is-active"/>
+          <Image src={loupeDefault} alt="Magnifying glass" width={500} height={500}
+               densities={[1, 2]} class="tour__img is-active" />
 
           <video
               id="gestures"
@@ -245,8 +250,8 @@ import { site } from '../site.config';
 
       <div class="tour__col tour__col_video">
         <section class="tour__slide">
-          <img src="img/overlay-default_light@2x.jpg" alt="Organize, adjust &amp; export" width="600" height="600"
-               class="tour__img is-active"/>
+          <Image src={overlayDefaultLight} alt="Organize, adjust & export" width={600} height={600}
+               densities={[1, 2]} class="tour__img is-active" />
 
           <video
               id="favorites"
@@ -297,11 +302,12 @@ import { site } from '../site.config';
     <div class="wrapper tour__2cols">
 
       <figure class="tour__col tour__col_image tour__figure tour__figure_left">
-        <img
+        <Image
             class="tour__image"
-            src="img/fig_codeStyle@2x.png"
+            src={figCodeStyle}
             alt="Preferences: Code Style"
-            width="578"/>
+            width={578}
+            densities={[1, 2]} />
       </figure>
 
       <div class="tour__col tour__col_features">
@@ -327,11 +333,12 @@ import { site } from '../site.config';
   <section class="tour tour_colors">
     <div class="wrapper tour__2cols">
       <figure class="tour__col tour__col_image tour__figure tour__figure_right">
-        <img
+        <Image
             class="tour__image"
-            src="img/fig_colors@2x.png"
+            src={figColors}
             alt="Accurate colors in Xcode"
-            width="628"/>
+            width={628}
+            densities={[1, 2]} />
       </figure>
 
       <div class="tour__col tour__col_features">
