@@ -194,4 +194,30 @@
     position: absolute;
     right: 0;
   }
+
+  //  Pro section
+  &_pro {
+    border-left: 3px solid $pro-accent;
+
+    @include media-query($on-laptop) {
+      border-left: 0;
+      border-top: 3px solid $pro-accent;
+    }
+  }
+
+  &__description_muted {
+    color: $grey-color;
+    font-size: 90%;
+  }
+}
+
+.color-space {
+  display: inline-block;
+  padding: 1px 7px;
+  font-family: SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+  font-size: 92%;
+  color: $pro-accent;
+  background-color: rgba($pro-accent, .1);
+  border-radius: 3px;
+  white-space: nowrap;
 }

@@ -4,6 +4,7 @@ import HomeLayout from '../layouts/HomeLayout.astro';
 import Navigation from '../components/Navigation.astro';
 import BuyLinks from '../components/BuyLinks.astro';
 import PlayButton from '../components/PlayButton.astro';
+import ReleaseBand from '../components/ReleaseBand.astro';
 import { site } from '../site.config';
 import loupeDefault from '../assets/loupe-default.jpg';
 import overlayDefaultLight from '../assets/overlay-default-light.jpg';
@@ -27,6 +28,8 @@ import figColors from '../assets/fig-colors.png';
   </header>
 
   <BuyLinks />
+
+  <ReleaseBand />
 
   <section class="howto" id="howto">
     <div class="wrapper">
@@ -327,6 +330,35 @@ import figColors from '../assets/fig-colors.png';
           <span class="format format_opengl">OpenGL</span> this results in even faster developer workflow.
         </p>
       </div>
+    </div>
+  </section>
+
+  <section class="tour tour_pro" id="pro">
+    <div class="wrapper tour__1col">
+      <h2 class="tour__heading">ColorSnapper Pro <span class="pill pill_pro">Pro</span></h2>
+      <p class="tour__description">
+        For designers and developers working in modern color spaces. Pro adds the formats and editor that matter when contrast and perceptual uniformity actually count.
+      </p>
+    </div>
+
+    <div class="wrapper">
+      <ul class="features features_multicol">
+        <li class="features__item features__item_col">
+          <h3>Modern CSS color spaces</h3>
+          <p>Export to <span class="color-space">lch()</span>, <span class="color-space">oklch()</span>, and <span class="color-space">oklab()</span> — the same color models powering modern design systems and CSS Color Level 4.</p>
+        </li>
+        <li class="features__item features__item_col">
+          <h3>LCH slider editor</h3>
+          <p>A perceptually-uniform editor where lightness moves like your eye expects. Tweak contrast without fighting the math.</p>
+        </li>
+        <li class="features__item features__item_col">
+          <h3>One-time upgrade, lifetime access</h3>
+          <p>Already own ColorSnapper 2? Pro is a single in-app upgrade — no subscription, no recurring anything.</p>
+        </li>
+      </ul>
+      <p class="tour__description tour__description_muted">
+        Pro is an optional upgrade. Everything in 1.7 — including Apple Silicon — is free for existing customers.
+      </p>
     </div>
   </section>
 
