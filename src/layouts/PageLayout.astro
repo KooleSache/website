@@ -1,0 +1,28 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title?: string;
+  frontmatter?: { title: string };
+}
+
+const { title } = Astro.props.frontmatter ?? Astro.props;
+
+if (!title) {
+  throw new Error('PageLayout requires a `title` prop or `frontmatter.title`.');
+}
+---
+<BaseLayout title={title}>
+  <div class="post">
+    <header class="header">
+      <div class="wrapper">
+        <h1 class="post-title">{title}</h1>
+      </div>
+    </header>
+    <article class="post-content">
+      <div class="wrapper">
+        <slot />
+      </div>
+    </article>
+  </div>
+</BaseLayout>

@@ -1,0 +1,31 @@
+@use 'sass:color';
+
+$base-font-family: -apple-system, Roboto, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Ubuntu, Cantarell, "Open Sans", sans-serif;
+$second-font-family: Lato, Helvetica, Arial, sans-serif;
+$base-font-size: 14px;
+$small-font-size: $base-font-size * 0.875;
+$base-line-height: 1.7;
+
+$spacing-unit: 30px;
+$switch-border-radius: 5px;
+
+$text-color: #2f2f2f;
+$background-color: #fff;
+$brand-color: #2a7ae2;
+$pro-accent: #b8902a;
+$nav-color: color.change($text-color, $alpha: 0.85);
+
+$grey-color: #828282;
+$grey-color-light: color.adjust($grey-color, $lightness: 40%);
+$grey-color-dark: color.adjust($grey-color, $lightness: -25%);
+
+$content-width: 960px;
+
+$on-palm: 600px;
+$on-laptop: 800px;
+
+@mixin media-query($device) {
+  @media screen and (max-width: $device) {
+    @content;
+  }
+}

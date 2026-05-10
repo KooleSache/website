@@ -1,0 +1,27 @@
+---
+import Head from '../components/Head.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/main.scss';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const pageUrl = Astro.url.pathname;
+---
+<!DOCTYPE html>
+<html>
+  <Head title={title} pageUrl={pageUrl} />
+  <body>
+    <Header />
+    <div class="page-content">
+      <slot />
+    </div>
+    <Footer />
+    <script>
+      import '../scripts/site.ts';
+    </script>
+  </body>
+</html>

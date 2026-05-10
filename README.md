@@ -1,16 +1,21 @@
-# Public website for the ColorSnapper 2 App
+# colorsnapper.com
+
+Public website for ColorSnapper 2, a Mac color picker app.
 
 ## Development
 
-1. Install nvm (https://github.com/creationix/nvm)
-1. `nvm install && nvm use`
-1. `npm install`
-1. `npm start`
+1. `nvm use` (Node 22)
+2. `npm install`
+3. `npm run dev` — serves on `http://localhost:4321`
 
-## Deploying to production
+## Build
 
-The website uses Netlify to automate deploys.
+```bash
+npm run build       # output → dist/
+npm run preview     # serve dist/ locally
+npm run check       # astro check (TypeScript + content schema)
+```
 
-<a href="https://www.netlify.com">
-  <img src="https://www.netlify.com/img/global/badges/netlify-color-accent.svg">
-</a>
+## Deploy
+
+Netlify auto-deploys on push to `master`. Build config lives in `netlify.toml`.

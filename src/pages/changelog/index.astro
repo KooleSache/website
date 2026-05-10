@@ -1,0 +1,29 @@
+---
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../../layouts/PageLayout.astro';
+
+const entries = (await getCollection('changelog'))
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const rendered = await Promise.all(
+  entries.map(async (entry) => {
+    const { Content } = await render(entry);
+    return { entry, Content };
+  })
+);
+---
+<PageLayout title="What’s New">
+  <ul class="changelog">
+    {rendered.map(({ entry, Content }) => (
+      <li class="changelog__item">
+        <time datetime={entry.data.date.toISOString()} class="changelog__date">
+          {entry.data.date.toLocaleDateString('en', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <div class="changelog__content">
+          <h2 class="changelog__title">{entry.data.title}</h2>
+          <section class="changelog__body"><Content /></section>
+        </div>
+      </li>
+    ))}
+  </ul>
+</PageLayout>

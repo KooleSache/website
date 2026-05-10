@@ -1,0 +1,28 @@
+---
+import { site } from '../site.config';
+---
+<section class="buy">
+  <div class="wrapper">
+    <a
+      class="buy__btn buy__btn_download buy-download"
+      href="https://s3.amazonaws.com/cs2-binaries/ColorSnapper2.dmg"
+    >
+      Try ColorSnapper For Free
+    </a>
+
+    <p>
+      or
+      <a
+        class="buy__trial buy-paddle paddle_button"
+        href={`https://buy.paddle.com/product/${site.paddleProductId}`}
+        data-product={site.paddleProductId}
+        data-theme="none"
+        data-allow-quantity="true"
+      >
+        purchase a license
+      </a>
+    </p>
+
+    <p class="buy__req">Works on all macOS versions starting 14.6</p>
+  </div>
+</section>
