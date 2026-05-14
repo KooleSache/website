@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/netlify": "^7.0.9",
     "astro": "^6.3.1",
+    "openai": "^6.37.0",
     "sass": "^1.99.0"
   },
   "devDependencies": {
