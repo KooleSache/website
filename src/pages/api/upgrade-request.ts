@@ -50,7 +50,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       fileBuffer: buffer,
       mimeType: file.type,
     });
-  } catch {
+  } catch (err) {
+    console.error('[upgrade-request] vision_failed:', err);
     return json(502, { error: 'vision_failed' });
   }
 
@@ -76,7 +77,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       customerEmail: extraction.email,
       finalPriceUSD: tier.finalPriceUSD,
     });
-  } catch {
+  } catch (err) {
+    console.error('[upgrade-request] paddle_failed:', err);
     return json(502, { error: 'paddle_failed' });
   }
 
@@ -100,9 +102,11 @@ function json(status: number, body: unknown): Response {
 function readEnv():
   | { turnstileSecret: string; openAIKey: string; paddleAuth: string }
   | null {
-  const turnstileSecret = process.env.TURNSTILE_SECRET_KEY;
-  const openAIKey = process.env.OPENAI_API_KEY;
-  const paddleAuth = process.env.PADDLE_VENDOR_AUTH_CODE;
+  const get = (name: string): string | undefined =>
+    process.env[name] || (import.meta.env as Record<string, string | undefined>)[name];
+  const turnstileSecret = get('TURNSTILE_SECRET_KEY');
+  const openAIKey = get('OPENAI_API_KEY');
+  const paddleAuth = get('PADDLE_VENDOR_AUTH_CODE');
   if (!turnstileSecret || !openAIKey || !paddleAuth) return null;
   return { turnstileSecret, openAIKey, paddleAuth };
 }

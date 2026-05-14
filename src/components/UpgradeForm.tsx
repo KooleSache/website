@@ -1,4 +1,4 @@
-import { createSignal, Show, type Component } from 'solid-js';
+import { createSignal, onCleanup, onMount, Show, type Component } from 'solid-js';
 
 type SuccessResponse = {
   checkoutUrl: string;
@@ -45,9 +45,19 @@ type PaddleGlobal = {
   };
 };
 
+type TurnstileGlobal = {
+  render(
+    container: HTMLElement | string,
+    options: { sitekey: string; theme?: 'light' | 'dark' | 'auto' },
+  ): string;
+  remove(widgetId: string): void;
+};
+
 declare global {
   interface Window {
     Paddle?: PaddleGlobal;
+    turnstile?: TurnstileGlobal;
+    onloadTurnstileCallback?: () => void;
   }
 }
 
@@ -62,6 +72,29 @@ const UpgradeForm: Component<Props> = (props) => {
   const [result, setResult] = createSignal<SuccessResponse | null>(null);
   const [checkedOut, setCheckedOut] = createSignal(false);
   const [dragHover, setDragHover] = createSignal(false);
+
+  let turnstileContainer: HTMLDivElement | undefined;
+  let turnstileWidgetId: string | undefined;
+
+  onMount(() => {
+    const renderWidget = () => {
+      if (!turnstileContainer || !window.turnstile) return;
+      turnstileWidgetId = window.turnstile.render(turnstileContainer, {
+        sitekey: props.turnstileSiteKey,
+      });
+    };
+    if (window.turnstile) {
+      renderWidget();
+    } else {
+      window.onloadTurnstileCallback = renderWidget;
+    }
+  });
+
+  onCleanup(() => {
+    if (turnstileWidgetId && window.turnstile) {
+      window.turnstile.remove(turnstileWidgetId);
+    }
+  });
 
   const onFileChange = (event: Event) => {
     const input = event.currentTarget as HTMLInputElement;
@@ -114,7 +147,7 @@ const UpgradeForm: Component<Props> = (props) => {
 
     setLoading(true);
     try {
-      const res = await fetch('/api/upgrade-request', { method: 'POST', body: fd });
+      const res = await fetch('/api/upgrade-request/', { method: 'POST', body: fd });
       const data = (await res.json().catch(() => ({}))) as
         | SuccessResponse
         | { error?: ErrorCode };
@@ -178,7 +211,7 @@ const UpgradeForm: Component<Props> = (props) => {
             />
           </label>
 
-          <div class="cf-turnstile upgrade__turnstile" data-sitekey={props.turnstileSiteKey} />
+          <div class="upgrade__turnstile" ref={turnstileContainer} />
 
           <button class="upgrade__submit" type="submit" disabled={loading()}>
             {loading() ? 'Verifying…' : 'Verify and continue'}

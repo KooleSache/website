@@ -23,7 +23,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
   </section>
 
   <script
-    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback"
     async
     defer
     is:inline

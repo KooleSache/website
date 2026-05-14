@@ -10,6 +10,7 @@ _config_production.yml
 npm-debug.log
 .DS_Store
 .playwright-cli/
+.playwright-mcp/
 prod-*.png
 preview-*.png
 local-*.png
