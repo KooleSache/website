@@ -45,6 +45,9 @@ CSS image references point to `/img/_images/...` (assets moved from the original
 
 Sparkle appcast (`public/app/appcast.xml`) and `public/app/eula.pdf` are consumed by the installed Mac app. Don't rename or restructure.
 
-### Vanilla JS interactivity
+### Client-side interactivity
 
-`src/scripts/site.ts` (~200 lines) handles video tour interactions and the home page's light/dark theme switch (swaps `dark`/`light` in image filenames). Imported once from layouts via `<script>import '../scripts/site.ts'</script>`. No framework. The file has `// @ts-nocheck` at the top — it's a verbatim port of vanilla JS DOM code.
+Two patterns coexist:
+
+- **Solid.js components** for new stateful UI. `@astrojs/solid-js` is registered in `astro.config.mjs` and `tsconfig.json` sets `jsxImportSource: 'solid-js'`. Mount components from `.astro` pages via `<Component client:only="solid-js" />`. Example: `src/components/UpgradeForm.tsx` (the `/upgrade/` form). Components are written in TypeScript with full type checking — do NOT add `// @ts-nocheck`.
+- **Vanilla DOM script** for the legacy home-page interactions: `src/scripts/site.ts` (~200 lines) handles video tour interactions and the home page's light/dark theme switch (swaps `dark`/`light` in image filenames). Imported once from layouts via `<script>import '../scripts/site.ts'</script>`. The file still has `// @ts-nocheck` at the top as a legacy artifact (verbatim port from the original Metalsmith codebase). Don't replicate that pattern in new code.
