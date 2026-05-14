@@ -18,7 +18,7 @@ export async function generatePayLink(args: GeneratePayLinkArgs): Promise<{ url:
     vendor_id: String(args.vendorId),
     vendor_auth_code: args.vendorAuthCode,
     product_id: args.productId,
-    prices: `USD:${args.finalPriceUSD.toFixed(2)}`,
+    'prices[]': `USD:${args.finalPriceUSD.toFixed(2)}`,
     customer_email: args.customerEmail,
     marketing_consent: '0',
     expires: toIsoDate(expires),

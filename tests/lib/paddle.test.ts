@@ -39,7 +39,7 @@ describe('generatePayLink', () => {
     expect(body.get('vendor_id')).toBe('9922');
     expect(body.get('vendor_auth_code')).toBe('secret');
     expect(body.get('product_id')).toBe('499167');
-    expect(body.get('prices')).toBe('USD:12.50');
+    expect(body.get('prices[]')).toBe('USD:12.50');
     expect(body.get('customer_email')).toBe('a@example.com');
     expect(body.get('expires')).toBe('2026-05-21');
   });
