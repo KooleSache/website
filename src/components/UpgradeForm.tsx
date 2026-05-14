@@ -18,7 +18,9 @@ type ErrorCode =
   | 'not_colorsnapper_receipt'
   | 'email_unreadable'
   | 'vision_failed'
-  | 'paddle_failed';
+  | 'paddle_failed'
+  | 'server_misconfigured'
+  | 'invalid_request';
 
 const ERROR_MESSAGES: Record<ErrorCode, string> = {
   bad_token: 'Please refresh the page and try again.',
@@ -32,6 +34,9 @@ const ERROR_MESSAGES: Record<ErrorCode, string> = {
     "We couldn't read the email on your receipt. Please email support and we'll help.",
   vision_failed: 'Something went wrong reading your receipt. Please try again in a moment.',
   paddle_failed: 'Something went wrong creating your checkout. Please try again in a moment.',
+  server_misconfigured:
+    'The upgrade service is temporarily misconfigured. Please email support so we can fix it.',
+  invalid_request: 'Your submission could not be read. Please refresh the page and try again.',
 };
 
 type PaddleGlobal = {
