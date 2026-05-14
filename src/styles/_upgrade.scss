@@ -1,3 +1,6 @@
+@use 'sass:color';
+@use 'vars' as *;
+
 .upgrade {
   max-width: 36rem;
   margin: 0 auto;
@@ -8,13 +11,9 @@
 }
 
 .upgrade__why {
-  margin: 0 0 1.75rem;
-  padding: 1rem 1.25rem;
-  background-color: #faf8f3;
-  border-left: 3px solid #d4b86a;
-  border-radius: 0 6px 6px 0;
+  margin: 1.75rem 0 0;
 
-  h2 {
+  h3 {
     margin: 0 0 0.5rem;
     font-size: 1rem;
     font-weight: 600;
@@ -22,7 +21,7 @@
 
   p {
     margin: 0;
-    color: #4a4a4a;
+    color: color.adjust($text-color, $lightness: 15%);
     font-size: 0.95rem;
     line-height: 1.55;
   }
@@ -47,7 +46,7 @@
   transition: border-color 0.15s ease, background-color 0.15s ease;
 
   &.is-hover {
-    border-color: #4f7cff;
+    border-color: $brand-color;
     background-color: #f4f7ff;
   }
 
@@ -68,9 +67,24 @@
 
 .upgrade__submit {
   align-self: flex-start;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75em 1.5em;
   font: inherit;
+  font-weight: 500;
+  color: #fff;
+  background-color: $brand-color;
+  border: 0;
+  border-radius: 5px;
   cursor: pointer;
+  transition: background-color 0.15s ease;
+
+  &:hover:not(:disabled) {
+    background-color: color.adjust($brand-color, $lightness: -8%);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 }
 
 .upgrade__error {
@@ -105,10 +119,18 @@
 .upgrade__coupon-copy {
   padding: 0 1rem;
   font: inherit;
+  font-weight: 500;
+  color: $brand-color;
   cursor: pointer;
   background-color: #ffffff;
   border: 1px solid #c8d3ff;
   border-radius: 6px;
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+
+  &:hover {
+    background-color: #eef2ff;
+    border-color: $brand-color;
+  }
 }
 
 .upgrade__coupon-hint {

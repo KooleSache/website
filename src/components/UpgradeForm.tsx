@@ -274,6 +274,19 @@ const UpgradeForm: Component<Props> = (props) => {
             <button type="button" class="upgrade__submit" onClick={openCheckout}>
               Continue to checkout
             </button>
+            <aside class="upgrade__why">
+              <h3>Why we're asking you to pay something</h3>
+              <p>
+                Apple blocked further updates to the Mac App Store version, claiming
+                we were misusing their Screen Recording API (we weren't, and nothing
+                in the app had changed). Keeping ColorSnapper alive on modern macOS
+                meant rewriting the whole app for distribution outside the store —
+                months of engineering work, plus ongoing support, notarization, and
+                hosting fees. What you pay here is what keeps ColorSnapper actively
+                maintained: bug fixes, support for new macOS versions, and the next
+                round of features.
+              </p>
+            </aside>
           </section>
         )}
       </Show>
