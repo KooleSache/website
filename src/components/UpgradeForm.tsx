@@ -255,9 +255,6 @@ const UpgradeForm: Component<Props> = (props) => {
                 {copied() ? 'Copied' : 'Copy'}
               </button>
             </div>
-            <p class="upgrade__coupon-hint">
-              Save this code — it's valid once, for the next 7 days.
-            </p>
             <Show when={data().dateMissing}>
               <p>
                 <em>
@@ -269,6 +266,9 @@ const UpgradeForm: Component<Props> = (props) => {
             <button type="button" class="upgrade__submit" onClick={openCheckout}>
               Continue to checkout
             </button>
+            <p class="upgrade__coupon-hint">
+              Not ready to check out? Copy the code — it works once, anytime in the next 7 days.
+            </p>
             <aside class="upgrade__why">
               <h3>Why we're asking you to pay something</h3>
               <p>
