@@ -1,0 +1,64 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { site } from '../site.config';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
+---
+
+<PageLayout title="Upgrade from Mac App Store">
+  <section class="upgrade">
+    <p class="upgrade__intro">
+      Upload your Mac App Store receipt (screenshot or PDF) and we'll automatically
+      apply a discount based on when you originally bought ColorSnapper. Your
+      license will be sent to the email shown on the receipt.
+    </p>
+
+    <form class="upgrade__form" id="upgrade-form" novalidate>
+      <label class="upgrade__drop" for="receipt-input">
+        <span class="upgrade__drop-text">
+          Drop your receipt here, or click to choose a file<br />
+          <small>PNG, JPG, WebP, or PDF · up to 5 MB</small>
+        </span>
+        <input
+          id="receipt-input"
+          name="receipt"
+          type="file"
+          accept="image/png,image/jpeg,image/webp,application/pdf"
+          required
+        />
+      </label>
+
+      <div
+        class="cf-turnstile upgrade__turnstile"
+        data-sitekey={turnstileSiteKey}
+      ></div>
+
+      <button class="upgrade__submit" type="submit">Verify and continue</button>
+      <p class="upgrade__error" id="upgrade-error" hidden></p>
+    </form>
+
+    <section class="upgrade__result" id="upgrade-result" hidden></section>
+
+    <p class="upgrade__fallback">
+      Receipt not recognized, or something else not working?
+      <a href={`mailto:${site.email}`}>Email {site.email}</a> and we'll help.
+    </p>
+  </section>
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+    async
+    defer
+    is:inline
+  ></script>
+  <script
+    src="https://cdn.paddle.com/paddle/paddle.js"
+    is:inline
+  ></script>
+  <script define:vars={{ vendorId: site.paddleVendorId }} is:inline>
+    Paddle.Setup({ vendor: vendorId });
+  </script>
+  <script>
+    import '../scripts/upgrade.ts';
+  </script>
+</PageLayout>
