@@ -74,6 +74,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       vendorId: site.paddleVendorId,
       vendorAuthCode: env.paddleAuth,
       productId: site.paddleProductId,
+      customerEmail: extraction.email,
       discountPercent: tier.discountPercent,
     });
   } catch (err) {

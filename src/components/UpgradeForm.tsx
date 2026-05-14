@@ -47,6 +47,7 @@ type PaddleCheckoutOpenOptions = {
   product: number;
   email?: string;
   coupon?: string;
+  disableLogout?: boolean;
   successCallback?: () => void;
 };
 
@@ -182,6 +183,7 @@ const UpgradeForm: Component<Props> = (props) => {
       product: Number(props.paddleProductId),
       email: data.customerEmail,
       coupon: data.couponCode,
+      disableLogout: true,
       successCallback: () => setCheckedOut(true),
     });
   };

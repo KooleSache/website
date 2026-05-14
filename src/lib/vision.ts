@@ -52,6 +52,7 @@ export async function extractReceipt(args: ExtractReceiptArgs): Promise<ReceiptE
 
   const response = await client.chat.completions.create({
     model: MODEL,
+    temperature: 0,
     messages: [
       {
         role: 'user',
