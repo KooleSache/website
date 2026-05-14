@@ -13,3 +13,4 @@ npm-debug.log
 prod-*.png
 preview-*.png
 local-*.png
+.env
