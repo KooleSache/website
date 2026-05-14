@@ -5,7 +5,7 @@ title: Frequently Asked Questions
 
 ## Why ColorSnapper isn't available on the Mac App Store anymore?
 
-Unfortunately, we had to remove the Mac App Store version after Apple decided to block any further updates all of the sudden (we didn't change  how the application works but they claim that we're using their Screen Recording API inappropriately). Please [contact us](mailto:support@colorsnapper.com) with a copy of your MAS invoice we'll email you a coupon code to upgrade to the latest version. 
+Unfortunately, we had to remove the Mac App Store version after Apple decided to block any further updates all of the sudden (we didn't change how the application works but they claim that we're using their Screen Recording API inappropriately). If you bought ColorSnapper on the Mac App Store, you can [upgrade to the standalone version here](/upgrade/) — upload your MAS receipt and we'll automatically apply a discount based on when you bought it.
 
 ## What should I do if I reached maximum amount of activations
 
