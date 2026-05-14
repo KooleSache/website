@@ -14,7 +14,11 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
       license will be sent to the email shown on the receipt.
     </p>
 
-    <UpgradeForm turnstileSiteKey={turnstileSiteKey} client:only="solid-js" />
+    <UpgradeForm
+      turnstileSiteKey={turnstileSiteKey}
+      paddleProductId={site.paddleProductId}
+      client:only="solid-js"
+    />
 
     <p class="upgrade__fallback">
       Receipt not recognized, or something else not working?

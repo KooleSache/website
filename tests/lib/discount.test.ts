@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { tierFor, ORIGINAL_PRICE_USD } from '../../src/lib/discount';
+import { tierFor } from '../../src/lib/discount';
 
 const today = new Date('2026-05-14T00:00:00Z');
 
@@ -15,8 +15,6 @@ describe('tierFor', () => {
     const result = tierFor(purchase, today);
     expect(result.tier).toBe('free');
     expect(result.discountPercent).toBe(100);
-    expect(result.finalPriceUSD).toBe(0);
-    expect(result.originalPriceUSD).toBe(ORIGINAL_PRICE_USD);
   });
 
   it('returns the half tier exactly at 18 months', () => {
@@ -24,7 +22,6 @@ describe('tierFor', () => {
     const result = tierFor(purchase, today);
     expect(result.tier).toBe('half');
     expect(result.discountPercent).toBe(50);
-    expect(result.finalPriceUSD).toBe(ORIGINAL_PRICE_USD * 0.5);
   });
 
   it('returns the half tier just under 48 months', () => {
@@ -38,7 +35,6 @@ describe('tierFor', () => {
     const result = tierFor(purchase, today);
     expect(result.tier).toBe('quarter');
     expect(result.discountPercent).toBe(25);
-    expect(result.finalPriceUSD).toBe(ORIGINAL_PRICE_USD * 0.75);
   });
 
   it('returns the quarter tier for very old purchases', () => {

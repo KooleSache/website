@@ -1,27 +1,31 @@
-const ENDPOINT = 'https://vendors.paddle.com/api/2.0/product/generate_pay_link';
+const ENDPOINT = 'https://vendors.paddle.com/api/2.1/product/create_coupon';
 const EXPIRES_AFTER_DAYS = 7;
 
-export type GeneratePayLinkArgs = {
+export type CreateCouponArgs = {
   vendorId: number;
   vendorAuthCode: string;
   productId: string;
-  customerEmail: string;
-  finalPriceUSD: number;
+  discountPercent: number;
+  couponPrefix?: string;
   today?: Date;
 };
 
-export async function generatePayLink(args: GeneratePayLinkArgs): Promise<{ url: string }> {
+export async function createCoupon(args: CreateCouponArgs): Promise<{ code: string }> {
   const today = args.today ?? new Date();
   const expires = addDays(today, EXPIRES_AFTER_DAYS);
 
   const body = new URLSearchParams({
     vendor_id: String(args.vendorId),
     vendor_auth_code: args.vendorAuthCode,
-    product_id: args.productId,
-    'prices[]': `USD:${args.finalPriceUSD.toFixed(2)}`,
-    customer_email: args.customerEmail,
-    marketing_consent: '0',
+    coupon_type: 'product',
+    product_ids: args.productId,
+    discount_type: 'percentage',
+    discount_amount: String(args.discountPercent),
+    allowed_uses: '1',
+    num_coupons: '1',
     expires: toIsoDate(expires),
+    recurring: '0',
+    coupon_prefix: args.couponPrefix ?? 'MAS-',
   });
 
   const response = await fetch(ENDPOINT, {
@@ -31,17 +35,17 @@ export async function generatePayLink(args: GeneratePayLinkArgs): Promise<{ url:
   });
 
   const data = (await response.json()) as PaddleResponse;
-  if (!data.success || !data.response?.url) {
+  if (!data.success || !data.response?.coupon_codes?.[0]) {
     const message = data.error?.message ?? 'unknown error';
-    throw new Error(`Paddle generate_pay_link failed: ${message}`);
+    throw new Error(`Paddle create_coupon failed: ${message}`);
   }
 
-  return { url: data.response.url };
+  return { code: data.response.coupon_codes[0] };
 }
 
 type PaddleResponse = {
   success: boolean;
-  response?: { url: string };
+  response?: { coupon_codes?: string[] };
   error?: { message: string };
 };
 

@@ -2,11 +2,11 @@ import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 const verifyTurnstileToken = vi.fn();
 const extractReceipt = vi.fn();
-const generatePayLink = vi.fn();
+const createCoupon = vi.fn();
 
 vi.mock('../../src/lib/turnstile', () => ({ verifyTurnstileToken }));
 vi.mock('../../src/lib/vision', () => ({ extractReceipt }));
-vi.mock('../../src/lib/paddle', () => ({ generatePayLink }));
+vi.mock('../../src/lib/paddle', () => ({ createCoupon }));
 
 const ENV = {
   TURNSTILE_SECRET_KEY: 'turnstile-secret',
@@ -17,7 +17,7 @@ const ENV = {
 beforeEach(() => {
   verifyTurnstileToken.mockReset();
   extractReceipt.mockReset();
-  generatePayLink.mockReset();
+  createCoupon.mockReset();
   for (const [key, value] of Object.entries(ENV)) {
     process.env[key] = value;
   }
@@ -102,7 +102,7 @@ describe('POST /api/upgrade-request', () => {
       purchaseDate: null,
       confidence: 'low',
     });
-    generatePayLink.mockResolvedValue({ url: 'https://pay.paddle.com/abc' });
+    createCoupon.mockResolvedValue({ code: 'MAS-ABC123' });
 
     const res = await call(buildForm());
     expect(res.status).toBe(200);
@@ -110,11 +110,15 @@ describe('POST /api/upgrade-request', () => {
     const body = await res.json();
     expect(body.discountPercent).toBe(25);
     expect(body.dateMissing).toBe(true);
-    expect(body.checkoutUrl).toBe('https://pay.paddle.com/abc');
+    expect(body.couponCode).toBe('MAS-ABC123');
+    expect(body.customerEmail).toBe('a@example.com');
     expect(body.redactedEmail).toBe('a@e*****e.com');
+    expect(createCoupon).toHaveBeenCalledWith(
+      expect.objectContaining({ productId: '499167', discountPercent: 25 }),
+    );
   });
 
-  it('happy path returns checkout URL, tier and redacted email', async () => {
+  it('happy path returns coupon code, tier, and redacted email', async () => {
     verifyTurnstileToken.mockResolvedValue(true);
     extractReceipt.mockResolvedValue({
       isColorSnapperReceipt: true,
@@ -122,18 +126,18 @@ describe('POST /api/upgrade-request', () => {
       purchaseDate: '2026-01-01',
       confidence: 'high',
     });
-    generatePayLink.mockResolvedValue({ url: 'https://pay.paddle.com/xyz' });
+    createCoupon.mockResolvedValue({ code: 'MAS-XYZ789' });
 
     const res = await call(buildForm());
     expect(res.status).toBe(200);
 
     const body = await res.json();
     expect(body.discountPercent).toBe(100);
-    expect(body.finalPrice).toBe(0);
-    expect(body.checkoutUrl).toBe('https://pay.paddle.com/xyz');
+    expect(body.couponCode).toBe('MAS-XYZ789');
+    expect(body.customerEmail).toBe('andrey@okonet.dev');
     expect(body.redactedEmail).toBe('a****y@o****t.dev');
-    expect(generatePayLink).toHaveBeenCalledWith(
-      expect.objectContaining({ customerEmail: 'andrey@okonet.dev', finalPriceUSD: 0 }),
+    expect(createCoupon).toHaveBeenCalledWith(
+      expect.objectContaining({ discountPercent: 100, productId: '499167' }),
     );
   });
 
@@ -145,7 +149,7 @@ describe('POST /api/upgrade-request', () => {
       purchaseDate: '2026-01-01',
       confidence: 'high',
     });
-    generatePayLink.mockRejectedValue(new Error('paddle down'));
+    createCoupon.mockRejectedValue(new Error('paddle down'));
 
     const res = await call(buildForm());
     expect(res.status).toBe(502);

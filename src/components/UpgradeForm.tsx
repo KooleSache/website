@@ -1,12 +1,16 @@
 import { createSignal, onCleanup, onMount, Show, type Component } from 'solid-js';
 
 type SuccessResponse = {
-  checkoutUrl: string;
+  couponCode: string;
   discountPercent: number;
-  originalPrice: number;
-  finalPrice: number;
+  customerEmail: string;
   redactedEmail: string;
   dateMissing: boolean;
+};
+
+type Props = {
+  turnstileSiteKey: string;
+  paddleProductId: string;
 };
 
 type ErrorCode =
@@ -39,9 +43,16 @@ const ERROR_MESSAGES: Record<ErrorCode, string> = {
   invalid_request: 'Your submission could not be read. Please refresh the page and try again.',
 };
 
+type PaddleCheckoutOpenOptions = {
+  product: number;
+  email?: string;
+  coupon?: string;
+  successCallback?: () => void;
+};
+
 type PaddleGlobal = {
   Checkout: {
-    open(opts: { override: string; successCallback?: () => void }): void;
+    open(opts: PaddleCheckoutOpenOptions): void;
   };
 };
 
@@ -60,10 +71,6 @@ declare global {
     onloadTurnstileCallback?: () => void;
   }
 }
-
-type Props = {
-  turnstileSiteKey: string;
-};
 
 const UpgradeForm: Component<Props> = (props) => {
   const [file, setFile] = createSignal<File | null>(null);
@@ -172,9 +179,24 @@ const UpgradeForm: Component<Props> = (props) => {
     const data = result();
     if (!data || !window.Paddle) return;
     window.Paddle.Checkout.open({
-      override: data.checkoutUrl,
+      product: Number(props.paddleProductId),
+      email: data.customerEmail,
+      coupon: data.couponCode,
       successCallback: () => setCheckedOut(true),
     });
+  };
+
+  const [copied, setCopied] = createSignal(false);
+  const copyCode = async () => {
+    const data = result();
+    if (!data) return;
+    try {
+      await navigator.clipboard.writeText(data.couponCode);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch {
+      /* clipboard blocked — user can still select manually */
+    }
   };
 
   return (
@@ -228,11 +250,18 @@ const UpgradeForm: Component<Props> = (props) => {
           <section class="upgrade__result">
             <h2>Receipt verified</h2>
             <p>
-              You qualify for <strong>{data().discountPercent}% off</strong> — your price is{' '}
-              <strong>${data().finalPrice.toFixed(2)}</strong>.
+              You qualify for <strong>{data().discountPercent}% off</strong> ColorSnapper. Use the
+              one-time code below at checkout — license will be sent to{' '}
+              <strong>{data().redactedEmail}</strong>.
             </p>
-            <p>
-              License will be sent to <strong>{data().redactedEmail}</strong> after checkout.
+            <div class="upgrade__coupon">
+              <code class="upgrade__coupon-code">{data().couponCode}</code>
+              <button type="button" class="upgrade__coupon-copy" onClick={copyCode}>
+                {copied() ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+            <p class="upgrade__coupon-hint">
+              Save this code — it's valid once, for the next 7 days.
             </p>
             <Show when={data().dateMissing}>
               <p>
@@ -242,7 +271,7 @@ const UpgradeForm: Component<Props> = (props) => {
                 </em>
               </p>
             </Show>
-            <button type="button" onClick={openCheckout}>
+            <button type="button" class="upgrade__submit" onClick={openCheckout}>
               Continue to checkout
             </button>
           </section>

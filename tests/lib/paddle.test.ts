@@ -1,7 +1,7 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { generatePayLink } from '../../src/lib/paddle';
+import { createCoupon } from '../../src/lib/paddle';
 
-describe('generatePayLink', () => {
+describe('createCoupon', () => {
   const fetchMock = vi.fn();
 
   beforeEach(() => {
@@ -13,34 +13,38 @@ describe('generatePayLink', () => {
     vi.unstubAllGlobals();
   });
 
-  it('returns the URL Paddle sends back', async () => {
+  it('returns the code Paddle generates', async () => {
     fetchMock.mockResolvedValue(
       new Response(
-        JSON.stringify({ success: true, response: { url: 'https://pay.paddle.com/abc' } }),
+        JSON.stringify({ success: true, response: { coupon_codes: ['MAS-ABC123'] } }),
         { status: 200 },
       ),
     );
 
-    const result = await generatePayLink({
+    const result = await createCoupon({
       vendorId: 9922,
       vendorAuthCode: 'secret',
       productId: '499167',
-      customerEmail: 'a@example.com',
-      finalPriceUSD: 12.5,
+      discountPercent: 25,
       today: new Date('2026-05-14T00:00:00Z'),
     });
 
-    expect(result).toEqual({ url: 'https://pay.paddle.com/abc' });
+    expect(result).toEqual({ code: 'MAS-ABC123' });
 
     const [callUrl, callInit] = fetchMock.mock.calls[0] as [string, RequestInit];
-    expect(callUrl).toBe('https://vendors.paddle.com/api/2.0/product/generate_pay_link');
+    expect(callUrl).toBe('https://vendors.paddle.com/api/2.1/product/create_coupon');
     expect(callInit.method).toBe('POST');
     const body = callInit.body as URLSearchParams;
     expect(body.get('vendor_id')).toBe('9922');
     expect(body.get('vendor_auth_code')).toBe('secret');
-    expect(body.get('product_id')).toBe('499167');
-    expect(body.get('prices[]')).toBe('USD:12.50');
-    expect(body.get('customer_email')).toBe('a@example.com');
+    expect(body.get('coupon_type')).toBe('product');
+    expect(body.get('product_ids')).toBe('499167');
+    expect(body.get('discount_type')).toBe('percentage');
+    expect(body.get('discount_amount')).toBe('25');
+    expect(body.get('allowed_uses')).toBe('1');
+    expect(body.get('num_coupons')).toBe('1');
+    expect(body.get('recurring')).toBe('0');
+    expect(body.get('coupon_prefix')).toBe('MAS-');
     expect(body.get('expires')).toBe('2026-05-21');
   });
 
@@ -52,12 +56,11 @@ describe('generatePayLink', () => {
     );
 
     await expect(
-      generatePayLink({
+      createCoupon({
         vendorId: 9922,
         vendorAuthCode: 'secret',
         productId: '499167',
-        customerEmail: 'a@example.com',
-        finalPriceUSD: 0,
+        discountPercent: 100,
       }),
     ).rejects.toThrow(/Paddle/);
   });
@@ -66,12 +69,11 @@ describe('generatePayLink', () => {
     fetchMock.mockRejectedValue(new Error('network down'));
 
     await expect(
-      generatePayLink({
+      createCoupon({
         vendorId: 9922,
         vendorAuthCode: 'secret',
         productId: '499167',
-        customerEmail: 'a@example.com',
-        finalPriceUSD: 0,
+        discountPercent: 50,
       }),
     ).rejects.toThrow(/network down/);
   });

@@ -1,10 +1,10 @@
 import type { APIRoute } from 'astro';
 import { site } from '../../site.config';
-import { tierFor, ORIGINAL_PRICE_USD } from '../../lib/discount';
+import { tierFor } from '../../lib/discount';
 import { redactEmail } from '../../lib/redactEmail';
 import { verifyTurnstileToken } from '../../lib/turnstile';
 import { extractReceipt } from '../../lib/vision';
-import { generatePayLink } from '../../lib/paddle';
+import { createCoupon } from '../../lib/paddle';
 
 export const prerender = false;
 
@@ -68,14 +68,13 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
     : tierFor(new Date(0)); // missing date => lowest tier
   const dateMissing = !extraction.purchaseDate;
 
-  let payLink;
+  let coupon;
   try {
-    payLink = await generatePayLink({
+    coupon = await createCoupon({
       vendorId: site.paddleVendorId,
       vendorAuthCode: env.paddleAuth,
       productId: site.paddleProductId,
-      customerEmail: extraction.email,
-      finalPriceUSD: tier.finalPriceUSD,
+      discountPercent: tier.discountPercent,
     });
   } catch (err) {
     console.error('[upgrade-request] paddle_failed:', err);
@@ -83,10 +82,9 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   }
 
   return json(200, {
-    checkoutUrl: payLink.url,
+    couponCode: coupon.code,
     discountPercent: tier.discountPercent,
-    originalPrice: ORIGINAL_PRICE_USD,
-    finalPrice: tier.finalPriceUSD,
+    customerEmail: extraction.email,
     redactedEmail: redactEmail(extraction.email),
     dateMissing,
   });

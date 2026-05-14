@@ -62,6 +62,40 @@
   border-radius: 8px;
 }
 
+.upgrade__coupon {
+  display: flex;
+  align-items: stretch;
+  gap: 0.5rem;
+  margin: 1rem 0 0.25rem;
+}
+
+.upgrade__coupon-code {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  background-color: #ffffff;
+  border: 1px solid #c8d3ff;
+  border-radius: 6px;
+  user-select: all;
+}
+
+.upgrade__coupon-copy {
+  padding: 0 1rem;
+  font: inherit;
+  cursor: pointer;
+  background-color: #ffffff;
+  border: 1px solid #c8d3ff;
+  border-radius: 6px;
+}
+
+.upgrade__coupon-hint {
+  margin: 0 0 1rem;
+  color: #555;
+  font-size: 0.9rem;
+}
+
 .upgrade__fallback {
   margin-top: 2rem;
   color: #666;
