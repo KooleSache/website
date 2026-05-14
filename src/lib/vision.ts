@@ -39,17 +39,23 @@ export type ExtractReceiptArgs = {
 
 export async function extractReceipt(args: ExtractReceiptArgs): Promise<ReceiptExtraction> {
   const client = new OpenAI({ apiKey: args.apiKey });
-  const dataUrl = `data:${args.mimeType};base64,${args.fileBuffer.toString('base64')}`;
+  const base64 = args.fileBuffer.toString('base64');
+  const isPdf = args.mimeType === 'application/pdf';
+  const dataUrl = `data:${args.mimeType};base64,${base64}`;
+
+  const fileContent = isPdf
+    ? {
+        type: 'file' as const,
+        file: { filename: 'receipt.pdf', file_data: dataUrl },
+      }
+    : { type: 'image_url' as const, image_url: { url: dataUrl } };
 
   const response = await client.chat.completions.create({
     model: MODEL,
     messages: [
       {
         role: 'user',
-        content: [
-          { type: 'text', text: PROMPT },
-          { type: 'image_url', image_url: { url: dataUrl } },
-        ],
+        content: [{ type: 'text', text: PROMPT }, fileContent],
       },
     ],
     response_format: {

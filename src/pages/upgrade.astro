@@ -14,6 +14,19 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
       license will be sent to the email shown on the receipt.
     </p>
 
+    <aside class="upgrade__why">
+      <h2>Why we're asking you to pay something</h2>
+      <p>
+        Apple blocked further updates to the Mac App Store version, claiming we
+        were misusing their Screen Recording API (we weren't, and nothing in the
+        app had changed). Keeping ColorSnapper alive on modern macOS meant
+        rewriting the whole app for distribution outside the store — months of
+        engineering work, plus ongoing support, notarization, and hosting fees.
+        The discount below is our way of meeting recent MAS buyers in the middle:
+        the more recently you bought, the bigger the discount.
+      </p>
+    </aside>
+
     <UpgradeForm
       turnstileSiteKey={turnstileSiteKey}
       paddleProductId={site.paddleProductId}
