@@ -3,8 +3,7 @@ import { createSignal, onCleanup, onMount, Show, type Component } from 'solid-js
 type SuccessResponse = {
   couponCode: string;
   discountPercent: number;
-  customerEmail: string;
-  redactedEmail: string;
+  suggestedEmail: string | null;
   dateMissing: boolean;
 };
 
@@ -20,7 +19,6 @@ type ErrorCode =
   | 'file_too_large'
   | 'unsupported_file_type'
   | 'not_colorsnapper_receipt'
-  | 'email_unreadable'
   | 'vision_failed'
   | 'paddle_failed'
   | 'server_misconfigured'
@@ -34,8 +32,6 @@ const ERROR_MESSAGES: Record<ErrorCode, string> = {
   unsupported_file_type: 'Please upload a PNG, JPG, WebP, or PDF file.',
   not_colorsnapper_receipt:
     "This doesn't look like a ColorSnapper Mac App Store receipt. Please try a different file or email support.",
-  email_unreadable:
-    "We couldn't read the email on your receipt. Please email support and we'll help.",
   vision_failed: 'Something went wrong reading your receipt. Please try again in a moment.',
   paddle_failed: 'Something went wrong creating your checkout. Please try again in a moment.',
   server_misconfigured:
@@ -47,7 +43,6 @@ type PaddleCheckoutOpenOptions = {
   product: number;
   email?: string;
   coupon?: string;
-  disableLogout?: boolean;
   successCallback?: () => void;
 };
 
@@ -80,6 +75,7 @@ const UpgradeForm: Component<Props> = (props) => {
   const [result, setResult] = createSignal<SuccessResponse | null>(null);
   const [checkedOut, setCheckedOut] = createSignal(false);
   const [dragHover, setDragHover] = createSignal(false);
+  const [copied, setCopied] = createSignal(false);
 
   let turnstileContainer: HTMLDivElement | undefined;
   let turnstileWidgetId: string | undefined;
@@ -181,14 +177,12 @@ const UpgradeForm: Component<Props> = (props) => {
     if (!data || !window.Paddle) return;
     window.Paddle.Checkout.open({
       product: Number(props.paddleProductId),
-      email: data.customerEmail,
+      email: data.suggestedEmail ?? undefined,
       coupon: data.couponCode,
-      disableLogout: true,
       successCallback: () => setCheckedOut(true),
     });
   };
 
-  const [copied, setCopied] = createSignal(false);
   const copyCode = async () => {
     const data = result();
     if (!data) return;
@@ -253,8 +247,7 @@ const UpgradeForm: Component<Props> = (props) => {
             <h2>Receipt verified</h2>
             <p>
               You qualify for <strong>{data().discountPercent}% off</strong> ColorSnapper. Use the
-              one-time code below at checkout — license will be sent to{' '}
-              <strong>{data().redactedEmail}</strong>.
+              one-time code below — you'll enter your email at the next step.
             </p>
             <div class="upgrade__coupon">
               <code class="upgrade__coupon-code">{data().couponCode}</code>
@@ -297,7 +290,7 @@ const UpgradeForm: Component<Props> = (props) => {
         <section class="upgrade__result">
           <h2>Thanks!</h2>
           <p>
-            We've sent your license to the email shown on your receipt. If you don't see it
+            We've sent your license to the email you provided at checkout. If you don't see it
             shortly, check your spam folder, then email support.
           </p>
         </section>

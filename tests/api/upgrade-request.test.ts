@@ -75,20 +75,9 @@ describe('POST /api/upgrade-request', () => {
     extractReceipt.mockResolvedValue({
       isColorSnapperReceipt: false,
       email: null,
+      orderId: null,
       purchaseDate: null,
       confidence: 'high',
-    });
-    const res = await call(buildForm());
-    expect(res.status).toBe(422);
-  });
-
-  it('returns 422 when email is missing', async () => {
-    verifyTurnstileToken.mockResolvedValue(true);
-    extractReceipt.mockResolvedValue({
-      isColorSnapperReceipt: true,
-      email: null,
-      purchaseDate: '2025-08-01',
-      confidence: 'medium',
     });
     const res = await call(buildForm());
     expect(res.status).toBe(422);
@@ -99,10 +88,11 @@ describe('POST /api/upgrade-request', () => {
     extractReceipt.mockResolvedValue({
       isColorSnapperReceipt: true,
       email: 'a@example.com',
+      orderId: 'MLB92NJF9H',
       purchaseDate: null,
       confidence: 'low',
     });
-    createCoupon.mockResolvedValue({ code: 'MAS-ABC123' });
+    createCoupon.mockResolvedValue({ code: 'MAS-XYZ123' });
 
     const res = await call(buildForm());
     expect(res.status).toBe(200);
@@ -110,34 +100,33 @@ describe('POST /api/upgrade-request', () => {
     const body = await res.json();
     expect(body.discountPercent).toBe(25);
     expect(body.dateMissing).toBe(true);
-    expect(body.couponCode).toBe('MAS-ABC123');
-    expect(body.customerEmail).toBe('a@example.com');
-    expect(body.redactedEmail).toBe('a@e*****e.com');
-    expect(createCoupon).toHaveBeenCalledWith(
-      expect.objectContaining({ productId: '499167', discountPercent: 25 }),
-    );
+    expect(body.couponCode).toBe('MAS-XYZ123');
+    expect(body.suggestedEmail).toBe('a@example.com');
   });
 
-  it('happy path returns coupon code, tier, and redacted email', async () => {
+  it('passes orderId to createCoupon for stable codes', async () => {
     verifyTurnstileToken.mockResolvedValue(true);
     extractReceipt.mockResolvedValue({
       isColorSnapperReceipt: true,
-      email: 'andrey@okonet.dev',
+      email: null,
+      orderId: 'MLB92NJF9H',
       purchaseDate: '2026-01-01',
       confidence: 'high',
     });
-    createCoupon.mockResolvedValue({ code: 'MAS-XYZ789' });
+    createCoupon.mockResolvedValue({ code: 'MAS-MLB92NJF9H' });
 
     const res = await call(buildForm());
     expect(res.status).toBe(200);
 
     const body = await res.json();
+    expect(body.couponCode).toBe('MAS-MLB92NJF9H');
     expect(body.discountPercent).toBe(100);
-    expect(body.couponCode).toBe('MAS-XYZ789');
-    expect(body.customerEmail).toBe('andrey@okonet.dev');
-    expect(body.redactedEmail).toBe('a****y@o****t.dev');
+    expect(body.suggestedEmail).toBeNull();
     expect(createCoupon).toHaveBeenCalledWith(
-      expect.objectContaining({ discountPercent: 100, productId: '499167' }),
+      expect.objectContaining({
+        orderId: 'MLB92NJF9H',
+        discountPercent: 100,
+      }),
     );
   });
 
@@ -146,6 +135,7 @@ describe('POST /api/upgrade-request', () => {
     extractReceipt.mockResolvedValue({
       isColorSnapperReceipt: true,
       email: 'a@example.com',
+      orderId: 'MLB92NJF9H',
       purchaseDate: '2026-01-01',
       confidence: 'high',
     });

@@ -20,6 +20,7 @@ describe('extractReceipt', () => {
             content: JSON.stringify({
               isColorSnapperReceipt: true,
               email: 'a@example.com',
+              orderId: 'MLB92NJF9H',
               purchaseDate: '2025-08-01',
               confidence: 'high',
             }),
@@ -37,6 +38,7 @@ describe('extractReceipt', () => {
     expect(result).toEqual({
       isColorSnapperReceipt: true,
       email: 'a@example.com',
+      orderId: 'MLB92NJF9H',
       purchaseDate: '2025-08-01',
       confidence: 'high',
     });

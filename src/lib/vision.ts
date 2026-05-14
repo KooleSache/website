@@ -6,7 +6,8 @@ const PROMPT = `You are validating a Mac App Store receipt for the macOS applica
 
 Rules:
 - isColorSnapperReceipt: true ONLY if "ColorSnapper" or "ColorSnapper 2" is clearly visible as a product line on the receipt. Otherwise false.
-- email: the Apple ID email address shown on the receipt (typically near the top), or null if not clearly legible.
+- email: the Apple ID email address shown on the receipt (typically near the top), or null if not clearly legible. We use this only as a convenience to pre-fill the checkout form — accuracy is nice-to-have, not critical.
+- orderId: the Apple order identifier shown on the receipt (commonly labelled "ORDER ID", "Order ID", or just appears as an alphanumeric like "MLB92NJF9H"). Return null if not clearly legible.
 - purchaseDate: the date the ColorSnapper item was purchased, formatted as "yyyy-mm-dd". If the receipt lists multiple products, use the date associated with the ColorSnapper line. Return null if the date is not clearly legible.
 - confidence: "high", "medium", or "low" — your overall confidence in the extraction.
 
@@ -17,16 +18,18 @@ const SCHEMA = {
   properties: {
     isColorSnapperReceipt: { type: 'boolean' as const },
     email: { type: ['string', 'null'] as const },
+    orderId: { type: ['string', 'null'] as const },
     purchaseDate: { type: ['string', 'null'] as const },
     confidence: { type: 'string' as const, enum: ['high', 'medium', 'low'] as const },
   },
-  required: ['isColorSnapperReceipt', 'email', 'purchaseDate', 'confidence'] as const,
+  required: ['isColorSnapperReceipt', 'email', 'orderId', 'purchaseDate', 'confidence'] as const,
   additionalProperties: false as const,
 };
 
 export type ReceiptExtraction = {
   isColorSnapperReceipt: boolean;
   email: string | null;
+  orderId: string | null;
   purchaseDate: string | null;
   confidence: 'high' | 'medium' | 'low';
 };
@@ -74,6 +77,7 @@ export async function extractReceipt(args: ExtractReceiptArgs): Promise<ReceiptE
   if (
     typeof parsed.isColorSnapperReceipt !== 'boolean' ||
     !('email' in parsed) ||
+    !('orderId' in parsed) ||
     !('purchaseDate' in parsed) ||
     !parsed.confidence
   ) {

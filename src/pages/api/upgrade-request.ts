@@ -1,7 +1,6 @@
 import type { APIRoute } from 'astro';
 import { site } from '../../site.config';
 import { tierFor } from '../../lib/discount';
-import { redactEmail } from '../../lib/redactEmail';
 import { verifyTurnstileToken } from '../../lib/turnstile';
 import { extractReceipt } from '../../lib/vision';
 import { createCoupon } from '../../lib/paddle';
@@ -58,14 +57,11 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   if (!extraction.isColorSnapperReceipt) {
     return json(422, { error: 'not_colorsnapper_receipt' });
   }
-  if (!extraction.email) {
-    return json(422, { error: 'email_unreadable' });
-  }
 
   const purchaseDate = extraction.purchaseDate ? new Date(extraction.purchaseDate) : null;
   const tier = purchaseDate && !Number.isNaN(purchaseDate.getTime())
     ? tierFor(purchaseDate)
-    : tierFor(new Date(0)); // missing date => lowest tier
+    : tierFor(new Date(0));
   const dateMissing = !extraction.purchaseDate;
 
   let coupon;
@@ -74,8 +70,8 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
       vendorId: site.paddleVendorId,
       vendorAuthCode: env.paddleAuth,
       productId: site.paddleProductId,
-      customerEmail: extraction.email,
       discountPercent: tier.discountPercent,
+      orderId: extraction.orderId,
     });
   } catch (err) {
     console.error('[upgrade-request] paddle_failed:', err);
@@ -85,8 +81,7 @@ export const POST: APIRoute = async ({ request, clientAddress }) => {
   return json(200, {
     couponCode: coupon.code,
     discountPercent: tier.discountPercent,
-    customerEmail: extraction.email,
-    redactedEmail: redactEmail(extraction.email),
+    suggestedEmail: extraction.email,
     dateMissing,
   });
 };
