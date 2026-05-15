@@ -1,0 +1,106 @@
+import type { APIRoute } from 'astro';
+import { site } from '../../site.config';
+import { tierFor } from '../../lib/discount';
+import { verifyTurnstileToken } from '../../lib/turnstile';
+import { extractReceipt } from '../../lib/vision';
+import { createCoupon } from '../../lib/paddle';
+
+export const prerender = false;
+
+const MAX_FILE_BYTES = 5 * 1024 * 1024;
+const ALLOWED_MIME = new Set(['image/png', 'image/jpeg', 'image/webp', 'application/pdf']);
+
+export const POST: APIRoute = async ({ request, clientAddress }) => {
+  const env = readEnv();
+  if (!env) return json(500, { error: 'server_misconfigured' });
+
+  let form: FormData;
+  try {
+    form = await request.formData();
+  } catch {
+    return json(400, { error: 'invalid_request' });
+  }
+
+  const token = form.get('turnstileToken');
+  if (typeof token !== 'string' || !token) {
+    return json(403, { error: 'missing_token' });
+  }
+
+  const turnstileOk = await verifyTurnstileToken(token, env.turnstileSecret, clientAddress);
+  if (!turnstileOk) return json(403, { error: 'bad_token' });
+
+  const file = form.get('receipt');
+  if (!(file instanceof Blob) || file.size === 0) {
+    return json(400, { error: 'missing_file' });
+  }
+  if (file.size > MAX_FILE_BYTES) {
+    return json(400, { error: 'file_too_large' });
+  }
+  if (!ALLOWED_MIME.has(file.type)) {
+    return json(400, { error: 'unsupported_file_type' });
+  }
+
+  const buffer = Buffer.from(await file.arrayBuffer());
+
+  let extraction;
+  try {
+    extraction = await extractReceipt({
+      apiKey: env.openAIKey,
+      fileBuffer: buffer,
+      mimeType: file.type,
+    });
+  } catch (err) {
+    console.error('[upgrade-request] vision_failed:', err);
+    return json(502, { error: 'vision_failed' });
+  }
+
+  if (!extraction.isColorSnapperReceipt) {
+    return json(422, { error: 'not_colorsnapper_receipt' });
+  }
+
+  const purchaseDate = extraction.purchaseDate ? new Date(extraction.purchaseDate) : null;
+  const tier = purchaseDate && !Number.isNaN(purchaseDate.getTime())
+    ? tierFor(purchaseDate)
+    : tierFor(new Date(0));
+  const dateMissing = !extraction.purchaseDate;
+
+  let coupon;
+  try {
+    coupon = await createCoupon({
+      vendorId: site.paddleVendorId,
+      vendorAuthCode: env.paddleAuth,
+      productId: site.paddleProductId,
+      discountPercent: tier.discountPercent,
+      orderId: extraction.orderId,
+    });
+  } catch (err) {
+    console.error('[upgrade-request] paddle_failed:', err);
+    return json(502, { error: 'paddle_failed' });
+  }
+
+  return json(200, {
+    couponCode: coupon.code,
+    discountPercent: tier.discountPercent,
+    suggestedEmail: extraction.email,
+    dateMissing,
+  });
+};
+
+function json(status: number, body: unknown): Response {
+  return new Response(JSON.stringify(body), {
+    status,
+    headers: { 'content-type': 'application/json' },
+  });
+}
+
+function readEnv():
+  | { turnstileSecret: string; openAIKey: string; paddleAuth: string }
+  | null {
+  const get = (name: string): string | undefined =>
+    process.env[name] || (import.meta.env as Record<string, string | undefined>)[name];
+  const turnstileSecret = get('TURNSTILE_SECRET_KEY');
+  const openAIKey = get('OPENAI_API_KEY');
+  const paddleAuth = get('PADDLE_VENDOR_AUTH_CODE');
+  if (!turnstileSecret || !openAIKey || !paddleAuth) return null;
+  return { turnstileSecret, openAIKey, paddleAuth };
+}

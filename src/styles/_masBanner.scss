@@ -1,0 +1,53 @@
+@use 'sass:color';
+@use 'vars' as *;
+
+.mas-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.875rem 1.5rem;
+  margin: 1rem auto 2rem;
+  max-width: 40rem;
+  background-color: #f4f6f9;
+  border: 1px solid #e2e7ee;
+  border-radius: 8px;
+  color: $text-color;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.5;
+  text-decoration: none;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+
+  &:hover {
+    background-color: #eef2f7;
+    border-color: #cdd5e0;
+    text-decoration: none;
+  }
+
+  &__text {
+    flex: 0 1 auto;
+    color: $text-color;
+
+    strong {
+      font-weight: 600;
+      color: $text-color;
+    }
+  }
+
+  &__cta {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-weight: 600;
+    color: $brand-color;
+  }
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.25rem;
+    padding: 0.75rem 1rem;
+    margin: 1rem 1rem 1.5rem;
+    font-size: 0.85rem;
+  }
+}

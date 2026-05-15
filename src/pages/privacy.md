@@ -18,6 +18,15 @@ Please note that data transmitted via the internet (e.g. via email
 communication) may be subject to security breaches. Complete protection of your
 data from third-party access is not possible.
 
+## Mac App Store upgrade requests
+
+If you submit a Mac App Store receipt through our automated upgrade page at
+[/upgrade/](/upgrade/), the uploaded image or PDF is sent to OpenAI for
+automated extraction of the purchase date and Apple ID email shown on the
+receipt. We do not store the uploaded file or the extracted data on our own
+servers. The extracted email is only used to prefill the Paddle checkout so
+the resulting license is delivered to the original purchaser.
+
 ## Notice concerning the party responsible for this website
 
 The party responsible for processing data on this website is:

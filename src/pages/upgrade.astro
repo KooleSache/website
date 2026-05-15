@@ -1,0 +1,42 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import UpgradeForm from '../components/UpgradeForm';
+import { site } from '../site.config';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
+---
+
+<PageLayout title="Upgrade from Mac App Store">
+  <section class="upgrade">
+    <p class="upgrade__intro">
+      Upload your Mac App Store receipt (screenshot or PDF) and we'll automatically
+      apply a discount based on when you originally bought ColorSnapper. Your
+      license will be sent to the email shown on the receipt.
+    </p>
+
+    <UpgradeForm
+      turnstileSiteKey={turnstileSiteKey}
+      paddleProductId={site.paddleProductId}
+      client:only="solid-js"
+    />
+
+    <p class="upgrade__fallback">
+      Receipt not recognized, or something else not working?
+      <a href={`mailto:${site.email}`}>Email {site.email}</a> and we'll help.
+    </p>
+  </section>
+
+  <script
+    src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=onloadTurnstileCallback"
+    async
+    defer
+    is:inline
+  ></script>
+  <script
+    src="https://cdn.paddle.com/paddle/paddle.js"
+    is:inline
+  ></script>
+  <script define:vars={{ vendorId: site.paddleVendorId }} is:inline>
+    Paddle.Setup({ vendor: vendorId });
+  </script>
+</PageLayout>

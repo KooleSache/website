@@ -1,6 +1,7 @@
 node_modules/
 dist/
 .astro/
+.netlify/
 .sass-cache
 .idea
 .rbenv*
@@ -9,6 +10,8 @@ _config_production.yml
 npm-debug.log
 .DS_Store
 .playwright-cli/
+.playwright-mcp/
 prod-*.png
 preview-*.png
 local-*.png
+.env
